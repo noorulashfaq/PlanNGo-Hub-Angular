@@ -1,0 +1,970 @@
+{
+  "Tours": [
+    {
+      "TourId": "TRPKG001",
+      "Name": "Himalayas Adventure Trek",
+      "Description": "Explore the stunning Manali to Leh trek and Annapurna Circuit, perfect for adventure enthusiasts and nature lovers.",
+      "TourTypeId": "TYP005",
+      "AgencyId": "AG001",
+      "Route": "Manali - Leh - Annapurna Circuit",
+      "Duration": "7 Days 6 Nights",
+      "StartPoint": "Manali",
+      "EndPoint": "Leh",
+      "Price": 450,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L004",
+      "Images": [
+        "assets/tour/hilltrekking1.jpg",
+        "assets/tour/hilltrekking2.jpg",
+        "assets/tour/hilltrekking3.jpg",
+        "assets/tour/hilltrekking4.jpg",
+        "assets/tour/hilltrekking5.jpg"
+      ],
+      "Inclusions": [
+        "Guide services",
+        "Meals and accommodations during the trek",
+        "Permits and entry fees"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 15,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Alice",
+            "Date": "January 10, 2024",
+            "ReviewText": "Amazing experience with breathtaking views. Highly recommend!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG002",
+      "Name": "Inca Trail Trekking",
+      "Description": "Experience the iconic Inca Trail to Machu Picchu in Peru, a once-in-a-lifetime adventure through the Andes Mountains.",
+      "TourTypeId": "TYP005",
+      "AgencyId": "AG002",
+      "Route": "Cusco - Sacred Valley - Inca Trail - Machu Picchu",
+      "Duration": "5 Days 4 Nights",
+      "StartPoint": "Cusco",
+      "EndPoint": "Machu Picchu",
+      "Price": 800,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L003",
+      "Images": [
+        "assets/tour/hilltrekking6.jpg",
+        "assets/tour/hilltrekking7.jpg",
+        "assets/tour/hilltrekking8.jpg",
+        "assets/tour/hilltrekking9.jpg",
+        "assets/tour/hilltrekking10.jpg"
+      ],
+      "Inclusions": [
+        "Guide services",
+        "Meals and accommodations",
+        "Entry to Machu Picchu"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.9,
+        "TotalReviews": 25,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Carlos",
+            "Date": "March 5, 2024",
+            "ReviewText": "Spectacular trek with knowledgeable guides. Worth every penny!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG003",
+      "Name": "Swiss Alps Glacier Trek",
+      "Description": "Discover the breathtaking beauty of the Swiss Alps on the Zermatt to Matterhorn Glacier Trail.",
+      "TourTypeId": "TYP005",
+      "AgencyId": "AG003",
+      "Route": "Zermatt - Matterhorn Glacier Trail",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Zermatt",
+      "EndPoint": "Matterhorn",
+      "Price": 700,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L002",
+      "Images": [
+        "assets/tour/hilltrekking11.jpg",
+        "assets/tour/hilltrekking12.jpg",
+        "assets/tour/hilltrekking13.jpg",
+        "assets/tour/hilltrekking14.jpg",
+        "assets/tour/hilltrekking15.jpg"
+      ],
+      "Inclusions": [
+        "Experienced guide",
+        "Meals and accommodations",
+        "Trail permits"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.7,
+        "TotalReviews": 18,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Emma",
+            "Date": "June 20, 2024",
+            "ReviewText": "An unforgettable adventure with stunning scenery. Highly recommended!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG004",
+      "Name": "Rocky Mountain Trekking",
+      "Description": "Explore the majestic Rocky Mountains with treks in Banff National Park and the Colorado Rockies.",
+      "TourTypeId": "TYP005",
+      "AgencyId": "AG004",
+      "Route": "Banff National Park - Colorado Rockies",
+      "Duration": "6 Days 5 Nights",
+      "StartPoint": "Banff",
+      "EndPoint": "Colorado",
+      "Price": 600,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L001",
+      "Images": [
+        "assets/tour/hilltrekking16.jpg",
+        "assets/tour/hilltrekking17.jpg",
+        "assets/tour/hilltrekking18.jpg",
+        "assets/tour/hilltrekking19.jpg",
+        "assets/tour/hilltrekking20.jpg"
+      ],
+      "Inclusions": [
+        "Guide services",
+        "Meals and accommodations",
+        "National park entry fees"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 20,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Michael",
+            "Date": "August 15, 2024",
+            "ReviewText": "An excellent trekking experience with well-organized logistics. Highly recommend!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG005",
+      "Name": "Jaipur Cultural Exploration",
+      "Description": "Dive into the rich history of Jaipur with visits to Amber Fort, Hawa Mahal, and local bazaars.",
+      "TourTypeId": "TYP001",
+      "AgencyId": "AG001",
+      "Route": "Amber Fort - Hawa Mahal - City Palace - Local Bazaars",
+      "Duration": "3 Days 2 Nights",
+      "StartPoint": "Jaipur Airport",
+      "EndPoint": "Jaipur Airport",
+      "Price": 300,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L001",
+      "Images": [
+        "assets/tour/cultural1.jpg",
+        "assets/tour/cultural2.jpg",
+        "assets/tour/cultural3.jpg",
+        "assets/tour/cultural4.jpg",
+        "assets/tour/cultural5.jpg"
+      ],
+      "Inclusions": [
+        "Local guide",
+        "Hotel accommodations",
+        "Transport for site visits"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.7,
+        "TotalReviews": 12,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Sophia",
+            "Date": "February 20, 2024",
+            "ReviewText": "A fascinating cultural trip with stunning architecture. Highly recommended!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG006",
+      "Name": "Kyoto Cultural Highlights",
+      "Description": "Discover the cultural gems of Kyoto with visits to the Golden Pavilion and the iconic Fushimi Inari Shrine.",
+      "TourTypeId": "TYP001",
+      "AgencyId": "AG002",
+      "Route": "Kinkaku-ji Temple - Fushimi Inari Shrine - Local Markets",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Kansai International Airport",
+      "EndPoint": "Kansai International Airport",
+      "Price": 600,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L002",
+      "Images": [
+        "assets/tour/cultural6.jpg",
+        "assets/tour/cultural7.jpg",
+        "assets/tour/cultural8.jpg",
+        "assets/tour/cultural9.jpg",
+        "assets/tour/cultural10.jpg"
+      ],
+      "Inclusions": [
+        "Local guide",
+        "Hotel accommodations",
+        "Daily breakfast and transport"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 20,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Yuki",
+            "Date": "March 15, 2024",
+            "ReviewText": "An unforgettable experience! The temples are breathtaking, and the guide was very knowledgeable."
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG007",
+      "Name": "Rome Historical Tour",
+      "Description": "Explore the heart of ancient Rome with visits to the Colosseum, Vatican City, and the Sistine Chapel.",
+      "TourTypeId": "TYP001",
+      "AgencyId": "AG003",
+      "Route": "Colosseum - Vatican City - Sistine Chapel - Roman Forum",
+      "Duration": "5 Days 4 Nights",
+      "StartPoint": "Rome Fiumicino Airport",
+      "EndPoint": "Rome Fiumicino Airport",
+      "Price": 750,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L003",
+      "Images": [
+        "assets/tour/cultural11.jpg",
+        "assets/tour/cultural12.jpg",
+        "assets/tour/cultural13.jpg",
+        "assets/tour/cultural14.jpg",
+        "assets/tour/cultural15.jpg"
+      ],
+      "Inclusions": [
+        "Guided tours",
+        "Hotel accommodations",
+        "Entry tickets to major attractions"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.9,
+        "TotalReviews": 30,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Marco",
+            "Date": "April 10, 2024",
+            "ReviewText": "An incredible journey through history. Highly recommend for history buffs and art lovers!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG008",
+      "Name": "Istanbul Cultural Discovery",
+      "Description": "Experience the rich heritage of Istanbul with visits to Hagia Sophia, Topkapi Palace, and the Grand Bazaar.",
+      "TourTypeId": "TYP001",
+      "AgencyId": "AG004",
+      "Route": "Hagia Sophia - Topkapi Palace - Grand Bazaar - Blue Mosque",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Istanbul Airport",
+      "EndPoint": "Istanbul Airport",
+      "Price": 550,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L004",
+      "Images": [
+        "assets/tour/cultural16.jpg",
+        "assets/tour/cultural17.jpg",
+        "assets/tour/cultural18.jpg",
+        "assets/tour/cultural19.jpg",
+        "assets/tour/cultural20.jpg"
+      ],
+      "Inclusions": [
+        "Local guide",
+        "Hotel accommodations",
+        "Daily breakfast and city transport"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 18,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Aylin",
+            "Date": "May 5, 2024",
+            "ReviewText": "The Grand Bazaar was a highlight! A rich cultural experience with excellent guides."
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG009",
+      "Name": "Mumbai City Highlights",
+      "Description": "Explore the vibrant city of Mumbai with iconic landmarks like Gateway of India, Marine Drive, and Chhatrapati Shivaji Maharaj Terminus.",
+      "TourTypeId": "TYP002",
+      "AgencyId": "AG001",
+      "Route": "Gateway of India - Marine Drive - Chhatrapati Shivaji Maharaj Terminus",
+      "Duration": "2 Days 1 Night",
+      "StartPoint": "Mumbai Airport",
+      "EndPoint": "Mumbai Airport",
+      "Price": 250,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L004",
+      "Images": [
+        "assets/tour/city1.jpg",
+        "assets/tour/city2.jpg",
+        "assets/tour/city3.jpg",
+        "assets/tour/city4.jpg",
+        "assets/tour/city5.jpg"
+      ],
+      "Inclusions": [
+        "Transport within the city",
+        "Local guide",
+        "Hotel accommodations"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.6,
+        "TotalReviews": 18,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Rajesh",
+            "Date": "April 12, 2024",
+            "ReviewText": "An amazing glimpse into the city life of Mumbai. Great food and experiences!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG010",
+      "Name": "New York City Explorer",
+      "Description": "Discover the best of New York City with visits to Times Square, the Statue of Liberty, and Central Park.",
+      "TourTypeId": "TYP002",
+      "AgencyId": "AG002",
+      "Route": "Times Square - Statue of Liberty - Central Park",
+      "Duration": "3 Days 2 Nights",
+      "StartPoint": "JFK Airport",
+      "EndPoint": "JFK Airport",
+      "Price": 600,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L003",
+      "Images": [
+        "assets/tour/city6.jpg",
+        "assets/tour/city7.jpg",
+        "assets/tour/city8.jpg",
+        "assets/tour/city9.jpg",
+        "assets/tour/city10.jpg"
+      ],
+      "Inclusions": [
+        "Local guide",
+        "Hotel accommodations",
+        "City transport passes"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 25,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Emma",
+            "Date": "June 8, 2024",
+            "ReviewText": "A fantastic way to explore New York. Loved the Statue of Liberty tour!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG011",
+      "Name": "Singapore City Wonders",
+      "Description": "Experience the futuristic city of Singapore with visits to Marina Bay Sands, Gardens by the Bay, and Chinatown.",
+      "TourTypeId": "TYP002",
+      "AgencyId": "AG003",
+      "Route": "Marina Bay Sands - Gardens by the Bay - Chinatown",
+      "Duration": "3 Days 2 Nights",
+      "StartPoint": "Changi Airport",
+      "EndPoint": "Changi Airport",
+      "Price": 550,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L002",
+      "Images": [
+        "assets/tour/city11.jpg",
+        "assets/tour/city12.jpg",
+        "assets/tour/city13.jpg",
+        "assets/tour/city14.jpg",
+        "assets/tour/city15.jpg"
+      ],
+      "Inclusions": [
+        "Airport transfers",
+        "Hotel accommodations",
+        "Entry tickets to attractions"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.9,
+        "TotalReviews": 30,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Liam",
+            "Date": "July 20, 2024",
+            "ReviewText": "Absolutely loved Singapore! The Marina Bay Sands tour was incredible."
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG012",
+      "Name": "Paris City Lights",
+      "Description": "Immerse yourself in the romance of Paris with visits to the Eiffel Tower, Louvre Museum, and Montmartre.",
+      "TourTypeId": "TYP002",
+      "AgencyId": "AG004",
+      "Route": "Eiffel Tower - Louvre Museum - Montmartre",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Charles de Gaulle Airport",
+      "EndPoint": "Charles de Gaulle Airport",
+      "Price": 700,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L001",
+      "Images": [
+        "assets/tour/city16.jpg",
+        "assets/tour/city17.jpg",
+        "assets/tour/city18.jpg",
+        "assets/tour/city19.jpg",
+        "assets/tour/city20.jpg"
+      ],
+      "Inclusions": [
+        "Guided city tours",
+        "Hotel accommodations",
+        "Entry tickets to attractions"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.7,
+        "TotalReviews": 22,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Sophia",
+            "Date": "August 15, 2024",
+            "ReviewText": "Paris is magical! The Eiffel Tower at night was unforgettable."
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG013",
+      "Name": "Maldives Beach Getaway",
+      "Description": "Relax on pristine beaches of Maldives with luxurious water villas and unforgettable sunsets.",
+      "TourTypeId": "TYP003",
+      "AgencyId": "AG001",
+      "Route": "Maafushi Island - Hulhumale Beach - Local Resorts",
+      "Duration": "5 Days 4 Nights",
+      "StartPoint": "Male Airport",
+      "EndPoint": "Male Airport",
+      "Price": 1200,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L001",
+      "Images": [
+        "assets/tour/beach1.jpg",
+        "assets/tour/beach2.jpg",
+        "assets/tour/beach3.jpg",
+        "assets/tour/beach4.jpg",
+        "assets/tour/beach5.jpg"
+      ],
+      "Inclusions": [
+        "Airport transfers",
+        "Water villa accommodations",
+        "Daily breakfast"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.9,
+        "TotalReviews": 20,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Emily",
+            "Date": "May 15, 2024",
+            "ReviewText": "A perfect beach holiday with stunning views. Highly recommended!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG014",
+      "Name": "Bali Beach Retreat",
+      "Description": "Experience the serene beauty of Bali with visits to iconic beaches like Kuta, Nusa Dua, and Uluwatu.",
+      "TourTypeId": "TYP003",
+      "AgencyId": "AG002",
+      "Route": "Kuta Beach - Nusa Dua - Uluwatu",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Ngurah Rai International Airport",
+      "EndPoint": "Ngurah Rai International Airport",
+      "Price": 950,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L002",
+      "Images": [
+        "assets/tour/beach6.jpg",
+        "assets/tour/beach7.jpg",
+        "assets/tour/beach8.jpg",
+        "assets/tour/beach9.jpg",
+        "assets/tour/beach10.jpg"
+      ],
+      "Inclusions": [
+        "Hotel accommodations",
+        "Daily breakfast and dinner",
+        "Guided beach tours"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 18,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Sophia",
+            "Date": "June 10, 2024",
+            "ReviewText": "Beautiful beaches and excellent service. Would love to visit again!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG015",
+      "Name": "Miami Beach Experience",
+      "Description": "Soak up the sun at Miami's famous South Beach, Key Biscayne, and Crandon Park Beach.",
+      "TourTypeId": "TYP003",
+      "AgencyId": "AG003",
+      "Route": "South Beach - Key Biscayne - Crandon Park Beach",
+      "Duration": "3 Days 2 Nights",
+      "StartPoint": "Miami International Airport",
+      "EndPoint": "Miami International Airport",
+      "Price": 700,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L003",
+      "Images": [
+        "assets/tour/beach11.jpg",
+        "assets/tour/beach12.jpg",
+        "assets/tour/beach13.jpg",
+        "assets/tour/beach14.jpg",
+        "assets/tour/beach15.jpg"
+      ],
+      "Inclusions": [
+        "Beachfront hotel accommodations",
+        "Daily breakfast",
+        "Guided beach tours"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.7,
+        "TotalReviews": 22,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "James",
+            "Date": "July 20, 2024",
+            "ReviewText": "Fun and relaxing beach getaway. Highly recommended!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG016",
+      "Name": "Goa Beach Escape",
+      "Description": "Enjoy the lively atmosphere of Goa's beaches including Baga, Palolem, and Anjuna Beach.",
+      "TourTypeId": "TYP003",
+      "AgencyId": "AG004",
+      "Route": "Baga Beach - Palolem Beach - Anjuna Beach",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Goa International Airport",
+      "EndPoint": "Goa International Airport",
+      "Price": 500,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L004",
+      "Images": [
+        "assets/tour/beach16.jpg",
+        "assets/tour/beach17.jpg",
+        "assets/tour/beach18.jpg",
+        "assets/tour/beach19.jpg",
+        "assets/tour/beach20.jpg"
+      ],
+      "Inclusions": [
+        "Beachfront hotel accommodations",
+        "Breakfast and dinner",
+        "Guided beach tours"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.6,
+        "TotalReviews": 19,
+        "Reviews": [
+          {
+            "Rating": 4,
+            "Reviewer": "Priya",
+            "Date": "August 5, 2024",
+            "ReviewText": "Vibrant and fun atmosphere. Great for a short vacation!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG017",
+      "Name": "Ranthambore Tiger Safari",
+      "Description": "Explore the wilderness of Ranthambore National Park, home to majestic Bengal tigers and diverse wildlife.",
+      "TourTypeId": "TYP004",
+      "AgencyId": "AG001",
+      "Route": "Ranthambore Fort - Jungle Safari Zones - Padam Talao",
+      "Duration": "3 Days 2 Nights",
+      "StartPoint": "Sawai Madhopur Railway Station",
+      "EndPoint": "Sawai Madhopur Railway Station",
+      "Price": 600,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L004",
+      "Images": [
+        "assets/tour/wildlife1.jpg",
+        "assets/tour/wildlife2.jpg",
+        "assets/tour/wildlife3.jpg",
+        "assets/tour/wildlife4.jpg",
+        "assets/tour/wildlife5.jpg"
+      ],
+      "Inclusions": [
+        "Jungle safari permits",
+        "Accommodation in wildlife lodges",
+        "All meals"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 30,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Arjun",
+            "Date": "March 15, 2024",
+            "ReviewText": "Amazing safari experience with plenty of tiger sightings!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG018",
+      "Name": "Yellowstone Wildlife Adventure",
+      "Description": "Discover the diverse wildlife and geothermal wonders of Yellowstone National Park.",
+      "TourTypeId": "TYP004",
+      "AgencyId": "AG002",
+      "Route": "Old Faithful - Lamar Valley - Mammoth Hot Springs",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Yellowstone Airport",
+      "EndPoint": "Yellowstone Airport",
+      "Price": 1200,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L003",
+      "Images": [
+        "assets/tour/wildlife6.jpg",
+        "assets/tour/wildlife7.jpg",
+        "assets/tour/wildlife8.jpg",
+        "assets/tour/wildlife9.jpg",
+        "assets/tour/wildlife10.jpg"
+      ],
+      "Inclusions": [
+        "Guided wildlife tours",
+        "Accommodation in park lodges",
+        "Daily meals"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.9,
+        "TotalReviews": 40,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Emily",
+            "Date": "May 10, 2024",
+            "ReviewText": "Breathtaking landscapes and incredible wildlife encounters!"
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG019",
+      "Name": "Masai Mara Safari",
+      "Description": "Experience the Great Migration and witness the Big Five in the iconic Masai Mara.",
+      "TourTypeId": "TYP004",
+      "AgencyId": "AG003",
+      "Route": "Mara River - Game Drives - Masai Villages",
+      "Duration": "5 Days 4 Nights",
+      "StartPoint": "Nairobi Airport",
+      "EndPoint": "Nairobi Airport",
+      "Price": 1500,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L002",
+      "Images": [
+        "assets/tour/wildlife11.jpg",
+        "assets/tour/wildlife12.jpg",
+        "assets/tour/wildlife13.jpg",
+        "assets/tour/wildlife14.jpg",
+        "assets/tour/wildlife15.jpg"
+      ],
+      "Inclusions": [
+        "Luxury tented accommodations",
+        "All meals",
+        "Professional game guides"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 5.0,
+        "TotalReviews": 50,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Michael",
+            "Date": "July 20, 2024",
+            "ReviewText": "A once-in-a-lifetime experience with incredible wildlife sightings."
+          }
+        ]
+      }
+    },
+    {
+      "TourId": "TRPKG020",
+      "Name": "Kruger National Park Safari",
+      "Description": "Explore South Africa's premier game reserve and encounter the legendary Big Five.",
+      "TourTypeId": "TYP004",
+      "AgencyId": "AG004",
+      "Route": "Skukuza - Sabi Sand Reserve - Crocodile Bridge",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Kruger Mpumalanga International Airport",
+      "EndPoint": "Kruger Mpumalanga International Airport",
+      "Price": 1400,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L001",
+      "Images": [
+        "assets/tour/wildlife16.jpg",
+        "assets/tour/wildlife17.jpg",
+        "assets/tour/wildlife18.jpg",
+        "assets/tour/wildlife19.jpg",
+        "assets/tour/wildlife20.jpg"
+      ],
+      "Inclusions": [
+        "Guided safari drives",
+        "Luxury lodge accommodations",
+        "All meals"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 35,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Liam",
+            "Date": "August 25, 2024",
+            "ReviewText": "Fantastic safari experience with knowledgeable guides."
+          }
+        ]
+      }
+    }
+  ],
+  "Locations": [
+    {
+      "LocationId": "L001",
+      "Location": "India"
+    },
+    {
+      "LocationId": "L002",
+      "Location": "USA"
+    },
+    {
+      "LocationId": "L003",
+      "Location": "France"
+    },
+    {
+      "LocationId": "L004",
+      "Location": "Japan"
+    }
+  ],
+  "Agencies": [
+    {
+      "AgencyId": "AG001",
+      "AgencyName": "Summit Adventures",
+      "AgencyLogo": "assets/tour/agencylogo1.png",
+      "OfficeLocation": "123 Mountain View Road, Near Mall Road, Manali, Himachal Pradesh, India, PIN-175131",
+      "Phno": "+91-9876543210",
+      "Email": "contact@summitadventures.com"
+    },
+    {
+      "AgencyId": "AG002",
+      "AgencyName": "Cultural Voyages",
+      "AgencyLogo": "assets/tour/agencylogo2.png",
+      "OfficeLocation": "456 Cherry Blossom Lane, Gion District, Kyoto, Japan, ZIP-605-0001",
+      "Phno": "+81-90-1234-5678",
+      "Email": "info@culturalvoyages.jp"
+    },
+    {
+      "AgencyId": "AG003",
+      "AgencyName": "Beach Bliss Travels",
+      "AgencyLogo": "assets/tour/agencylogo3.png",
+      "OfficeLocation": "7 Coral Reef Street, Hulhumale, Kaafu Atoll, Maldives, ZIP-20057",
+      "Phno": "+960-1234567",
+      "Email": "hello@beachbliss.com"
+    },
+    {
+      "AgencyId": "AG004",
+      "AgencyName": "Safari Wonders",
+      "AgencyLogo": "assets/tour/agencylogo4.png",
+      "OfficeLocation": "89 Savanna Drive, Karen Plains, Nairobi, Kenya, ZIP-00502",
+      "Phno": "+254-700-123456",
+      "Email": "support@safariwonders.com"
+    }
+  ],
+  "TourType":[
+    {
+      "TypeId": "TYP001",
+      "Type": "Cultural"
+    },
+    {
+      "TypeId": "TYP002",
+      "Type": "City"
+    },
+    {
+      "TypeId": "TYP003",
+      "Type": "Beach"
+    },
+    {
+      "TypeId": "TYP004",
+      "Type": "Wildlife"
+    },
+    {
+      "TypeId": "TYP005",
+      "Type": "Hill Trekking"
+    }
+  ],
+  "Bookings": [
+    {
+      "BookingId": "b001",
+      "UserId": "u123",
+      "TourId": "t001",
+      "BookingDate": "2024-12-15",
+      "FromDate": "2024-12-20",
+      "UntilDate": "2024-12-21",
+      "NumberOfGuests": 2,
+      "PaymentStatus": "Paid"
+    },
+    {
+      "BookingId": "b002",
+      "UserId": "u124",
+      "TourId": "t002",
+      "BookingDate": "2024-12-16",
+      "FromDate": "2024-12-22",
+      "UntilDate": "2024-12-24",
+      "NumberOfGuests": 4,
+      "PaymentStatus": "Pending"
+    },
+    {
+      "BookingId": "b003",
+      "UserId": "u125",
+      "TourId": "t003",
+      "BookingDate": "2024-12-18",
+      "FromDate": "2024-12-25",
+      "UntilDate": "2024-12-25",
+      "NumberOfGuests": 1,
+      "PaymentStatus": "Paid"
+    }
+  ]
+}

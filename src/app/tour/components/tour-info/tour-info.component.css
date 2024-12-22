@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.agency-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .space-x-6 {
+    gap: 1.5rem;
+  }
+  
+  .w-32 {
+    width: 8rem;
+  }
+  
+  .h-32 {
+    height: 8rem;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .object-cover {
+    object-fit: cover;
+  }
+  
+  .rounded-full {
+    border-radius: 9999px;
+  }
+  
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
