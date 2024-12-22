@@ -8,6 +8,9 @@ import { TourBooking } from "../models/tour-booking-entities";
   providedIn: "root",
 })
 export class TourPackagesService {
+  getTourPackageById(tourId: string) {
+    throw new Error("Method not implemented.");
+  }
   private toursApiUrl = "http://localhost:3001/Tours";
   private locationsApiUrl = "http://localhost:3001/Locations";
   private agenciesApiUrl = "http://localhost:3001/Agencies";
@@ -29,7 +32,7 @@ export class TourPackagesService {
               return tours.map((tour) => ({
                 ...tour,
                 Location:
-                  locations.find((loc) => loc.LocationId === tour.LocationId)
+                  locations.find((loc: { LocationId: any; }) => loc.LocationId === tour.LocationId)
                     ?.Location || "Unknown",
               }));
             })

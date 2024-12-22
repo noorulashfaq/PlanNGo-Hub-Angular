@@ -994,6 +994,32 @@
       "specialRequest": "xxxxx",
       "tourId": "TRPKG001",
       "totalPrice": 9371.875
+    },
+    {
+      "id": "3b78",
+      "packageType": "Himalayas Adventure Trek",
+      "adults": 1,
+      "children": 2,
+      "rooms": 1,
+      "arrivalDate": "2024-12-30T21:55",
+      "departureDate": "2025-01-10",
+      "freePickup": "yes",
+      "specialRequest": "Need some beer",
+      "tourId": "TRPKG001",
+      "totalPrice": 9284.375
+    },
+    {
+      "id": "9706",
+      "packageType": "Himalayas Adventure Trek",
+      "adults": 1,
+      "children": 2,
+      "rooms": 1,
+      "arrivalDate": "2024-12-30T21:55",
+      "departureDate": "2025-01-10",
+      "freePickup": "yes",
+      "specialRequest": "Need some beer",
+      "tourId": "TRPKG001",
+      "totalPrice": 9284.375
     }
   ]
 }
