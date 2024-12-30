@@ -33,10 +33,15 @@
         <li><strong>Status:</strong> {{ tourDetails.AvailabilityStatus }}</li>
       </ul>
       <div class="flex space-x-4">
-        <button
+        <button  [routerLink]="['/tour', tourId, 'booking']"
           class="bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-md shadow-md transition duration-200"
         >
           ₹ {{ tourDetails.Price }} / day
+        </button>
+
+        <button [routerLink]="['/tour', tourId, 'booking']" 
+        [state]="{ package: selectedPackage }"  class="bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-md shadow-md transition duration-200">
+         Book Now
         </button>
       </div>
     </div>

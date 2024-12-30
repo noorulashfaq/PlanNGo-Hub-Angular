@@ -2,15 +2,18 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map, Observable, switchMap } from "rxjs";
 import { Agencies, Locations, TourPackage, TourType } from "../models/tour-package-entities";
+import { TourBooking } from "../models/tour-booking-entities";
 
 @Injectable({
   providedIn: "root",
 })
 export class TourPackagesService {
-  private toursApiUrl = "http://localhost:3000/Tours";
-  private locationsApiUrl = "http://localhost:3000/Locations";
-  private agenciesApiUrl = "http://localhost:3000/Agencies";
-  private tourTypeApiUrl = "http://localhost:3000/TourType";
+  private toursApiUrl = "http://localhost:3001/Tours";
+  private locationsApiUrl = "http://localhost:3001/Locations";
+  private agenciesApiUrl = "http://localhost:3001/Agencies";
+  private tourTypeApiUrl = "http://localhost:3001/TourType";
+  private bookingApiUrl = "http://localhost:3001/Bookings";
+  bookTour: any;
 
   constructor(private http: HttpClient) {}
 
@@ -70,4 +73,38 @@ export class TourPackagesService {
   getTourTypes(): Observable<TourType[]> {
     return this.http.get<TourType[]>(this.tourTypeApiUrl);
   }
+   // Fetch all bookings
+   getAllBookings(): Observable<TourBooking[]> {
+    return this.http.get<TourBooking[]>(this.bookingApiUrl);
+  }
+
+  // Fetch booking by ID
+  getBookingById(bookingId: string): Observable<TourBooking> {
+    return this.http.get<TourBooking>(`${this.bookingApiUrl}/${bookingId}`);
+  }
+
+  // Add a new booking
+  createBooking(bookingData: TourBooking): Observable<TourBooking> {
+    return this.http.post<TourBooking>(this.bookingApiUrl, bookingData);
+  }
+
+  // Update an existing booking
+  updateBooking(bookingId: string, updatedData: Partial<TourBooking>): Observable<TourBooking> {
+    return this.http.put<TourBooking>(
+      `${this.bookingApiUrl}/${bookingId}`,
+      updatedData
+    );
+  }
+
+  // Delete a booking
+  deleteBooking(bookingId: string): Observable<void> {
+    return this.http.delete<void>(`${this.bookingApiUrl}/${bookingId}`);
+  }
+
+  
 }
+
+
+
+
+
