@@ -8,9 +8,12 @@ import { TourBooking } from "../models/tour-booking-entities";
   providedIn: "root",
 })
 export class TourPackagesService {
+<<<<<<< HEAD
   getTourPackageById(tourId: string) {
     throw new Error("Method not implemented.");
   }
+=======
+>>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
   private toursApiUrl = "http://localhost:3001/Tours";
   private locationsApiUrl = "http://localhost:3001/Locations";
   private agenciesApiUrl = "http://localhost:3001/Agencies";
