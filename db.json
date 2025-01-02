@@ -994,7 +994,6 @@
       "specialRequest": "xxxxx",
       "tourId": "TRPKG001",
       "totalPrice": 9371.875
-<<<<<<< HEAD
     },
     {
       "id": "3b78",
@@ -1021,8 +1020,6 @@
       "specialRequest": "Need some beer",
       "tourId": "TRPKG001",
       "totalPrice": 9284.375
-=======
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
     }
   ]
 }

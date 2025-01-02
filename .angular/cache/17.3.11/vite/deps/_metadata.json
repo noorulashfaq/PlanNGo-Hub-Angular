@@ -1,84 +1,49 @@
 {
-<<<<<<< HEAD
   "hash": "4954e317",
   "configHash": "776d929b",
   "lockfileHash": "1604a792",
   "browserHash": "202ca8f9",
-=======
-  "hash": "44f63cc9",
-  "configHash": "776d929b",
-  "lockfileHash": "a116c107",
-  "browserHash": "118416ce",
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-<<<<<<< HEAD
-      "fileHash": "e46ada2a",
-=======
-      "fileHash": "3431fbc0",
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
+      "fileHash": "7c8ebbc5",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-<<<<<<< HEAD
-      "fileHash": "3498cb82",
-=======
-      "fileHash": "3a76e4a2",
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
+      "fileHash": "d1022b0f",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-<<<<<<< HEAD
-      "fileHash": "efc67558",
-=======
-      "fileHash": "c3b29d77",
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
+      "fileHash": "5ab49c52",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-<<<<<<< HEAD
-      "fileHash": "1cb4d46b",
-=======
-      "fileHash": "294c74a8",
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
+      "fileHash": "45acb1ff",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-<<<<<<< HEAD
-      "fileHash": "49b5811e",
-=======
-      "fileHash": "a9ba9e8a",
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
+      "fileHash": "0b5b8d83",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-<<<<<<< HEAD
-      "fileHash": "132464cf",
-=======
-      "fileHash": "148c4c8d",
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
+      "fileHash": "7c6d7f51",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-<<<<<<< HEAD
-      "fileHash": "39fb7bd5",
-=======
-      "fileHash": "1505193b",
->>>>>>> b4422fc7 (Initial commit or your descriptive commit message)
+      "fileHash": "52400063",
       "needsInterop": false
     }
   },
