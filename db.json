@@ -41,7 +41,8 @@
             "ReviewText": "Amazing experience with breathtaking views. Highly recommend!"
           }
         ]
-      }
+      },
+      "id": "92a4"
     },
     {
       "TourId": "TRPKG002",
@@ -84,7 +85,8 @@
             "ReviewText": "Spectacular trek with knowledgeable guides. Worth every penny!"
           }
         ]
-      }
+      },
+      "id": "d934"
     },
     {
       "TourId": "TRPKG003",
@@ -127,7 +129,8 @@
             "ReviewText": "An unforgettable adventure with stunning scenery. Highly recommended!"
           }
         ]
-      }
+      },
+      "id": "141e"
     },
     {
       "TourId": "TRPKG004",
@@ -170,7 +173,8 @@
             "ReviewText": "An excellent trekking experience with well-organized logistics. Highly recommend!"
           }
         ]
-      }
+      },
+      "id": "205a"
     },
     {
       "TourId": "TRPKG005",
@@ -213,7 +217,8 @@
             "ReviewText": "A fascinating cultural trip with stunning architecture. Highly recommended!"
           }
         ]
-      }
+      },
+      "id": "7091"
     },
     {
       "TourId": "TRPKG006",
@@ -256,7 +261,8 @@
             "ReviewText": "An unforgettable experience! The temples are breathtaking, and the guide was very knowledgeable."
           }
         ]
-      }
+      },
+      "id": "5325"
     },
     {
       "TourId": "TRPKG007",
@@ -299,7 +305,8 @@
             "ReviewText": "An incredible journey through history. Highly recommend for history buffs and art lovers!"
           }
         ]
-      }
+      },
+      "id": "15b7"
     },
     {
       "TourId": "TRPKG008",
@@ -342,7 +349,8 @@
             "ReviewText": "The Grand Bazaar was a highlight! A rich cultural experience with excellent guides."
           }
         ]
-      }
+      },
+      "id": "d9ed"
     },
     {
       "TourId": "TRPKG009",
@@ -385,7 +393,8 @@
             "ReviewText": "An amazing glimpse into the city life of Mumbai. Great food and experiences!"
           }
         ]
-      }
+      },
+      "id": "4d31"
     },
     {
       "TourId": "TRPKG010",
@@ -428,7 +437,8 @@
             "ReviewText": "A fantastic way to explore New York. Loved the Statue of Liberty tour!"
           }
         ]
-      }
+      },
+      "id": "84b4"
     },
     {
       "TourId": "TRPKG011",
@@ -471,7 +481,8 @@
             "ReviewText": "Absolutely loved Singapore! The Marina Bay Sands tour was incredible."
           }
         ]
-      }
+      },
+      "id": "0ebf"
     },
     {
       "TourId": "TRPKG012",
@@ -514,7 +525,8 @@
             "ReviewText": "Paris is magical! The Eiffel Tower at night was unforgettable."
           }
         ]
-      }
+      },
+      "id": "1e8f"
     },
     {
       "TourId": "TRPKG013",
@@ -557,7 +569,8 @@
             "ReviewText": "A perfect beach holiday with stunning views. Highly recommended!"
           }
         ]
-      }
+      },
+      "id": "3aea"
     },
     {
       "TourId": "TRPKG014",
@@ -600,7 +613,8 @@
             "ReviewText": "Beautiful beaches and excellent service. Would love to visit again!"
           }
         ]
-      }
+      },
+      "id": "92df"
     },
     {
       "TourId": "TRPKG015",
@@ -643,7 +657,8 @@
             "ReviewText": "Fun and relaxing beach getaway. Highly recommended!"
           }
         ]
-      }
+      },
+      "id": "1dfd"
     },
     {
       "TourId": "TRPKG016",
@@ -686,7 +701,8 @@
             "ReviewText": "Vibrant and fun atmosphere. Great for a short vacation!"
           }
         ]
-      }
+      },
+      "id": "8df2"
     },
     {
       "TourId": "TRPKG017",
@@ -729,7 +745,8 @@
             "ReviewText": "Amazing safari experience with plenty of tiger sightings!"
           }
         ]
-      }
+      },
+      "id": "1005"
     },
     {
       "TourId": "TRPKG018",
@@ -772,7 +789,8 @@
             "ReviewText": "Breathtaking landscapes and incredible wildlife encounters!"
           }
         ]
-      }
+      },
+      "id": "e995"
     },
     {
       "TourId": "TRPKG019",
@@ -805,7 +823,7 @@
       ],
       "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
       "Ratings": {
-        "AverageRating": 5.0,
+        "AverageRating": 5,
         "TotalReviews": 50,
         "Reviews": [
           {
@@ -815,7 +833,8 @@
             "ReviewText": "A once-in-a-lifetime experience with incredible wildlife sightings."
           }
         ]
-      }
+      },
+      "id": "84ad"
     },
     {
       "TourId": "TRPKG020",
@@ -858,25 +877,30 @@
             "ReviewText": "Fantastic safari experience with knowledgeable guides."
           }
         ]
-      }
+      },
+      "id": "ff7b"
     }
   ],
   "Locations": [
     {
       "LocationId": "L001",
-      "Location": "India"
+      "Location": "India",
+      "id": "ed98"
     },
     {
       "LocationId": "L002",
-      "Location": "USA"
+      "Location": "USA",
+      "id": "7074"
     },
     {
       "LocationId": "L003",
-      "Location": "France"
+      "Location": "France",
+      "id": "505c"
     },
     {
       "LocationId": "L004",
-      "Location": "Japan"
+      "Location": "Japan",
+      "id": "e091"
     }
   ],
   "Agencies": [
@@ -886,7 +910,8 @@
       "AgencyLogo": "assets/tour/agencylogo1.png",
       "OfficeLocation": "123 Mountain View Road, Near Mall Road, Manali, Himachal Pradesh, India, PIN-175131",
       "Phno": "+91-9876543210",
-      "Email": "contact@summitadventures.com"
+      "Email": "contact@summitadventures.com",
+      "id": "8dff"
     },
     {
       "AgencyId": "AG002",
@@ -894,7 +919,8 @@
       "AgencyLogo": "assets/tour/agencylogo2.png",
       "OfficeLocation": "456 Cherry Blossom Lane, Gion District, Kyoto, Japan, ZIP-605-0001",
       "Phno": "+81-90-1234-5678",
-      "Email": "info@culturalvoyages.jp"
+      "Email": "info@culturalvoyages.jp",
+      "id": "087d"
     },
     {
       "AgencyId": "AG003",
@@ -902,7 +928,8 @@
       "AgencyLogo": "assets/tour/agencylogo3.png",
       "OfficeLocation": "7 Coral Reef Street, Hulhumale, Kaafu Atoll, Maldives, ZIP-20057",
       "Phno": "+960-1234567",
-      "Email": "hello@beachbliss.com"
+      "Email": "hello@beachbliss.com",
+      "id": "1532"
     },
     {
       "AgencyId": "AG004",
@@ -910,61 +937,89 @@
       "AgencyLogo": "assets/tour/agencylogo4.png",
       "OfficeLocation": "89 Savanna Drive, Karen Plains, Nairobi, Kenya, ZIP-00502",
       "Phno": "+254-700-123456",
-      "Email": "support@safariwonders.com"
+      "Email": "support@safariwonders.com",
+      "id": "8743"
     }
   ],
-  "TourType":[
+  "TourType": [
     {
       "TypeId": "TYP001",
-      "Type": "Cultural"
+      "Type": "Cultural",
+      "id": "af3b"
     },
     {
       "TypeId": "TYP002",
-      "Type": "City"
+      "Type": "City",
+      "id": "b6ad"
     },
     {
       "TypeId": "TYP003",
-      "Type": "Beach"
+      "Type": "Beach",
+      "id": "62a0"
     },
     {
       "TypeId": "TYP004",
-      "Type": "Wildlife"
+      "Type": "Wildlife",
+      "id": "55fd"
     },
     {
       "TypeId": "TYP005",
-      "Type": "Hill Trekking"
+      "Type": "Hill Trekking",
+      "id": "4fb0"
     }
   ],
   "Bookings": [
     {
-      "BookingId": "b001",
-      "UserId": "u123",
-      "TourId": "t001",
-      "BookingDate": "2024-12-15",
-      "FromDate": "2024-12-20",
-      "UntilDate": "2024-12-21",
-      "NumberOfGuests": 2,
-      "PaymentStatus": "Paid"
+      "id": "7ead",
+      "packageType": "Inca Trail Trekking",
+      "adults": 1,
+      "children": 2,
+      "rooms": 1,
+      "arrivalDate": "2024-12-30T18:57",
+      "departureDate": "2025-01-04",
+      "freePickup": "yes",
+      "specialRequest": "Give Me Tea in BreakFast",
+      "tourId": "TRPKG002",
+      "totalPrice": 7103.333333333333
     },
     {
-      "BookingId": "b002",
-      "UserId": "u124",
-      "TourId": "t002",
-      "BookingDate": "2024-12-16",
-      "FromDate": "2024-12-22",
-      "UntilDate": "2024-12-24",
-      "NumberOfGuests": 4,
-      "PaymentStatus": "Pending"
+      "id": "7bd6",
+      "packageType": "Himalayas Adventure Trek",
+      "adults": 1,
+      "children": 2,
+      "rooms": 3,
+      "arrivalDate": "2024-12-30T19:35",
+      "departureDate": "2025-01-10",
+      "freePickup": "yes",
+      "specialRequest": "xxxxx",
+      "tourId": "TRPKG001",
+      "totalPrice": 9371.875
     },
     {
-      "BookingId": "b003",
-      "UserId": "u125",
-      "TourId": "t003",
-      "BookingDate": "2024-12-18",
-      "FromDate": "2024-12-25",
-      "UntilDate": "2024-12-25",
-      "NumberOfGuests": 1,
-      "PaymentStatus": "Paid"
+      "id": "3b78",
+      "packageType": "Himalayas Adventure Trek",
+      "adults": 1,
+      "children": 2,
+      "rooms": 1,
+      "arrivalDate": "2024-12-30T21:55",
+      "departureDate": "2025-01-10",
+      "freePickup": "yes",
+      "specialRequest": "Need some beer",
+      "tourId": "TRPKG001",
+      "totalPrice": 9284.375
+    },
+    {
+      "id": "9706",
+      "packageType": "Himalayas Adventure Trek",
+      "adults": 1,
+      "children": 2,
+      "rooms": 1,
+      "arrivalDate": "2024-12-30T21:55",
+      "departureDate": "2025-01-10",
+      "freePickup": "yes",
+      "specialRequest": "Need some beer",
+      "tourId": "TRPKG001",
+      "totalPrice": 9284.375
     }
   ]
 }

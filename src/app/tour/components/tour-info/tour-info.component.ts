@@ -22,6 +22,7 @@ export class TourInfoComponent implements OnInit {
   tourDetails: TourPackage | undefined;
   locationDetails: Locations[] = [];
   agencyDetails: Agencies[] = [];
+selectedPackage: any;
 
   constructor(
     private route: ActivatedRoute,
