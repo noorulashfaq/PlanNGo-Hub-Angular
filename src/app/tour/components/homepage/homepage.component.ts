@@ -32,8 +32,13 @@ export class HomepageComponent implements OnInit {
   selectedAgency: string = "";
   tourTypes: TourType[] = [];
   selectedTourType: string = "";
+  isFabMenuOpen = false;
 
-  constructor(private tourService: TourPackagesService) {}
+  constructor(private tourService: TourPackagesService) {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      sessionStorage.setItem("userId", "USR001");
+    }
+  }
 
   private sleep(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -165,6 +170,10 @@ export class HomepageComponent implements OnInit {
     this.selectedTourType = "";
     await this.sleep(1000);
     this.loading = false;
+  }
+
+  toggleFabMenu(): void {
+    this.isFabMenuOpen = !this.isFabMenuOpen;
   }
 
   @HostListener("document:click", ["$event"])

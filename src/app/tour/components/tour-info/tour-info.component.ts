@@ -22,7 +22,8 @@ export class TourInfoComponent implements OnInit {
   tourDetails: TourPackage | undefined;
   locationDetails: Locations[] = [];
   agencyDetails: Agencies[] = [];
-selectedPackage: any;
+  selectedPackage: any;
+  isFabMenuOpen = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,5 +55,9 @@ selectedPackage: any;
         }
       });
     }
+  }
+
+  toggleFabMenu(): void {
+    this.isFabMenuOpen = !this.isFabMenuOpen;
   }
 }

@@ -1,9 +1,14 @@
 export interface TourBooking {
-  TourId: string;
-  Name: string;
-  Price: number;
-  Description?: string;
-  Duration?: string;
-  Location?: string;
-  // Add other properties as needed
+  userId: string;       // User identifier (mapped from "userId")
+  adults: number;       // Number of adults (mapped from "adults")
+  children: number;     // Number of children (mapped from "children")
+  rooms: number;        // Number of rooms (mapped from "rooms")
+  arrivalDate: string;  // Arrival date (mapped from "arrivalDate")
+  departureDate: string; // Departure date (mapped from "departureDate")
+  freePickup: string;   // Free pickup availability (mapped from "freePickup")
+  paymentStatus: boolean; // Payment status (mapped from "paymentStatus")
+  paymentId: string;    // Payment ID (mapped from "paymentId")
+  specialRequest?: string; // Special request (mapped from "specialRequest")
+  tourId: string;       // Tour ID (mapped from "tourId")
+  amount: number;   // Total price (mapped from "totalPrice")
 }
