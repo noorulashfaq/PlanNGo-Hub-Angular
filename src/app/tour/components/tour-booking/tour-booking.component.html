@@ -1,117 +1,356 @@
-<div class="book-package-container">
-  <div class="header">
-    <h1>PlanNGo-Hub</h1>
-    <p>Explore the world</p>
-  </div>
+<div
+  class="book-package-container bg-gray-100 min-h-screen flex items-center justify-center bg-gradient-to-r from-teal-300 to-indigo-300"
+>
+  <!-- Header -->
+  <!-- <div class="header text-white text-center py-6 ">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">PlanNGo-Hub</h1>
+    <p class="text-base sm:text-lg md:text-xl mt-2">Explore the world</p>
+  </div> -->
 
-  <div class="form-container">
-    <h1>Book Your Package</h1>
-    <h3>Experience Something New Every Moment</h3>
+  <!-- Form Container -->
+  <div
+    class="bg-white shadow-md rounded-lg p-6 sm:p-8 w-full sm:max-w-xl md:max-w-3xl flex flex-col"
+  >
+    <h1
+      class="text-xl sm:text-xl md:text-3xl font-semibold text-center text-blue-600"
+    >
+      Reserve Your Package
+    </h1>
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-red-600">
+      {{ packages.Name }}
+    </h2>
+    <h3 class="text-sm sm:text-base md:text-lg text-center text-gray-500 mt-2">
+      Experience Something New Every Moment
+    </h3>
 
-    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
-      
-      <!-- Package Type -->
-      <div class="form-group">
-        <label for="packageType">Package Type</label>
-        <select formControlName="packageType" id="packageType" (change)="onPackageTypeChange()">
-          <option value="" disabled>Select your package</option>
-          <option *ngFor="let package of packages" [value]="package.Name">{{ package.Name }}</option>
-        </select>
-      </div>
-
+    <form
+      [formGroup]="bookingForm"
+      (ngSubmit)="onSubmit()"
+      class="mt-6 space-y-4"
+    >
       <!-- Guests and Rooms -->
       <div class="form-group">
-        <label for="guestsAndRooms">Guests & Rooms</label>
-        <button type="button" id="guestsAndRoomsBtn" (click)="toggleDropdown()">
+        <label for="guestsAndRooms" class="block text-teal-600 font-medium">
+          Guests & Rooms
+        </label>
+        <button
+          type="button"
+          id="guestsAndRoomsBtn"
+          (click)="toggleDropdown()"
+          class="w-full border border-gray-300 rounded-md px-4 py-2 text-left focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+        >
           {{ guestsAndRoomsSummary }}
         </button>
 
-        <div *ngIf="dropdownVisible" id="dropdownMenu" class="dropdown-menu">
-          <div class="dropdown-content">
-            <div>
-              <label for="adults">Adults</label>
-              <input type="number" formControlName="adults" id="adults" min="1" max="10" (change)="calculatePrice()" />
+        <div
+          *ngIf="dropdownVisible"
+          id="dropdownMenu"
+          class="dropdown-menu mt-2 bg-white shadow-lg rounded-md p-4 space-y-4"
+        >
+          <div class="flex flex-col sm:flex-row md:space-x-6">
+            <!-- Adults Field -->
+            <div class="flex-1">
+              <label for="adults" class="block text-teal-600 font-medium"
+                >Adults</label
+              >
+              <input
+                type="number"
+                formControlName="adults"
+                id="adults"
+                min="1"
+                max="10"
+                class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+                (change)="calculatePrice()"
+              />
             </div>
 
-            <div>
-              <label for="children">Children</label>
-              <input type="number" formControlName="children" id="children" min="0" max="5" (change)="calculatePrice()" />
+            <!-- Children Field -->
+            <div class="flex-1">
+              <label for="children" class="block text-teal-600 font-medium"
+                >Children</label
+              >
+              <input
+                type="number"
+                formControlName="children"
+                id="children"
+                min="0"
+                max="5"
+                class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+                (change)="calculatePrice()"
+              />
             </div>
 
-            <div>
-              <label for="rooms">Rooms</label>
-              <input type="number" formControlName="rooms" id="rooms" min="1" max="5" (change)="calculatePrice()" />
+            <!-- Rooms Field -->
+            <div class="flex-1">
+              <label for="rooms" class="block text-teal-600 font-medium"
+                >Rooms</label
+              >
+              <input
+                type="number"
+                formControlName="rooms"
+                id="rooms"
+                min="1"
+                max="5"
+                class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+                (change)="calculatePrice()"
+              />
             </div>
+          </div>
 
-            <div>
-              <button type="button" (click)="done()">Done</button>
-            </div>
+          <div>
+            <button
+              type="button"
+              (click)="done()"
+              class="w-full bg-teal-600 text-white rounded-md py-2 mt-4 hover:bg-teal-700"
+            >
+              Done
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Other form fields remain the same -->
+      <!-- Arrival and Departure Dates -->
       <div class="form-group">
-        <label for="arrivalDateTime">Arrival Date & Time *</label>
-        <input formControlName="arrivalDate" id="arrivalDateTime" type="datetime-local" (change)="calculatePrice()" />
+        <label for="arrivalDateTime" class="block text-teal-600 font-medium">
+          Arrival Date & Time *
+        </label>
+        <input
+          formControlName="arrivalDate"
+          id="arrivalDateTime"
+          type="datetime-local"
+          class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+          (change)="calculatePrice()"
+        />
       </div>
 
       <div class="form-group">
-        <label for="departureDate">Departure Date *</label>
-        <input formControlName="departureDate" id="departureDate" type="date" (change)="calculatePrice()" />
+        <label for="departureDate" class="block text-teal-600 font-medium">
+          Departure Date *
+        </label>
+        <input
+          formControlName="departureDate"
+          id="departureDate"
+          type="date"
+          class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+          (change)="calculatePrice()"
+        />
       </div>
 
+      <!-- Free Pickup -->
       <div class="form-group">
-        <label>Free Pickup? *</label>
-        <div class="flex space-x-8">
-          <div class="flex items-center">
-            <input type="radio" formControlName="freePickup" value="yes" id="pickupYes" class="hidden peer" />
-            <label for="pickupYes">
-              Yes Please! <br /> Pick me up on arrival
+        <label class="block text-teal-600 font-medium">Free Pickup? *</label>
+        <div class="flex items-center space-x-4 mt-2">
+          <div class="flex items-center space-x-2">
+            <input
+              type="radio"
+              formControlName="freePickup"
+              value="yes"
+              id="pickupYes"
+              class="hidden peer"
+            />
+            <label
+              for="pickupYes"
+              class="cursor-pointer bg-teal-100 py-2 px-4 rounded-md border peer-checked:bg-teal-500 peer-checked:text-white"
+            >
+              Yes, Please!
             </label>
           </div>
-
-          <div class="flex items-center">
-            <input type="radio" formControlName="freePickup" value="no" id="pickupNo" class="hidden peer" />
-            <label for="pickupNo">
-              No Thanks <br /> I’ll make my own way there
+          <div class="flex items-center space-x-2">
+            <input
+              type="radio"
+              formControlName="freePickup"
+              value="no"
+              id="pickupNo"
+              class="hidden peer"
+            />
+            <label
+              for="pickupNo"
+              class="cursor-pointer bg-teal-600 py-2 px-4 rounded-md border peer-checked:bg-teal-500 peer-checked:text-white"
+            >
+              No Thanks
             </label>
           </div>
         </div>
       </div>
 
+      <!-- Amount -->
       <div class="form-group">
-        <label for="amount">Amount</label>
-        <input formControlName="amount" id="amount" type="text" readonly placeholder="INR XXXX.XX" />
+        <label for="amount" class="block text-teal-600 font-medium">
+          Amount Payable
+        </label>
+        <input
+          formControlName="amount"
+          id="amount"
+          type="text"
+          readonly
+          placeholder="INR 0000.00"
+          class="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-100"
+        />
       </div>
 
+      <!-- Special Request -->
       <div class="form-group">
-        <label for="specialRequest">Special Request</label>
-        <textarea formControlName="specialRequest" id="specialRequest" placeholder="Type your message here"></textarea>
+        <label for="specialRequest" class="block text-teal-600 font-medium">
+          Special Request
+        </label>
+        <textarea
+          formControlName="specialRequest"
+          id="specialRequest"
+          placeholder="Type your message here"
+          class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+        ></textarea>
       </div>
 
-      <div class="flex justify-between items-center mt-6">
-        <button type="button" (click)="onPrevious()">Previous</button>
-        <button type="submit" [disabled]="bookingForm.invalid">Book</button>
+      <!-- Submit Buttons -->
+      <div class="flex justify-between items-center mt-6 space-x-4">
+        <button
+          type="button"
+          (click)="onPrevious()"
+          class="w-full bg-gray-300 text-teal-600 rounded-md px-6 py-2 hover:bg-gray-400"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          [disabled]="bookingForm.invalid"
+          class="w-full bg-teal-600 text-white rounded-md px-6 py-2 hover:bg-teal-700 disabled:bg-gray-300"
+        >
+          Pay Now
+        </button>
       </div>
     </form>
   </div>
-</div>
 
-<!-- Footer remains the same -->
-<footer class="bg-gray-800 text-gray-200 py-8">
-  <div class="max-w-6xl mx-auto text-center">
-    <p class="text-lg">
-      &copy; 2024 Tour Package Booking. All rights reserved.
-    </p>
-    <p class="mt-4">Follow us on social media</p>
-    <div class="mt-4 flex justify-center space-x-6">
-      <a href="#" class="text-teal-400 hover:text-teal-600">Facebook</a>
-      <a href="#" class="text-teal-400 hover:text-teal-600">Twitter</a>
-      <a href="#" class="text-teal-400 hover:text-teal-600">Instagram</a>
+  <!-- Payment -->
+  <div
+    *ngIf="showPaymentModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative">
+      <!-- Close Button -->
+      <button
+        class="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
+        (click)="closePaymentModal()"
+      >
+        X
+      </button>
+
+      <!-- Payment Component -->
+      <form (ngSubmit)="onSubmitPayment()" class="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto">
+        <!-- Title -->
+        <div class="mb-6">
+          <h3 class="text-2xl font-semibold text-teal-600 text-center">PAYMENT</h3>
+        </div>
+      
+        <!-- Name on Card -->
+        <div class="mb-4">
+          <input
+            type="text"
+            [(ngModel)]="paymentData.nameOnCard"
+            name="nameOnCard"
+            placeholder="Account Holder Name"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+          />
+        </div>
+      
+        <!-- Card Number -->
+        <div class="mb-4">
+          <input
+            type="number"
+            [(ngModel)]="paymentData.cardNumber"
+            name="cardNumber"
+            placeholder="Card Number"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+          />
+        </div>
+      
+        <!-- Exp Year and CVV -->
+        <div class="flex flex-col sm:flex-row sm:space-x-4 mb-4">
+          <!-- Exp Year -->
+          <div class="flex-1">
+            <input
+              type="text"
+              [(ngModel)]="paymentData.expDate"
+              name="expDate"
+              placeholder="MM/YY"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+            />
+          </div>
+      
+          <!-- CVV -->
+          <div class="flex-1">
+            <input
+              type="text"
+              [(ngModel)]="paymentData.cvv"
+              name="cvv"
+              placeholder="CVV"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+            />
+          </div>
+        </div>
+      
+        <!-- Submit Button -->
+        <div class="text-center">
+          <input
+            type="submit"
+            value="PAY"
+            class="w-full bg-teal-600 text-white font-semibold rounded-md px-6 py-2 hover:bg-teal-700 transition-colors cursor-pointer"
+          />
+        </div>
+      </form>
+      
     </div>
   </div>
-</footer>
 
+  <!-- Floating Action Button -->
+  <div class="fixed bottom-5 right-5 z-50 flex flex-col items-center">
+    <!-- FAB Menu -->
+    <ul
+      class="flex-col-reverse items-center space-y-reverse space-y-4 mb-4 transition-all duration-300"
+      [ngClass]="{
+        'opacity-0 translate-y-10 pointer-events-none': !isFabMenuOpen,
+        'opacity-100 translate-y-0': isFabMenuOpen
+      }"
+    >
+      <li class="mb-3">
+        <a
+          href="/"
+          class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
+          title="Home"
+        >
+          🏠
+        </a>
+      </li>
+      <li class="mb-3">
+        <a
+          href="#about-us"
+          class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
+          title="About Us"
+        >
+          ℹ️
+        </a>
+      </li>
+      <li class="mb-3">
+        <a
+          href="#contact"
+          class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
+          title="Contact"
+        >
+          📞
+        </a>
+      </li>
+    </ul>
 
-
+    <!-- Floating Action Button -->
+    <button
+      class="w-16 h-16 bg-teal-600 text-white rounded-full shadow-lg flex justify-center items-center text-3xl hover:scale-110 transition-transform"
+      (click)="toggleFabMenu()"
+    >
+      +
+    </button>
+  </div>
+</div>

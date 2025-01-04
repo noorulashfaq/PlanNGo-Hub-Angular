@@ -93,7 +93,7 @@ body {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #3b82f6; /* Focused input border color */
+  /* border-color: #3b82f6; Focused input border color */
   outline: none;
 }
 
@@ -172,7 +172,7 @@ input[type="radio"]:not(:checked) + label {
 /* Focus State */
 input[type="radio"]:focus + label {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(38, 80, 115, 0.5); /* Focus state with the specified color */
+  /* box-shadow: 0 0 0 2px rgba(38, 80, 115, 0.5); Focus state with the specified color */
 }
 
 /* Container */
@@ -198,23 +198,9 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button[type="button"] {
-  background-color: #e5e7eb; /* Light gray button for "Previous" */
-  color: #333;
-}
-
-button[type="button"]:hover {
-  background-color: #d1d5db;
-}
-
 button[type="submit"] {
-  background-color: #3b82f6; /* Blue button for "Book" */
   color: #ffffff;
   font-weight: 600;
-}
-
-button[type="submit"]:hover {
-  background-color: #2563eb;
 }
 
 button[type="submit"]:disabled {

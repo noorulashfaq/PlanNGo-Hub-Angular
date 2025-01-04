@@ -970,56 +970,90 @@
   ],
   "Bookings": [
     {
-      "id": "7ead",
-      "packageType": "Inca Trail Trekking",
-      "adults": 1,
-      "children": 2,
-      "rooms": 1,
-      "arrivalDate": "2024-12-30T18:57",
-      "departureDate": "2025-01-04",
-      "freePickup": "yes",
-      "specialRequest": "Give Me Tea in BreakFast",
+      "userId": "USR001",
       "tourId": "TRPKG002",
-      "totalPrice": 7103.333333333333
-    },
-    {
-      "id": "7bd6",
-      "packageType": "Himalayas Adventure Trek",
       "adults": 1,
-      "children": 2,
-      "rooms": 3,
-      "arrivalDate": "2024-12-30T19:35",
-      "departureDate": "2025-01-10",
-      "freePickup": "yes",
-      "specialRequest": "xxxxx",
-      "tourId": "TRPKG001",
-      "totalPrice": 9371.875
-    },
-    {
-      "id": "3b78",
-      "packageType": "Himalayas Adventure Trek",
-      "adults": 1,
-      "children": 2,
+      "children": 0,
       "rooms": 1,
-      "arrivalDate": "2024-12-30T21:55",
+      "arrivalDate": "2025-01-09T17:10",
       "departureDate": "2025-01-10",
       "freePickup": "yes",
-      "specialRequest": "Need some beer",
-      "tourId": "TRPKG001",
-      "totalPrice": 9284.375
+      "paymentStatus": true,
+      "paymentId": "e7a9",
+      "specialRequest": "",
+      "id": "e7a0"
     },
     {
-      "id": "9706",
-      "packageType": "Himalayas Adventure Trek",
+      "userId": "USR001",
+      "tourId": "TRPKG005",
       "adults": 1,
-      "children": 2,
+      "children": 0,
       "rooms": 1,
-      "arrivalDate": "2024-12-30T21:55",
-      "departureDate": "2025-01-10",
+      "arrivalDate": "2025-01-08T17:36",
+      "departureDate": "2025-01-17",
       "freePickup": "yes",
-      "specialRequest": "Need some beer",
-      "tourId": "TRPKG001",
-      "totalPrice": 9284.375
+      "paymentStatus": true,
+      "paymentId": "567e",
+      "specialRequest": "",
+      "id": "95f3"
+    },
+    {
+      "userId": "USR001",
+      "tourId": "TRPKG003",
+      "adults": 1,
+      "children": 0,
+      "rooms": 1,
+      "arrivalDate": "2025-01-17T17:39",
+      "departureDate": "2025-01-18",
+      "freePickup": "yes",
+      "paymentStatus": true,
+      "paymentId": "dfac",
+      "specialRequest": "",
+      "id": "e287"
+    },
+    {
+      "userId": "USR001",
+      "tourId": "TRPKG003",
+      "adults": 1,
+      "children": 0,
+      "rooms": 1,
+      "arrivalDate": "2025-01-16T17:41",
+      "departureDate": "2025-01-24",
+      "freePickup": "no",
+      "paymentStatus": true,
+      "paymentId": "f022",
+      "specialRequest": "",
+      "id": "b2a1"
+    }
+  ],
+  "Payments": [
+    {
+      "id": "e7a9",
+      "nameOnCard": "Noorul",
+      "cardNumber": 97584,
+      "expDate": "656",
+      "cvv": "8776"
+    },
+    {
+      "id": "567e",
+      "nameOnCard": "Ashfaq",
+      "cardNumber": 45764876,
+      "expDate": "85097",
+      "cvv": "896"
+    },
+    {
+      "id": "dfac",
+      "nameOnCard": "Das",
+      "cardNumber": 2362,
+      "expDate": "235",
+      "cvv": "135"
+    },
+    {
+      "id": "f022",
+      "nameOnCard": "Nishanth",
+      "cardNumber": 19278,
+      "expDate": "412",
+      "cvv": "321"
     }
   ]
 }
