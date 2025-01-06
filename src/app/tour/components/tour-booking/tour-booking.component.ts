@@ -139,12 +139,12 @@ export class BookingFormComponent implements OnInit {
     const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
 
     // Get the arrival date input field by its ID
-    const arrivalDateInput = document.getElementById(
-      "arrivalDateTime"
+    const departureDateInput = document.getElementById(
+      "departureDate"
     ) as HTMLInputElement;
 
-    if (arrivalDateInput) {
-      arrivalDateInput.min = currentDateTime; // Set min to current date and time
+    if (departureDateInput) {
+      departureDateInput.min = currentDateTime; // Set min to current date and time
       // No need for max, remove it to allow future date selection
     }
 
