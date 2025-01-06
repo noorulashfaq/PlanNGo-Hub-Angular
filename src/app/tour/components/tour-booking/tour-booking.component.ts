@@ -29,7 +29,6 @@ import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 export class BookingFormComponent implements OnInit {
   bookingForm: FormGroup;
   packages: any;
-  // selectedPackage: TourPackage | undefined;
   guestsAndRoomsSummary = "Select Guests and Rooms";
   dropdownVisible = false;
   totalPrice: number = 0;
@@ -91,6 +90,24 @@ export class BookingFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Set min and max values for arrival date and time
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+// Get the arrival date input field by its ID
+const arrivalDateInput = document.getElementById("arrivalDateTime") as HTMLInputElement;
+
+if (arrivalDateInput) {
+  arrivalDateInput.min = currentDateTime; // Set min to current date and time
+  // No need for max, remove it to allow future date selection
+}
+
+
     const userId = sessionStorage.getItem("userId");
     if (userId) {
       this.bookingForm.patchValue({
@@ -101,6 +118,7 @@ export class BookingFormComponent implements OnInit {
       this.router.navigate(["/login"]);
       return; // Stop further execution if user is not logged in
     }
+
     const tourId = this.route.snapshot.paramMap.get("id");
     if (tourId) {
       this.bookingForm.patchValue({
