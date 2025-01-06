@@ -35,6 +35,11 @@ export class BookingFormComponent implements OnInit {
   isFabMenuOpen = false;
   showPaymentModal: boolean = false;
   bookedId: string = "";
+  // Loading and Success State
+  isLoading = false;
+  showSuccessPopup = false;
+  successMessage = "";
+  loadingTimeout: any;
 
   paymentData = {
     nameOnCard: "",
@@ -61,8 +66,8 @@ export class BookingFormComponent implements OnInit {
         adults: [1, [Validators.required, Validators.min(1)]],
         children: [0, [Validators.min(0)]],
         rooms: [1, [Validators.required, Validators.min(1)]],
-        arrivalDate: ["", Validators.required],
         departureDate: ["", Validators.required],
+        arrivalDate: ["", Validators.required],
         freePickup: ["no", Validators.required],
         paymentStatus: false,
         paymentId: [""],
@@ -73,6 +78,10 @@ export class BookingFormComponent implements OnInit {
     );
   }
 
+  private sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
   openPaymentModal(): void {
     this.showPaymentModal = true;
   }
@@ -81,10 +90,40 @@ export class BookingFormComponent implements OnInit {
     this.showPaymentModal = false;
   }
 
+  // Show Loading
+  async showLoading(duration: number = 2000): Promise<void> {
+    console.log("Showing loading...");
+    this.isLoading = true; // Set loading state to true to show spinner
+
+    // Sleep for the specified duration
+    await this.sleep(duration);
+
+    console.log("Hiding loading...");
+    this.hideLoading(); // Call hideLoading after the duration
+  }
+
+  // Hide Loading
+  hideLoading(): void {
+    console.log("Inside hideLoading...");
+    this.isLoading = false; // Set loading state to false to hide spinner
+  }
+
+  // Show Success Popup
+  showSuccess(message: string): void {
+    this.successMessage = message;
+    this.showSuccessPopup = true;
+  }
+
+  // Close Success Popup
+  closeSuccessPopup(): void {
+    this.showSuccessPopup = false;
+    this.router.navigate([`/tour/${this.route.snapshot.paramMap.get("id")}`]);
+  }
+
   dateRangeValidator(group: FormGroup): { [key: string]: boolean } | null {
     const arrival = group.get("arrivalDate")?.value;
     const departure = group.get("departureDate")?.value;
-    return arrival && departure && arrival < departure
+    return arrival && departure && arrival > departure
       ? null
       : { invalidDateRange: true };
   }
@@ -99,14 +138,15 @@ export class BookingFormComponent implements OnInit {
     const minutes = String(now.getMinutes()).padStart(2, "0");
     const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
 
-// Get the arrival date input field by its ID
-const arrivalDateInput = document.getElementById("arrivalDateTime") as HTMLInputElement;
+    // Get the arrival date input field by its ID
+    const arrivalDateInput = document.getElementById(
+      "arrivalDateTime"
+    ) as HTMLInputElement;
 
-if (arrivalDateInput) {
-  arrivalDateInput.min = currentDateTime; // Set min to current date and time
-  // No need for max, remove it to allow future date selection
-}
-
+    if (arrivalDateInput) {
+      arrivalDateInput.min = currentDateTime; // Set min to current date and time
+      // No need for max, remove it to allow future date selection
+    }
 
     const userId = sessionStorage.getItem("userId");
     if (userId) {
@@ -144,13 +184,15 @@ if (arrivalDateInput) {
     }
   }
 
-  onSubmitPayment(): void {
+  async onSubmitPayment(): Promise<void> {
+    this.showLoading(); // Show loading spinner
+    await this.sleep(2000);
     if (this.isValid()) {
       this.addNewPayment();
       this.closePaymentModal();
-      this.router.navigate([`/tour/${this.route.snapshot.paramMap.get("id")}`]);
     } else {
       console.error("Form is invalid");
+      this.isLoading = false;
     }
   }
 
@@ -159,10 +201,14 @@ if (arrivalDateInput) {
       (response) => {
         console.log("Payment successful", response);
         this.updateBooking(response.id);
+        this.hideLoading(); // Hide loading spinner
+        this.showSuccess("Payment completed successfully!");
         // Handle success, e.g., navigate to success page or show a success message
       },
       (error) => {
         console.error("Payment failed", error);
+        this.hideLoading(); // Hide loading spinner
+        alert("Payment failed. Please try again.");
         // Handle error, e.g., show an error message
       }
     );
@@ -224,7 +270,7 @@ if (arrivalDateInput) {
     const arrival = new Date(arrivalDate);
     const departure = new Date(departureDate);
     const numOfDays =
-      (departure.getTime() - arrival.getTime()) / (1000 * 3600 * 24);
+      (arrival.getTime() - departure.getTime()) / (1000 * 3600 * 24);
 
     if (this.packages && numOfDays > 0) {
       const adults = this.bookingForm.get("adults")?.value || 0;
@@ -250,8 +296,10 @@ if (arrivalDateInput) {
     }
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.bookingForm.valid) {
+      this.showLoading();
+      await this.sleep(2000);
       const formData = {
         ...this.bookingForm.value,
         tourId: this.route.snapshot.paramMap.get("id"),
@@ -262,10 +310,12 @@ if (arrivalDateInput) {
           console.log("Booking Successful:", response);
           this.bookedId = response.id;
           this.openPaymentModal();
+          this.hideLoading();
           // alert("Your booking has been confirmed!");
         },
         (error: HttpErrorResponse) => {
           console.error("Booking Error:", error);
+          this.hideLoading();
           // alert("Something went wrong. Please try again.");
         }
       );

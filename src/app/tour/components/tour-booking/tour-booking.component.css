@@ -207,3 +207,20 @@ button[type="submit"]:disabled {
   background-color: #d1d5db;
   cursor: not-allowed;
 }
+
+.loading-container {
+  position: fixed; /* Fixes the spinner to the screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a semi-transparent background */
+  z-index: 9999; /* Ensures the spinner is on top of other content */
+}
+
+.text-white {
+  color: #000; /* Change to any color you like */
+}
