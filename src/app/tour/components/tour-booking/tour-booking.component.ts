@@ -28,6 +28,7 @@ import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 })
 export class BookingFormComponent implements OnInit {
   bookingForm: FormGroup;
+  paymentForm: FormGroup;
   packages: any;
   guestsAndRoomsSummary = "Select Guests and Rooms";
   dropdownVisible = false;
@@ -38,6 +39,7 @@ export class BookingFormComponent implements OnInit {
   // Loading and Success State
   isLoading = false;
   showSuccessPopup = false;
+  successHeader = "";
   successMessage = "";
   loadingTimeout: any;
 
@@ -76,6 +78,26 @@ export class BookingFormComponent implements OnInit {
       },
       { validator: this.dateRangeValidator }
     );
+
+    this.paymentForm = this.fb.group({
+      nameOnCard: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]+$/)]],
+      cardNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^\d{13,19}$/),
+        ],
+      ],
+      expDate: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/),
+          this.expirationDateValidator,
+        ],
+      ],
+      cvv: ['', [Validators.required, Validators.pattern(/^\d{3,4}$/)]],
+    });
   }
 
   private sleep(ms: number): Promise<void> {
@@ -88,6 +110,14 @@ export class BookingFormComponent implements OnInit {
 
   closePaymentModal(): void {
     this.showPaymentModal = false;
+  }
+
+  expirationDateValidator(control: any) {
+    const currentDate = new Date();
+    const [month, year] = control.value.split('/').map((x: string) => parseInt(x, 10));
+    const yearNumber = parseInt(`20${year}`, 10);
+    const expDate = new Date(yearNumber, month - 1); 
+    return expDate > currentDate ? null : { invalidDate: true };
   }
 
   // Show Loading
@@ -109,15 +139,17 @@ export class BookingFormComponent implements OnInit {
   }
 
   // Show Success Popup
-  showSuccess(message: string): void {
+  showSuccess(header: string, message: string): void {
+    this.successHeader = header;
     this.successMessage = message;
     this.showSuccessPopup = true;
   }
 
   // Close Success Popup
-  closeSuccessPopup(): void {
+  async closeSuccessPopup(): Promise<void> {
+    await this.sleep(1000);
     this.showSuccessPopup = false;
-    this.router.navigate([`/tour/${this.route.snapshot.paramMap.get("id")}`]);
+    this.router.navigate([`/tours/package/${this.route.snapshot.paramMap.get("id")}`]);
   }
 
   dateRangeValidator(group: FormGroup): { [key: string]: boolean } | null {
@@ -184,6 +216,27 @@ export class BookingFormComponent implements OnInit {
     }
   }
 
+  setArrivalDateLimit(): void {
+
+    const departureDateInput = document.getElementById(
+      "departureDate"
+    ) as HTMLInputElement;
+    const arrivalDateInput = document.getElementById(
+      "arrivalDateTime"
+    ) as HTMLInputElement;
+
+    if (departureDateInput && arrivalDateInput) {
+      const departureDate = departureDateInput.value;
+
+      // Validate if departureDate is set
+      if (departureDate) {
+        arrivalDateInput.min = departureDate; // Set 'min' for arrivalDateInput based on departureDate
+      }
+    }
+
+    this.calculatePrice();
+  }
+
   async onSubmitPayment(): Promise<void> {
     this.showLoading(); // Show loading spinner
     await this.sleep(2000);
@@ -197,24 +250,21 @@ export class BookingFormComponent implements OnInit {
   }
 
   addNewPayment(): void {
-    this.tourPackagesService.addNewPayment(this.paymentData).subscribe(
+    this.tourPackagesService.addNewPayment(this.paymentForm.value).subscribe(
       (response) => {
         console.log("Payment successful", response);
         this.updateBooking(response.id);
-        this.hideLoading(); // Hide loading spinner
-        this.showSuccess("Payment completed successfully!");
-        // Handle success, e.g., navigate to success page or show a success message
+        this.hideLoading();
+        this.showSuccess("Success", "Payment completed successfully!");
       },
       (error) => {
         console.error("Payment failed", error);
-        this.hideLoading(); // Hide loading spinner
-        alert("Payment failed. Please try again.");
-        // Handle error, e.g., show an error message
+        this.hideLoading();
+        this.showSuccess("Failed", "Payment failed! " + error.statusText);
       }
     );
   }
 
-  // Update booking with the payment status and payment ID
   updateBooking(paymentId: string): void {
     this.bookingForm.patchValue({
       paymentStatus: true,
@@ -238,10 +288,10 @@ export class BookingFormComponent implements OnInit {
 
   isValid(): boolean {
     return (
-      String(this.paymentData.nameOnCard).trim() !== "" &&
-      String(this.paymentData.cardNumber).trim() !== "" &&
-      String(this.paymentData.expDate).trim() !== "" &&
-      String(this.paymentData.cvv).trim() !== ""
+      String(this.paymentForm.value.nameOnCard).trim() !== "" &&
+      String(this.paymentForm.value.cardNumber).trim() !== "" &&
+      String(this.paymentForm.value.expDate).trim() !== "" &&
+      String(this.paymentForm.value.cvv).trim() !== ""
     );
   }
 
@@ -289,7 +339,7 @@ export class BookingFormComponent implements OnInit {
   onPrevious() {
     const id = this.route.snapshot.paramMap.get("id");
     if (id) {
-      this.router.navigate([`tour/${id}`]);
+      this.router.navigate([`tours/package/${id}`]);
     } else {
       console.error("ID not found in the route.");
       alert("Cannot navigate to the previous page because the ID is missing.");
@@ -311,12 +361,10 @@ export class BookingFormComponent implements OnInit {
           this.bookedId = response.id;
           this.openPaymentModal();
           this.hideLoading();
-          // alert("Your booking has been confirmed!");
         },
         (error: HttpErrorResponse) => {
           console.error("Booking Error:", error);
           this.hideLoading();
-          // alert("Something went wrong. Please try again.");
         }
       );
     }

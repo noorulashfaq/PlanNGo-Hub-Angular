@@ -1,6 +1,6 @@
 <div
   *ngIf="tourDetails"
-  class="font-sans text-gray-800 bg-gradient-to-br from-blue-50 via-white to-gray-50 min-h-screen"
+  class="font-sans text-gray-800 bg-gradient-to-br from-blue-50 to-blue-50 min-h-screen"
 >
   <!-- Cover Section -->
   <div
@@ -34,14 +34,14 @@
       </ul>
       <div class="flex space-x-4">
         <button
-          [routerLink]="['/tour', tourId, 'booking']"
+          [routerLink]="['/tours/package', tourId, 'reserve']"
           class="bg-white-500 hover:bg-teal-500 text-teal-600 hover:text-white py-2 px-6 hover:rounded-md hover:shadow-md transition duration-200"
         >
           <strong>₹ {{ tourDetails.Price }} / day</strong>
         </button>
 
         <button
-          [routerLink]="['/tour', tourId, 'booking']"
+          [routerLink]="['/tours/package', tourId, 'reserve']"
           [state]="{ package: selectedPackage }"
           class="bg-teal-500 hover:bg-teal-600 text-white py-2 px-6 rounded-md shadow-md transition duration-200"
         >
@@ -63,7 +63,7 @@
     >
       <li class="mb-3">
         <a
-          href="/"
+          href="/tours/home"
           class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
           title="Home"
         >
@@ -72,9 +72,9 @@
       </li>
       <li class="mb-3">
         <a
-          href="#about-us"
+          href="#my-bookings"
           class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
-          title="About Us"
+          title="My Bookings"
         >
           ℹ️
         </a>

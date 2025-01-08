@@ -168,7 +168,7 @@
         </p>
         <p class="text-gray-800 font-bold mt-2">₹ {{ tour.Price }}</p>
         <button
-          [routerLink]="['/tour', tour.TourId]"
+          [routerLink]="['/tours/package', tour.TourId]"
           class="bg-teal-600 text-white py-2 px-4 rounded-lg hover:bg-teal-700 transition duration-200 mt-4"
         >
           View details
@@ -225,18 +225,9 @@
   >
     <li class="mb-3">
       <a
-        href="/"
+        href="#my-bookings"
         class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
-        title="Home"
-      >
-        🏠
-      </a>
-    </li>
-    <li class="mb-3">
-      <a
-        href="#about-us"
-        class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
-        title="About Us"
+        title="My Bookings"
       >
         ℹ️
       </a>

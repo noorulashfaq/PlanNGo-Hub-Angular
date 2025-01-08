@@ -119,7 +119,7 @@
           id="departureDate"
           type="datetime-local"
           class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-          (change)="calculatePrice()"
+          (change)="setArrivalDateLimit()"
         />
       </div>
 
@@ -130,7 +130,7 @@
         <input
           formControlName="arrivalDate"
           id="arrivalDateTime"
-          type="date"
+          type="datetime-local"
           class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
           (change)="calculatePrice()"
         />
@@ -236,77 +236,75 @@
       </button>
 
       <!-- Payment Component -->
-      <form
-        (ngSubmit)="onSubmitPayment()"
-        class="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto"
-      >
-        <!-- Title -->
-        <div class="mb-6">
-          <h3 class="text-2xl font-semibold text-teal-600 text-center">
-            PAYMENT
-          </h3>
+      <form [formGroup]="paymentForm" (ngSubmit)="onSubmitPayment()" class="p-8">
+        <div class="mb-4">
+          <h2 class="text-xl sm:text-xl md:text-3xl font-semibold text-center text-blue-600">Complete Payment</h2>
         </div>
-
+        
         <!-- Name on Card -->
         <div class="mb-4">
           <input
             type="text"
-            [(ngModel)]="paymentData.nameOnCard"
-            name="nameOnCard"
+            formControlName="nameOnCard"
             placeholder="Account Holder Name"
-            required
             class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
           />
+          <div *ngIf="paymentForm.get('nameOnCard')?.touched && paymentForm.get('nameOnCard')?.invalid">
+            <small class="text-red-500">Please enter a valid name.</small>
+          </div>
         </div>
-
+      
         <!-- Card Number -->
         <div class="mb-4">
           <input
-            type="number"
-            [(ngModel)]="paymentData.cardNumber"
-            name="cardNumber"
+            type="text"
+            formControlName="cardNumber"
             placeholder="Card Number"
-            required
             class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
           />
+          <div *ngIf="paymentForm.get('cardNumber')?.touched && paymentForm.get('cardNumber')?.invalid">
+            <small class="text-red-500">Please enter a valid card number.</small>
+          </div>
         </div>
-
-        <!-- Exp Year and CVV -->
+      
+        <!-- Exp Date and CVV -->
         <div class="flex flex-col sm:flex-row sm:space-x-4 mb-4">
-          <!-- Exp Year -->
           <div class="flex-1">
             <input
               type="text"
-              [(ngModel)]="paymentData.expDate"
-              name="expDate"
+              formControlName="expDate"
               placeholder="MM/YY"
-              required
               class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
             />
+            <div *ngIf="paymentForm.get('expDate')?.touched && paymentForm.get('expDate')?.invalid">
+              <small class="text-red-500">Please enter a valid expiration date.</small>
+            </div>
           </div>
-
-          <!-- CVV -->
           <div class="flex-1">
             <input
               type="text"
-              [(ngModel)]="paymentData.cvv"
-              name="cvv"
+              formControlName="cvv"
               placeholder="CVV"
-              required
               class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
             />
+            <div *ngIf="paymentForm.get('cvv')?.touched && paymentForm.get('cvv')?.invalid">
+              <small class="text-red-500">Please enter a valid CVV.</small>
+            </div>
           </div>
         </div>
-
+      
         <!-- Submit Button -->
         <div class="text-center">
-          <input
+          <button
             type="submit"
-            value="PAY"
-            class="w-full bg-teal-600 text-white font-semibold rounded-md px-6 py-2 hover:bg-teal-700 transition-colors cursor-pointer"
-          />
+            class="w-full bg-teal-600 text-white font-semibold rounded-md px-6 py-2 hover:bg-teal-700 transition-colors"
+            [disabled]="paymentForm.invalid"
+          >
+            PAY
+          </button>
         </div>
       </form>
+      
     </div>
   </div>
 
@@ -348,7 +346,7 @@
     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
   >
     <div class="bg-white rounded-lg shadow-lg w-full max-w-sm p-6 text-center">
-      <h3 class="text-xl font-semibold text-teal-600">Success!</h3>
+      <h3 class="text-xl font-semibold text-teal-600">{{ successHeader }}</h3>
       <p class="mt-2 text-gray-600">{{ successMessage }}</p>
       <button
         (click)="closeSuccessPopup()"
@@ -371,7 +369,7 @@
     >
       <li class="mb-3">
         <a
-          href="/"
+          href="/tours/home"
           class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
           title="Home"
         >
@@ -380,9 +378,9 @@
       </li>
       <li class="mb-3">
         <a
-          href="#about-us"
+          href="#my-bookings"
           class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
-          title="About Us"
+          title="My Bookings"
         >
           ℹ️
         </a>
