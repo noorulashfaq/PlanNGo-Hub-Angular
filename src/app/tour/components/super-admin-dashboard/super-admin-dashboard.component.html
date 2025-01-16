@@ -1,1 +1,69 @@
-<p>super-admin-dashboard works!</p>
+<!-- Super Admin Dashboard -->
+<div class="container mx-auto px-6 py-8">
+  <h1 class="text-3xl font-extrabold text-gray-800 mb-8">Admin Analytics Dashboard</h1>
+
+  <!-- Overview Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Total Bookings -->
+    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+      <h2 class="text-lg font-semibold">Total Bookings</h2>
+      <p class="text-4xl font-bold mt-2">{{ totalBookings }}</p>
+    </div>
+
+    <!-- Total Agencies -->
+    <div class="bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+      <h2 class="text-lg font-semibold">Total Agencies</h2>
+      <p class="text-4xl font-bold mt-2">{{ totalAgencies }}</p>
+    </div>
+
+    <!-- Total Revenue -->
+    <div class="bg-gradient-to-r from-yellow-500 to-amber-600 text-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-transform transform hover:-translate-y-1">
+      <h2 class="text-lg font-semibold">Total Revenue</h2>
+      <p class="text-4xl font-bold mt-2">{{ totalRevenue | currency:'INR' }}</p>
+    </div>
+  </div>
+
+  <!-- Analytics Charts -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+    <!-- Popular Tours Chart -->
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Popular Tours</h2>
+      <div *ngIf="isBrowser" class="relative h-72">
+        <canvas *ngIf="popularTourChart" baseChart
+                [datasets]="popularTourChart.datasets"
+                [labels]="popularTourChart.labels"
+                [options]="{ responsive: true, maintainAspectRatio: false }"
+                [type]="'pie'">
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Popular Agencies Chart -->
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Popular Agencies</h2>
+      <div *ngIf="isBrowser" class="relative h-72">
+        <canvas *ngIf="popularAgenciesChart" baseChart
+                [datasets]="popularAgenciesChart.datasets"
+                [labels]="popularAgenciesChart.labels"
+                [options]="{ responsive: true, maintainAspectRatio: false }"
+                [type]="'pie'">
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Revenue Per Agency Bar Chart -->
+  <div class="mt-8">
+    <div class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Revenue Per Agency (Current Month)</h2>
+      <div *ngIf="isBrowser" class="relative h-80">
+        <canvas *ngIf="revenueChart" baseChart
+                [datasets]="revenueChart.datasets"
+                [labels]="revenueChart.labels"
+                [options]="{ responsive: true, maintainAspectRatio: false }"
+                [type]="'bar'">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
