@@ -1,0 +1,157 @@
+<!-- Add this link to your HTML file in the head section -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="p-6 bg-green-50 min-h-screen" >
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-6 flex-wrap">
+    <h1 class="text-2xl font-semibold text-gray-800 w-full sm:w-auto">Manage Tour Packages</h1>
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition mt-4 sm:mt-0">
+      Add Tour Package
+    </button>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="flex justify-between items-center mb-4 bg-white p-4 rounded-md shadow-sm flex-wrap">
+    <h2 class="text-lg font-medium text-gray-800 w-full sm:w-auto mb-2 sm:mb-0">Tour Packages List</h2>
+    <div class="relative w-full sm:w-72">
+      <input type="text" [(ngModel)]="searchTerm" (input)="filterPackages()"
+        placeholder="Search Package"
+        class="border border-gray-300 rounded-md py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
+        viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd"
+          d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM10 16a6 6 0 100-12 6 6 0 000 12z"
+          clip-rule="evenodd" />
+      </svg>
+    </div>
+  </div>
+
+ <!-- Table Container -->
+<div class="bg-white rounded-md shadow-md overflow-hidden">
+  <div class="overflow-x-auto">
+    <table class="min-w-full table-auto border-collapse">
+      <!-- Table Header -->
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-2 text-center text-sm font-medium text-gray-700">No</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Profile</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden sm:table-cell">Duration</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden md:table-cell">Route</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden lg:table-cell">Start Point</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden lg:table-cell">End Point</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden lg:table-cell">Price</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden lg:table-cell">Status</th>
+          <th class="px-4 py-2 text-center text-sm font-medium text-gray-700">Actions</th>
+        </tr>
+      </thead>
+
+      <!-- Table Body -->
+      <tbody>
+        <!-- No Data Found Row -->
+        <tr *ngIf="filteredPackages.length === 0" class="text-center">
+          <td colspan="9" class="px-4 py-2 text-sm text-gray-600">No Packages found</td>
+        </tr>
+
+        <!-- Agency Rows -->
+        <tr *ngFor="let tour of paginatedPackages; let i = index" class="hover:bg-gray-50 border-b border-gray-200">
+          <!-- Serial Number -->
+          <td class="px-4 py-2 text-center text-sm text-gray-600">
+            {{ i + 1 + (currentPage - 1) * rowsPerPage }}
+          </td>
+
+          <!-- Profile -->
+          <td class="px-4 py-2 flex items-center space-x-2">
+            <img [src]="tour.Images[0]" alt="Pacakge Logo" class="h-10 w-10 rounded-full border object-cover">
+            <span class="text-gray-800 text-sm font-medium">{{ tour.Name }}</span>
+          </td>
+
+          <!-- Duration -->
+          <td class="px-4 py-2 text-sm text-gray-600 hidden sm:table-cell">
+            {{ tour.Duration }}
+          </td>
+
+          <!-- Route -->
+          <td class="px-4 py-2 text-sm text-gray-600 hidden md:table-cell">
+            {{ tour.Route }}
+          </td>
+
+          <!-- Start Point -->
+          <td class="px-4 py-2 text-sm text-gray-600 hidden lg:table-cell">
+            {{ tour.StartPoint }}
+          </td>
+
+          <!-- End Point -->
+          <td class="px-4 py-2 text-sm text-gray-600 hidden lg:table-cell">
+            {{ tour.EndPoint }}
+          </td>
+            <!-- Price -->
+            <td class="px-4 py-2 text-sm text-gray-600 hidden lg:table-cell">
+                {{ tour.Price }}
+              </td>
+
+            <!-- Status -->
+            <td class="px-4 py-2 text-sm text-gray-600 hidden lg:table-cell">
+                {{ tour.AvailabilityStatus}}
+            </td>
+
+          <!-- Actions -->
+          <td class="px-4 py-2 text-center">
+            <div class="flex justify-center space-x-2">
+
+                <!-- View Button
+                <button class="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600 transition">
+                    <span class="material-icons">visibility</span>
+                </button>   -->
+  
+              <!-- Edit Button -->
+              <button class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition">
+                <span class="material-icons">edit</span>
+              </button>
+
+              <!-- Delete Button -->
+              <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition" (click)="deletePackage(tour.id)">
+                <span class="material-icons">delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+  <!-- Pagination -->
+  <div class="flex justify-between items-center mt-4 text-sm text-gray-600 flex-wrap">
+    <!-- Rows per page -->
+    <div class="flex items-center space-x-2 mb-2 sm:mb-0">
+      <span>Rows per page:</span>
+      <select (change)="changeRowsPerPage($event)" [(ngModel)]="rowsPerPage" class="border border-gray-300 rounded-md py-2 px-4 focus:outline-none text-sm">
+        <option *ngFor="let option of [5, 10, 20, 50]" [value]="option">{{ option }}</option>
+
+      </select>
+    </div>
+
+    <!-- Pagination Navigation -->
+<div class="flex items-center space-x-4">
+  <button 
+    class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
+    (click)="previousPage()"
+    [disabled]="currentPage === 1"
+  >
+    <
+  </button>
+  <span class="text-sm font-medium text-gray-600">
+    {{ currentPageStart }} - {{ currentPageEnd }} of {{ filteredPackages.length }}
+  </span>
+  <button 
+    class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
+    (click)="nextPage()"
+    [disabled]="currentPage * rowsPerPage >= filteredPackages.length"
+  >
+    >
+  </button>
+</div>
+
+  </div>
+</div>

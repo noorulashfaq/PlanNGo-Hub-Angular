@@ -5,6 +5,7 @@ import { BookingFormComponent } from "./tour/components/tour-booking/tour-bookin
 import { MyBookingsComponent } from "./tour/components/my-bookings/my-bookings.component";
 import { SuperAdminDashboardComponent } from "./tour/components/super-admin-dashboard/super-admin-dashboard.component";
 import { SuperAdminAgencyManagementComponent } from "./tour/components/super-admin-agency-management/super-admin-agency-management.component";
+import { AgencyAdminManagementComponent } from './tour/components/agency-admin-management/agency-admin-management.component';
 
 export const routes: Routes = [
   { path: "tours/home", component: HomepageComponent },
@@ -13,4 +14,6 @@ export const routes: Routes = [
   { path: "tours/my-bookings", component: MyBookingsComponent },
   { path: "tours/superadmin/dashboard", component: SuperAdminDashboardComponent },
   { path: "tours/superadmin/dashboard/agencies", component: SuperAdminAgencyManagementComponent },
+  { path: "tours/agencyadmin/:agencyId/dashboard/packages", component: AgencyAdminManagementComponent }, // new route
+
 ];
