@@ -33,6 +33,7 @@ export class SuperAdminDashboardComponent implements OnInit {
   revenuePerAgency: { [key: string]: number } = {};
 
   isBrowser: boolean = false;
+  isFabMenuOpen = false;
 
   constructor(
     private http: HttpClient,
@@ -164,5 +165,9 @@ export class SuperAdminDashboardComponent implements OnInit {
       colors.push(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
     }
     return colors;
+  }
+
+  toggleFabMenu(): void {
+    this.isFabMenuOpen = !this.isFabMenuOpen;
   }
 }

@@ -36,8 +36,6 @@ export class AgencyAdminManagementComponent implements OnInit {
     this.agencyId = this.route.snapshot.paramMap.get('agencyId')!;
     console.log('Agency ID:', this.agencyId);
     this.fetchPackages();
-    console.log('Initial tours data:', this.tours);
-
   }
 
   fetchPackages(): void {
