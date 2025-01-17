@@ -2,6 +2,9 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable,forkJoin } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+//import { map, Observable, switchMap } from "rxjs";
+
+
 import {
   Agencies,
   Locations,
@@ -51,10 +54,7 @@ export class TourPackagesService {
     );
   }
 
-  // Fetch only tours
-  getTourPackages(): Observable<TourPackage[]> {
-    return this.http.get<TourPackage[]>(this.toursApiUrl);
-  }
+
 
   // Fetch only locations
   getLocations(): Observable<{ LocationId: string; Location: string }[]> {
@@ -70,10 +70,7 @@ export class TourPackagesService {
     );
   }
 
-  // Fetch all agencies
-  getAgencies(): Observable<Agencies[]> {
-    return this.http.get<Agencies[]>(this.agenciesApiUrl);
-  }
+ 
 
   // Fetch agencies by ID
   getAgencyDetails(agencyId: string): Observable<Agencies[]> {
@@ -121,6 +118,7 @@ export class TourPackagesService {
   addNewPayment(paymentData: any): Observable<any> {
     return this.http.post(this.paymentApiUrl, paymentData);
   }
+
   // Fetch total bookings
 getTotalBookings(): Observable<number> {
   return this.getAllBookings().pipe(
@@ -277,5 +275,37 @@ private parseAmount(amount: any): number {
 }
 
 
+}
+
+
+  // Add a new agency
+  addAgency(agencyData: any): Observable<any> {
+    return this.http.post<any>(this.agenciesApiUrl, agencyData);
+  }
+
+  // Update an existing agency
+  updateAgency(id: string, agencyData: any): Observable<any> {
+    return this.http.put<any>(`${this.agenciesApiUrl}/${id}`, agencyData);
+  }
+
+  // Delete an agency
+  deleteAgency(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.agenciesApiUrl}/${id}`);
+  }
+  
+   // Fetch all agencies
+   getAgencies(): Observable<Agencies[]> {
+    return this.http.get<Agencies[]>(this.agenciesApiUrl);
+  }
+
+    // Fetch only tours
+    getTourPackages(): Observable<TourPackage[]> {
+      return this.http.get<TourPackage[]>(this.toursApiUrl);
+    }
+
+  // Delete an agency
+  deletePackage(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.toursApiUrl}/${id}`);
+  }
 }
 
