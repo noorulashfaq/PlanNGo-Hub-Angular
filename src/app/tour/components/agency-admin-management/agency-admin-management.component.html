@@ -3,15 +3,15 @@
 <div class="p-6 bg-green-50 min-h-screen" >
   <!-- Header -->
   <div class="flex justify-between items-center mb-6 flex-wrap">
-    <h1 class="text-2xl font-semibold text-gray-800 w-full sm:w-auto">Manage Tour Packages</h1>
-    <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition mt-4 sm:mt-0">
+    <h1 class="text-2xl font-semibold text-blue-800 w-full sm:w-auto">Manage Tour Packages</h1>
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition mt-4 sm:mt-0" (click)="openAddTourForm()">
       Add Tour Package
     </button>
   </div>
 
   <!-- Search Bar -->
   <div class="flex justify-between items-center mb-4 bg-white p-4 rounded-md shadow-sm flex-wrap">
-    <h2 class="text-lg font-medium text-gray-800 w-full sm:w-auto mb-2 sm:mb-0">Tour Packages List</h2>
+    <h2 class="text-lg font-medium text-orange-600 w-full sm:w-auto mb-2 sm:mb-0">Tour Packages List</h2>
     <div class="relative w-full sm:w-72">
       <input type="text" [(ngModel)]="searchTerm" (input)="filterPackages()"
         placeholder="Search Package"
@@ -98,20 +98,16 @@
           <td class="px-4 py-2 text-center">
             <div class="flex justify-center space-x-2">
 
-                <!-- View Button
-                <button class="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600 transition">
-                    <span class="material-icons">visibility</span>
-                </button>   -->
-  
               <!-- Edit Button -->
-              <button class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition">
+              <button class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition" (click)="openEditTourForm(tour)" >
                 <span class="material-icons">edit</span>
               </button>
 
               <!-- Delete Button -->
-              <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition" (click)="deletePackage(tour.id)">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition" (click)="confirmDeletePackage(tour.id)">
                 <span class="material-icons">delete</span>
               </button>
+              
             </div>
           </td>
         </tr>
@@ -119,7 +115,6 @@
     </table>
   </div>
 </div>
-
 
   <!-- Pagination -->
   <div class="flex justify-between items-center mt-4 text-sm text-gray-600 flex-wrap">
@@ -153,5 +148,853 @@
   </button>
 </div>
 
+<!-- Confirmation Modal -->
+<div *ngIf="isDeleteModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-green-50 w-full max-w-md p-6 rounded-md shadow-lg relative max-h-screen overflow-y-auto">
+    <h2 class="text-lg font-semibold text-red-800 mb-4">Confirm Deletion</h2>
+    <p class="text-sm text-gray-600 mb-6">Are you sure you want to delete this tour package?</p>
+    <div class="flex justify-end gap-4">
+      <button (click)="closeDeleteModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400">Cancel</button>
+      <button (click)="deletePackage()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Confirm</button>
+    </div>
   </div>
 </div>
+
+<!-- Add Tour Packages -->
+<div
+  *ngIf="isAddTourModalOpen"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+>
+  <div class="bg-green-50 w-full max-w-3xl p-6 rounded-md shadow-lg relative max-h-screen overflow-y-auto">
+    <button
+      class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+      (click)="closeAddTourForm()"
+    >
+      <span class="material-icons">close</span>
+    </button>
+    <h2 class="text-2xl font-semibold text-pink-600 mb-4 text-center">Add New Tour</h2>
+    <form (ngSubmit)="addTour(addTourForm)" #addTourForm="ngForm">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Tour Name -->
+<div class="mb-4">
+  <label for="tourName" class="block text-sm font-medium text-gray-700">
+    Tour Name
+  </label>
+  <input
+    type="text"
+    id="tourName"
+    [(ngModel)]="newTour.Name"
+    name="Name"
+    placeholder="Enter Tour Name"
+    #tourName="ngModel"
+    required
+    minlength="3"
+    maxlength="50"
+    pattern="^[a-zA-Z0-9 ]+$"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="tourName.invalid && tourName.touched">
+    <small *ngIf="tourName.errors?.['required']" class="text-red-500">
+      * Tour Name is required.
+    </small>
+    <small *ngIf="tourName.errors?.['minlength']" class="text-red-500">
+      * Tour Name must be at least 3 characters long.
+    </small>
+    <small *ngIf="tourName.errors?.['maxlength']" class="text-red-500">
+      * Tour Name cannot exceed 50 characters.
+    </small>
+    <small *ngIf="tourName.errors?.['pattern']" class="text-red-500">
+      * Tour Name can only contain letters, numbers, and spaces.
+    </small>
+  </div>
+</div>
+
+<!-- Tour Type -->
+<div class="mb-4">
+  <label for="tourType" class="block text-sm font-medium text-gray-700">
+    Tour Type
+  </label>
+  <div class="flex items-center gap-2">
+    <select
+      id="tourType"
+      [(ngModel)]="newTour.TourTypeId"
+      name="TourTypeId"
+      #tourType="ngModel"
+      required
+      class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+    >
+      <option value="" disabled selected>Select a Tour Type</option>
+      <option *ngFor="let type of tourTypes" [value]="type.TypeId">
+        {{ type.Type }}
+      </option>
+    </select>
+  </div>
+  <div *ngIf="tourType.invalid && (tourType.touched || addTourForm.submitted)">
+    <small *ngIf="tourType.errors?.['required']" class="text-red-500">
+      * Tour Type is required.
+    </small>
+  </div>
+</div>
+<!-- Route -->
+<div class="mb-4">
+  <label
+    for="route"
+    class="block text-sm font-medium text-gray-700"
+  >
+    Route
+  </label>
+  <input
+    type="text"
+    id="route"
+    [(ngModel)]="newTour.Route"
+    name="Route"
+    #route="ngModel"
+    placeholder="Enter route"
+    required
+    minlength="3"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="route.invalid && (route.touched || addTourForm.submitted)">
+    <small *ngIf="route.errors?.['required']" class="text-red-500">
+      * Route is required.
+    </small>
+    <small *ngIf="route.errors?.['minlength']" class="text-red-500">
+      * Route must be at least 3 characters long.
+    </small>
+  </div>
+</div>
+
+
+    <!-- Duration -->
+<div class="mb-4">
+  <label
+    for="duration"
+    class="block text-sm font-medium text-gray-700"
+  >
+    Duration
+  </label>
+  <input
+    type="text"
+    id="duration"
+    [(ngModel)]="newTour.Duration"
+    name="Duration"
+    #duration="ngModel"
+    placeholder="Enter duration (e.g., '3 days', '5 hours')"
+    required
+    pattern="^[0-9]+ (days?|hours?)$"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="duration.invalid && (duration.touched || addTourForm.submitted)">
+    <small *ngIf="duration.errors?.['required']" class="text-red-500">
+      * Duration is required.
+    </small>
+    <small *ngIf="duration.errors?.['pattern']" class="text-red-500">
+      * Please enter a valid duration (e.g., '3 days' or '5 hours').
+    </small>
+  </div>
+</div>
+<!-- Start-Point -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Start-Point</label>
+  <input
+    type="text"
+    placeholder="Enter Start-Point"
+    [(ngModel)]="newTour.StartPoint"
+    name="startPoint"
+    #startPoint="ngModel"
+    required
+    pattern="^[a-zA-Z ]+$"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="startPoint.invalid && (startPoint.touched || addTourForm.submitted)">
+    <small *ngIf="startPoint.errors?.['required']" class="text-red-500">
+      * Start-Point is required.
+    </small>
+    <small *ngIf="startPoint.errors?.['pattern']" class="text-red-500">
+      * Start-Point must only contain letters and spaces.
+    </small>
+  </div>
+</div>
+
+<!-- End-Point -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">End-Point</label>
+  <input
+    type="text"
+    placeholder="Enter End-Point"
+    [(ngModel)]="newTour.EndPoint"
+    name="endPoint"
+    #endPoint="ngModel"
+    required
+    pattern="^[a-zA-Z ]+$"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="endPoint.invalid && (endPoint.touched || addTourForm.submitted)">
+    <small *ngIf="endPoint.errors?.['required']" class="text-red-500">
+      * End-Point is required.
+    </small>
+    <small *ngIf="endPoint.errors?.['pattern']" class="text-red-500">
+      * End-Point must only contain letters and spaces.
+    </small>
+  </div>
+</div>
+
+<!-- Price -->
+<div class="mb-4">
+  <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+  <input
+    type="number"
+    id="price"
+    [(ngModel)]="newTour.Price"
+    name="Price"
+    placeholder="Enter Price"
+    #price="ngModel"
+    required
+    min="1"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="price.invalid && (price.touched || addTourForm.submitted)">
+    <small *ngIf="price.errors?.['required']" class="text-red-500">* Price is required.</small>
+    <small *ngIf="price.errors?.['min']" class="text-red-500">* Price must be at least 1.</small>
+  </div>
+</div>
+
+ <!-- Availability Status -->
+<div class="mb-4">
+  <label for="availabilityStatus" class="block text-sm font-medium text-gray-700">
+    Availability Status
+  </label>
+  <select
+    id="availabilityStatus"
+    [(ngModel)]="newTour.AvailabilityStatus"
+    name="AvailabilityStatus"
+    #availabilityStatus="ngModel"
+    required
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  >
+    <option value="" disabled>Select Availability</option>
+    <option value="Available">Available</option>
+    <option value="Not Available">Not Available</option>
+  </select>
+  <div *ngIf="availabilityStatus.invalid && (availabilityStatus.touched || addTourForm.submitted)">
+    <small class="text-red-500">* Availability Status is required.</small>
+  </div>
+</div>
+
+        <!-- Images -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Images</label>
+          <input
+            type="file"
+            (change)="onImageUpload($event)"
+            multiple
+            required
+            class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <div class="grid grid-cols-2 gap-4 p-4">
+            <img *ngFor="let imageUrl of newTour.Images" [src]="imageUrl" alt="Tour Image" class="w-full h-auto rounded-lg shadow-md transform transition-transform duration-300 ease-in-out hover:scale-105" />
+          </div>
+          
+          <div *ngIf="!isFileValid && fileTouched">
+            <small class="text-red-500">* At least one valid image is required.</small>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4">
+          <label
+            for="tourDescription"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Description
+          </label>
+          <textarea
+            id="tourDescription"
+            [(ngModel)]="newTour.Description"
+            name="Description"
+            placeholder="Tour package details"
+            required
+            rows="3"
+            class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          ></textarea>
+          <div *ngIf="addTourForm.form.controls['Description']?.invalid && addTourForm.form.controls['Description']?.touched">
+            <small class="text-red-500">* Description is required.</small>
+          </div>
+        </div>
+
+        <!-- Inclusion -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Inclusion</label>
+  
+  <!-- Input for adding new inclusion -->
+  <div class="flex mb-2">
+    <input
+      type="text"
+      [(ngModel)]="newInclusion"
+      name="newInclusion"
+      #inclusionInput="ngModel"
+      class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter Inclusion"
+    />
+    <button
+      type="button"
+      (click)="addInclusion(newInclusion)"
+      [disabled]="!newInclusion || newInclusion.trim().length < 5"
+      class="text-blue-500 hover:text-blue-700 ml-2"
+    >
+      <span class="material-icons">add_circle</span> <!-- Add Icon -->
+    </button>
+  </div>
+  
+  <div *ngIf="inclusionInput.invalid && inclusionInput.touched">
+    <small *ngIf="inclusionInput.errors?.['required']" class="text-red-500">* Inclusion is required.</small>
+    <small *ngIf="inclusionInput.errors?.['minlength']" class="text-red-500">* Inclusion must be at least 5 characters.</small>
+  </div>
+
+  <!-- Display the list of inclusions -->
+  <div *ngFor="let inclusion of newTour.Inclusions; let i = index" class="flex items-center mt-2">
+    <span class="flex-1">{{ inclusion }}</span>
+    <button
+      type="button"
+      (click)="removeInclusion(i)"
+      class="text-red-500 hover:text-red-700 ml-2"
+    >
+      <span class="material-icons">remove_circle</span> <!-- Remove Icon -->
+    </button>
+  </div>
+</div>
+<!-- Cancellation Policy -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Cancellation Policy</label>
+  
+  <!-- Input for adding new payment terms policy -->
+  <div class="flex mb-2">
+    <input
+      type="text"
+      [(ngModel)]="newCancellationPolicy"
+      name="newCancellationPolicy"
+      #cancellationInput="ngModel"
+      class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter Cancellation Policy"
+    />
+    <button
+      type="button"
+      (click)="addCancellationPolicy(newCancellationPolicy)"
+      [disabled]="!newCancellationPolicy || newCancellationPolicy.trim().length < 5"
+      class="text-blue-500 hover:text-blue-700 ml-2"
+    >
+      <span class="material-icons">add_circle</span> <!-- Add Icon -->
+    </button>
+  </div>
+
+  <div *ngIf="cancellationInput.invalid && cancellationInput.touched">
+    <small *ngIf="cancellationInput.errors?.['required']" class="text-red-500">* Cancellation Policy is required.</small>
+    <small *ngIf="cancellationInput.errors?.['minlength']" class="text-red-500">* Cancellation must be at least 5 characters.</small>
+  </div>
+
+  <!-- Display the list of cancellation policies -->
+  <div *ngFor="let policy of newTour.CancellationPolicy; let i = index" class="flex items-center mt-2">
+    <span class="flex-1">{{ policy }}</span>
+    <button
+      type="button"
+      (click)="removeCancellationPolicy(i)"
+      class="text-red-500 hover:text-red-700 ml-2"
+    >
+      <span class="material-icons">remove_circle</span> <!-- Remove Icon -->
+    </button>
+  </div>
+</div>
+
+     <!-- Payment Terms Policy -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Payment Terms Policy</label>
+  
+  <!-- Input for adding new payment terms policy -->
+  <div class="flex mb-2">
+    <input
+      type="text"
+      [(ngModel)]="newPaymentTermsPolicy"
+      name="newPaymentTermsPolicy"
+      #paymentTermsPolicyInput="ngModel"
+      class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter Payment Terms Policy"
+    />
+    <button
+      type="button"
+      (click)="addPaymentTermsPolicy(newPaymentTermsPolicy)"
+      [disabled]="!newPaymentTermsPolicy || newPaymentTermsPolicy.trim().length < 5"
+      class="text-blue-500 hover:text-blue-700 ml-2"
+    >
+      <span class="material-icons">add_circle</span> <!-- Add Icon -->
+    </button>
+  </div>
+
+  <div *ngIf="paymentTermsPolicyInput.invalid && paymentTermsPolicyInput.touched">
+    <small *ngIf="paymentTermsPolicyInput.errors?.['required']" class="text-red-500">* Payment Terms Policy is required.</small>
+    <small *ngIf="paymentTermsPolicyInput.errors?.['minlength']" class="text-red-500">* Payment Terms Policy must be at least 5 characters.</small>
+  </div>
+
+  <!-- Display the list of payment terms policies -->
+  <div *ngFor="let policy of newTour.PaymentTermsPolicy; let i = index" class="flex items-center mt-2">
+    <span class="flex-1">{{ policy }}</span>
+    <button
+      type="button"
+      (click)="removePaymentTermsPolicy(i)"
+      class="text-red-500 hover:text-red-700 ml-2"
+    >
+      <span class="material-icons">remove_circle</span> <!-- Remove Icon -->
+    </button>
+  </div>
+</div>
+
+      </div>
+      <!-- Actions -->
+      <div class="flex justify-end gap-4">
+        <button
+          type="button"
+          (click)="closeAddTourForm()"
+          class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          [disabled]="addTourForm.invalid"
+          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+        >
+          Add Tour
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Tour Packages -->
+<div
+  *ngIf="isEditTourModalOpen"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+>
+  <div class="bg-green-50 w-full max-w-3xl p-6 rounded-md shadow-lg relative max-h-screen overflow-y-auto">
+    <button
+      class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+      (click)="closeEditTourForm()"
+    >
+      <span class="material-icons">close</span>
+    </button>
+    <h2 class="text-2xl font-semibold text-orange-600 mb-4 text-center">Edit Tour</h2>
+    <form (ngSubmit)="updateTour(editTourForm)" #editTourForm="ngForm">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Tour Name -->
+        <div class="mb-4">
+          <label for="editTourName" class="block text-sm font-medium text-gray-700">
+            Tour Name
+          </label>
+          <input
+            type="text"
+            id="editTourName"
+            [(ngModel)]="editTours.Name"
+            name="Name"
+            placeholder="Enter Tour Name"
+            #editTourName="ngModel"
+            required
+            minlength="3"
+            maxlength="50"
+            pattern="^[a-zA-Z0-9 ]+$"
+            class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <div *ngIf="editTourName.invalid && editTourName.touched">
+            <small *ngIf="editTourName.errors?.['required']" class="text-red-500">
+              * Tour Name is required.
+            </small>
+            <small *ngIf="editTourName.errors?.['minlength']" class="text-red-500">
+              * Tour Name must be at least 3 characters long.
+            </small>
+            <small *ngIf="editTourName.errors?.['maxlength']" class="text-red-500">
+              * Tour Name cannot exceed 50 characters.
+            </small>
+            <small *ngIf="editTourName.errors?.['pattern']" class="text-red-500">
+              * Tour Name can only contain letters, numbers, and spaces.
+            </small>
+          </div>
+        </div>
+
+        <!-- Tour Type -->
+        <div class="mb-4">
+          <label for="editTourType" class="block text-sm font-medium text-gray-700">
+            Tour Type
+          </label>
+          <div class="flex items-center gap-2">
+            <select
+              id="editTourType"
+              [(ngModel)]="editTours.TourTypeId"
+              name="TourTypeId"
+              #editTourType="ngModel"
+              required
+              class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <option value="" disabled>Select a Tour Type</option>
+              <option *ngFor="let type of tourTypes" [value]="type.TypeId">
+                {{ type.Type }}
+              </option>
+            </select>
+          </div>
+          <div *ngIf="editTourType.invalid && (editTourType.touched || editTourForm.submitted)">
+            <small *ngIf="editTourType.errors?.['required']" class="text-red-500">
+              * Tour Type is required.
+            </small>
+          </div>
+        </div>
+
+        <!-- Route -->
+        <div class="mb-4">
+          <label for="editRoute" class="block text-sm font-medium text-gray-700">
+            Route
+          </label>
+          <input
+            type="text"
+            id="editRoute"
+            [(ngModel)]="editTours.Route"
+            name="Route"
+            placeholder="Enter route"
+            required
+            minlength="3"
+            class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <div *ngIf="editTourForm.form.controls['Route']?.invalid && (editTourForm.form.controls['Route']?.touched || editTourForm.submitted)">
+            <small *ngIf="editTourForm.form.controls['Route']?.errors?.['required']" class="text-red-500">
+              * Route is required.
+            </small>
+            <small *ngIf="editTourForm.form.controls['Route']?.errors?.['minlength']" class="text-red-500">
+              * Route must be at least 3 characters long.
+            </small>
+          </div>
+        </div>
+
+        <!-- Duration -->
+        <div class="mb-4">
+          <label for="editDuration" class="block text-sm font-medium text-gray-700">
+            Duration
+          </label>
+          <input
+            type="text"
+            id="editDuration"
+            [(ngModel)]="editTours.Duration"
+            name="Duration"
+            placeholder="Enter duration (e.g., '3 days 2 nights')"
+            required
+            pattern="^[0-9]+ (Days|days)? [0-9]+ (Nights|nights)?$"
+            class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <div *ngIf="editTourForm.form.controls['Duration']?.invalid && (editTourForm.form.controls['Duration']?.touched || editTourForm.submitted)">
+            <small *ngIf="editTourForm.form.controls['Duration']?.errors?.['required']" class="text-red-500">
+              * Duration is required.
+            </small>
+            <small *ngIf="editTourForm.form.controls['Duration']?.errors?.['pattern']" class="text-red-500">
+              * Please enter a valid duration (e.g., '3 days 2 nights).
+            </small>
+          </div>
+        </div>
+        <!-- Start-Point -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Start-Point</label>
+  <input
+    type="text"
+    placeholder="Enter Start-Point"
+    [(ngModel)]="editTours.StartPoint"
+    name="startPoint"
+    #startPoint="ngModel"
+    required
+    pattern="^[a-zA-Z ]+$"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="startPoint.invalid && (startPoint.touched || editTourForm.submitted)">
+    <small *ngIf="startPoint.errors?.['required']" class="text-red-500">
+      * Start-Point is required.
+    </small>
+    <small *ngIf="startPoint.errors?.['pattern']" class="text-red-500">
+      * Start-Point must only contain letters and spaces.
+    </small>
+  </div>
+</div>
+
+<!-- End-Point -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">End-Point</label>
+  <input
+    type="text"
+    placeholder="Enter End-Point"
+    [(ngModel)]="editTours.EndPoint"
+    name="endPoint"
+    #endPoint="ngModel"
+    required
+    pattern="^[a-zA-Z ]+$"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="endPoint.invalid && (endPoint.touched || editTourForm.submitted)">
+    <small *ngIf="endPoint.errors?.['required']" class="text-red-500">
+      * End-Point is required.
+    </small>
+    <small *ngIf="endPoint.errors?.['pattern']" class="text-red-500">
+      * End-Point must only contain letters and spaces.
+    </small>
+  </div>
+</div>
+
+<!-- Price -->
+<div class="mb-4">
+  <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+  <input
+    type="number"
+    id="price"
+    [(ngModel)]="editTours.Price"
+    name="Price"
+    placeholder="Enter Price"
+    #price="ngModel"
+    required
+    min="1"
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+  <div *ngIf="price.invalid && (price.touched || editTourForm.submitted)">
+    <small *ngIf="price.errors?.['required']" class="text-red-500">* Price is required.</small>
+    <small *ngIf="price.errors?.['min']" class="text-red-500">* Price must be at least 1.</small>
+  </div>
+</div>
+
+ <!-- Availability Status -->
+<div class="mb-4">
+  <label for="availabilityStatus" class="block text-sm font-medium text-gray-700">
+    Availability Status
+  </label>
+  <select
+    id="availabilityStatus"
+    [(ngModel)]="editTours.AvailabilityStatus"
+    name="AvailabilityStatus"
+    #availabilityStatus="ngModel"
+    required
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  >
+    <option value="" disabled>Select Availability</option>
+    <option value="Available">Available</option>
+    <option value="Not Available">Not Available</option>
+  </select>
+  <div *ngIf="availabilityStatus.invalid && (availabilityStatus.touched || editTourForm.submitted)">
+    <small class="text-red-500">* Availability Status is required.</small>
+  </div>
+</div>
+
+        <!-- Images -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Images</label>
+  
+  <!-- Input for uploading images -->
+  <input
+    type="file"
+    (change)="onImageUploadd($event)"
+    multiple
+    required
+    class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+
+  <!-- Display uploaded images with the option to remove -->
+  <div class="grid grid-cols-2 gap-4 p-4">
+    <div *ngFor="let imageUrl of editTours.Images; let i = index" class="relative group">
+      <img
+        [src]="imageUrl"
+        alt="Tour Image"
+        class="w-full h-auto rounded-lg shadow-md transform transition-transform duration-300 ease-in-out hover:scale-105"
+      />
+      <!-- Remove Button (Visible on Hover) -->
+      <button
+        type="button"
+        (click)="removeImage(i)"
+        class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+      >
+        <span class="material-icons">remove_circle</span>
+      </button>
+    </div>
+  </div>
+
+  
+  <!-- Validation Message -->
+  <div *ngIf="!isFileValid && fileTouched">
+    <small class="text-red-500">* At least one valid image is required.</small>
+  </div>
+</div>
+
+
+        <!-- Description -->
+        <div class="mb-4">
+          <label
+            for="tourDescription"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Description
+          </label>
+          <textarea
+            id="tourDescription"
+            [(ngModel)]="editTours.Description"
+            name="Description"
+            placeholder="Tour package details"
+            required
+            rows="3"
+            class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          ></textarea>
+          <div *ngIf="editTourForm.form.controls['Description']?.invalid && editTourForm.form.controls['Description']?.touched">
+            <small class="text-red-500">* Description is required.</small>
+          </div>
+        </div>
+
+        <!-- Inclusion -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Inclusion</label>
+  
+  <!-- Input for adding new inclusion -->
+  <div class="flex mb-2">
+    <input
+      type="text"
+      [(ngModel)]="newInclusion"
+      name="newInclusion"
+      #inclusionInput="ngModel"
+      class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter Inclusion"
+    />
+    <button
+      type="button"
+      (click)="addInclusionn(newInclusion)"
+      [disabled]="!newInclusion || newInclusion.trim().length < 5"
+      class="text-blue-500 hover:text-blue-700 ml-2"
+    >
+      <span class="material-icons">add_circle</span> <!-- Add Icon -->
+    </button>
+  </div>
+  
+  <div *ngIf="inclusionInput.invalid && inclusionInput.touched">
+    <small *ngIf="inclusionInput.errors?.['required']" class="text-red-500">* Inclusion is required.</small>
+    <small *ngIf="inclusionInput.errors?.['minlength']" class="text-red-500">* Inclusion must be at least 5 characters.</small>
+  </div>
+
+  <!-- Display the list of inclusions -->
+  <div *ngFor="let inclusion of editTours.Inclusions; let i = index" class="flex items-center mt-2">
+    <span class="flex-1">{{ inclusion }}</span>
+    <button
+      type="button"
+      (click)="removeInclusionn(i)"
+      class="text-red-500 hover:text-red-700 ml-2"
+    >
+      <span class="material-icons">remove_circle</span> <!-- Remove Icon -->
+    </button>
+  </div>
+</div>
+<!-- Cancellation Policy -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Cancellation Policy</label>
+  
+  <!-- Input for adding new payment terms policy -->
+  <div class="flex mb-2">
+    <input
+      type="text"
+      [(ngModel)]="newCancellationPolicy"
+      name="newCancellationPolicy"
+      #cancellationInput="ngModel"
+      class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter Cancellation Policy"
+    />
+    <button
+      type="button"
+      (click)="addCancellationPolicyy(newCancellationPolicy)"
+      [disabled]="!newCancellationPolicy || newCancellationPolicy.trim().length < 5"
+      class="text-blue-500 hover:text-blue-700 ml-2"
+    >
+      <span class="material-icons">add_circle</span> <!-- Add Icon -->
+    </button>
+  </div>
+
+  <div *ngIf="cancellationInput.invalid && cancellationInput.touched">
+    <small *ngIf="cancellationInput.errors?.['required']" class="text-red-500">* Cancellation Policy is required.</small>
+    <small *ngIf="cancellationInput.errors?.['minlength']" class="text-red-500">* Cancellation must be at least 5 characters.</small>
+  </div>
+
+  <!-- Display the list of cancellation policies -->
+  <div *ngFor="let policy of editTours.CancellationPolicy; let i = index" class="flex items-center mt-2">
+    <span class="flex-1">{{ policy }}</span>
+    <button
+      type="button"
+      (click)="removeCancellationPolicyy(i)"
+      class="text-red-500 hover:text-red-700 ml-2"
+    >
+      <span class="material-icons">remove_circle</span> <!-- Remove Icon -->
+    </button>
+  </div>
+</div>
+
+     <!-- Payment Terms Policy -->
+<div class="mb-4">
+  <label class="block text-sm font-medium text-gray-700">Payment Terms Policy</label>
+  
+  <!-- Input for adding new payment terms policy -->
+  <div class="flex mb-2">
+    <input
+      type="text"
+      [(ngModel)]="newPaymentTermsPolicy"
+      name="newPaymentTermsPolicy"
+      #paymentTermsPolicyInput="ngModel"
+      class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter Payment Terms Policy"
+    />
+    <button
+    type="button"
+    (click)="addPaymentTermsPolicyy(newPaymentTermsPolicy)"
+    [disabled]="!newPaymentTermsPolicy || newPaymentTermsPolicy.trim().length < 5"
+    class="text-blue-500 hover:text-blue-700 ml-2"
+  >
+    <span class="material-icons">add_circle</span> <!-- Add Icon -->
+  </button>
+</div>
+
+<div *ngIf="paymentTermsPolicyInput.invalid && paymentTermsPolicyInput.touched">
+  <small *ngIf="paymentTermsPolicyInput.errors?.['required']" class="text-red-500">* Payment Terms Policy is required.</small>
+  <small *ngIf="paymentTermsPolicyInput.errors?.['minlength']" class="text-red-500">* Payment Terms Policy must be at least 5 characters.</small>
+</div>
+
+<!-- Display the list of payment terms policies -->
+<div *ngFor="let policy of editTours.PaymentTermsPolicy; let i = index" class="flex items-center mt-2">
+  <span class="flex-1">{{ policy }}</span>
+  <button
+    type="button"
+    (click)="removePaymentTermsPolicyy(i)"
+    class="text-red-500 hover:text-red-700 ml-2"
+  >
+    <span class="material-icons">remove_circle</span> <!-- Remove Icon -->
+  </button>
+</div>
+</div>
+
+      </div>
+      <!-- Actions -->
+      <div class="flex justify-end gap-4">
+        <button
+          type="button"
+          (click)="closeEditTourForm()"
+          class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          [disabled]="editTourForm.invalid"
+          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+        >
+          Update Tour
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+  </div>
+</div>
+
+
+
