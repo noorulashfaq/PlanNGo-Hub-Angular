@@ -197,7 +197,7 @@
         class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
       <div *ngIf="phno.invalid && phno.touched">
         <small *ngIf="phno.errors?.['required']" class="text-red-500">* Phone Number is required.</small>
-        <small *ngIf="phno.errors?.['pattern']" class="text-red-500">* Invalid phone number format (e.g., +81-90-1234-5678).</small>
+        <small *ngIf="phno.errors?.['pattern']" class="text-red-500">* Invalid phone number format (e.g., +81-9012345678).</small>
       </div>
     </div>
 
@@ -313,7 +313,7 @@
         />
         <div *ngIf="phno.invalid && phno.touched">
           <small *ngIf="phno.errors?.['required']" class="text-red-500">* Phone Number is required.</small>
-          <small *ngIf="phno.errors?.['pattern']" class="text-red-500">* Invalid phone number format (e.g., +81-90-1234-5678).</small>
+          <small *ngIf="phno.errors?.['pattern']" class="text-red-500">* Invalid phone number format (e.g., +81-9012345678).</small>
         </div>
       </div>
 

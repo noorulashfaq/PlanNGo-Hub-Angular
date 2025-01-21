@@ -281,7 +281,7 @@
     #duration="ngModel"
     placeholder="Enter duration (e.g., '3 days', '5 hours')"
     required
-    pattern="^[0-9]+ (days?|hours?)$"
+    pattern="^(10|[1-9]) (Days|days)? (10|[1-9]) (Nights|nights)?$"
     class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
   />
   <div *ngIf="duration.invalid && (duration.touched || addTourForm.submitted)">
@@ -289,7 +289,7 @@
       * Duration is required.
     </small>
     <small *ngIf="duration.errors?.['pattern']" class="text-red-500">
-      * Please enter a valid duration (e.g., '3 days' or '5 hours').
+      * Please enter a valid duration (e.g., '3 days 2 nights').
     </small>
   </div>
 </div>
@@ -350,12 +350,12 @@
     placeholder="Enter Price"
     #price="ngModel"
     required
-    min="1"
+    min="300"
     class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
   />
   <div *ngIf="price.invalid && (price.touched || addTourForm.submitted)">
     <small *ngIf="price.errors?.['required']" class="text-red-500">* Price is required.</small>
-    <small *ngIf="price.errors?.['min']" class="text-red-500">* Price must be at least 1.</small>
+    <small *ngIf="price.errors?.['min']" class="text-red-500">* Price must be at least 300.</small>
   </div>
 </div>
 
@@ -394,7 +394,6 @@
           <div class="grid grid-cols-2 gap-4 p-4">
             <img *ngFor="let imageUrl of newTour.Images" [src]="imageUrl" alt="Tour Image" class="w-full h-auto rounded-lg shadow-md transform transition-transform duration-300 ease-in-out hover:scale-105" />
           </div>
-          
           <div *ngIf="!isFileValid && fileTouched">
             <small class="text-red-500">* At least one valid image is required.</small>
           </div>
@@ -415,11 +414,15 @@
             placeholder="Tour package details"
             required
             rows="3"
+            minlength="15"
             class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
           ></textarea>
           <div *ngIf="addTourForm.form.controls['Description']?.invalid && addTourForm.form.controls['Description']?.touched">
             <small class="text-red-500">* Description is required.</small>
           </div>
+          <small *ngIf="route.errors?.['minlength']" class="text-red-500">
+            * Route must be at least 15 characters long.
+          </small>
         </div>
 
         <!-- Inclusion -->
@@ -682,7 +685,7 @@
             name="Duration"
             placeholder="Enter duration (e.g., '3 days 2 nights')"
             required
-            pattern="^[0-9]+ (Days|days)? [0-9]+ (Nights|nights)?$"
+            pattern="^(10|[1-9]) (Days|days)? (10|[1-9]) (Nights|nights)?$"
             class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           <div *ngIf="editTourForm.form.controls['Duration']?.invalid && (editTourForm.form.controls['Duration']?.touched || editTourForm.submitted)">
@@ -751,12 +754,12 @@
     placeholder="Enter Price"
     #price="ngModel"
     required
-    min="1"
+    min="300"
     class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
   />
   <div *ngIf="price.invalid && (price.touched || editTourForm.submitted)">
     <small *ngIf="price.errors?.['required']" class="text-red-500">* Price is required.</small>
-    <small *ngIf="price.errors?.['min']" class="text-red-500">* Price must be at least 1.</small>
+    <small *ngIf="price.errors?.['min']" class="text-red-500">* Price must be at least 300.</small>
   </div>
 </div>
 
@@ -837,6 +840,7 @@
             placeholder="Tour package details"
             required
             rows="3"
+            minlength="15"
             class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
           ></textarea>
           <div *ngIf="editTourForm.form.controls['Description']?.invalid && editTourForm.form.controls['Description']?.touched">
