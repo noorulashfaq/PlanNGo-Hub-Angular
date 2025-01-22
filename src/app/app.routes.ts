@@ -6,14 +6,20 @@ import { MyBookingsComponent } from "./tour/components/my-bookings/my-bookings.c
 import { SuperAdminDashboardComponent } from "./tour/components/super-admin-dashboard/super-admin-dashboard.component";
 import { SuperAdminAgencyManagementComponent } from "./tour/components/super-admin-agency-management/super-admin-agency-management.component";
 import { AgencyAdminManagementComponent } from './tour/components/agency-admin-management/agency-admin-management.component';
+import { DemopageComponent } from "./tour/components/demopage/demopage.component";
 
 export const routes: Routes = [
+  // end users
+  { path: "", component: DemopageComponent },
   { path: "tours/home", component: HomepageComponent },
   { path: "tours/package/:id", component: TourInfoComponent },
   { path: "tours/package/:id/reserve", component: BookingFormComponent },
   { path: "tours/my-bookings", component: MyBookingsComponent },
+
+  // super admin
   { path: "tours/superadmin/dashboard", component: SuperAdminDashboardComponent },
   { path: "tours/superadmin/dashboard/agencies", component: SuperAdminAgencyManagementComponent },
-  { path: "tours/agencyadmin/:agencyId/dashboard/packages", component: AgencyAdminManagementComponent }, // new route
 
+  // agency admin
+  { path: "tours/agencyadmin/:agencyId/dashboard/packages", component: AgencyAdminManagementComponent },
 ];
