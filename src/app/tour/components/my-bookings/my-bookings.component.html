@@ -1,126 +1,163 @@
 <div class="container mx-auto p-6">
-    <!-- Header -->
-    <h2 class="text-3xl font-semibold text-gray-800 mb-6">My Bookings</h2>
-  
-    <!-- Loading Spinner -->
-    <div *ngIf="loading" class="flex justify-center items-center">
-      <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+  <!-- Header -->
+  <h2 class="text-3xl font-semibold text-gray-800 mb-6">My Bookings</h2>
+
+  <!-- Action Bar -->
+  <div
+    class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6"
+  >
+    <!-- Search -->
+    <div class="flex items-center gap-2 w-full md:w-1/3">
+      <input
+        type="text"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+        placeholder="Search by tours"
+        [(ngModel)]="searchQuery"
+        (input)="applyFilters()"
+      />
+      <button
+        class="px-4 py-2 text-white bg-teal-600 rounded-md hover:bg-teal-700 transition"
+        (click)="resetFilters()"
+      >
+        Reset
+      </button>
     </div>
-  
-    <!-- Error Message -->
-    <div *ngIf="errorMessage" class="text-red-500 text-center mb-4">
-      <p class="font-medium">{{ errorMessage }}</p>
+
+    <!-- Filters -->
+    <div class="flex items-center gap-4">
+      <select
+        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+        [(ngModel)]="filterStatus"
+        (change)="applyFilters()"
+      >
+        <option value="">All</option>
+        <option value="Confirmed">Confirmed</option>
+        <option value="Cancelled">Cancelled</option>
+      </select>
     </div>
-  
-    <!-- No Bookings Message -->
-    <div *ngIf="!loading && bookings.length === 0" class="text-center">
-      <p class="text-gray-500 text-lg">You have no bookings yet.</p>
-    </div>
-  
-    <!-- Bookings List -->
-    <div *ngIf="!loading && bookings.length > 0">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div
-          *ngFor="let booking of bookings"
-          class="p-6 shadow-xl rounded-lg transition transform hover:scale-105 hover:shadow-2xl"
-          [ngClass]="{
-            'bg-[rgb(254,249,195)]': true,  
-            'bg-green-100': booking.status === 'Confirmed',
-            'bg-yellow-100': booking.status === 'Pending',
-            'bg-red-100': booking.status === 'Cancelled'
-          }"
-        >
-          <!-- Main Info -->
-          <div class="flex justify-between items-start">
-            <!-- Tour Info -->
-            <div>
-              <h3 class="text-xl font-semibold text-gray-900">{{ booking.tourId }}</h3>
-              <p class="text-sm text-gray-500">
-                Arrival: {{ booking.arrivalDate }}
-              </p>
-              <p class="text-sm text-gray-500">
-                Departure: {{ booking.departureDate }}
-              </p>
-            </div>
-  
-            <!-- Action Buttons -->
-            <div class="flex flex-col space-y-3">
-              <!-- Edit Button -->
-              <button
-                (click)="editBooking(booking.bookingId)"
-                class="px-4 py-2 text-white bg-teal-500 rounded-md hover:bg-green-600"
+
+    <!-- Sorting -->
+    <!-- <div class="flex items-center gap-4">
+      <select
+        class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+        [(ngModel)]="sortField"
+        (change)="applySorting()"
+      >
+        <option value="">Sort By</option>
+        <option value="tourId">Tour Name</option>
+        <option value="bookingDate">Booking Date</option>
+        <option value="status">Status</option>
+      </select>
+      <button
+        class="px-4 py-2 text-white bg-gray-600 rounded-md hover:bg-gray-700 transition"
+        (click)="toggleSortDirection()"
+      >
+        {{ sortDirection === 'asc' ? 'Ascending' : 'Descending' }}
+      </button>
+    </div> -->
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="flex justify-center items-center">
+    <div
+      class="w-12 h-12 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"
+    ></div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="text-red-500 text-center mb-4">
+    <p class="font-medium">{{ errorMessage }}</p>
+  </div>
+
+  <!-- No Bookings Message -->
+  <div *ngIf="!loading && filteredBookings.length === 0" class="text-center">
+    <p class="text-gray-500 text-lg">No bookings found.</p>
+  </div>
+
+  <!-- Bookings List -->
+  <div *ngIf="!loading && filteredBookings.length > 0">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        *ngFor="let booking of filteredBookings"
+        class="p-6 shadow-xl rounded-lg transition transform hover:scale-105 hover:shadow-2xl"
+        [ngClass]="{
+          'bg-yellow-100': true,  
+        }"
+      >
+        <!-- Main Info -->
+        <div class="flex justify-between items-start">
+          <!-- Tour Info -->
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900">
+              {{ booking.tourId }}
+            </h3>
+            <!-- Status -->
+            <span
+              [ngClass]="{
+                'text-green-500': booking.status,
+                'text-red-500': !booking.status
+              }"
+            >
+              <b
+                ><em>{{ booking.status ? "Confirmed" : "Cancelled" }}</em></b
               >
-                Edit
-              </button>
-              <!-- Delete Button -->
-              <button
-                (click)="deleteBooking(booking.bookingId)"
-                class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
-              >
-                Cancel
-              </button>
-            </div>
+            </span>
+            <p class="text-sm text-gray-500">
+              Arrival: {{ booking.arrivalDate | date : "dd-MM-yyyy" }}
+            </p>
+            <p class="text-sm text-gray-500">
+              Departure: {{ booking.departureDate | date : "dd-MM-yyyy" }}
+            </p>
           </div>
-  
-          <!-- More Details Section -->
-          <button
-            (click)="toggleDetails(booking.bookingId)"
-            class="mt-4 text-blue-600 hover:underline"
-          >
-            More Details
-          </button>
-          <div
-            *ngIf="expandedBookingId === booking.bookingId"
-            class="mt-4 space-y-2 text-sm"
-          >
-            <!-- Booking Details with Different Colors -->
-            <div class="space-y-2">
-              <p class="text-gray-800">Adults: {{ booking.adults }}</p>
-              <p class="text-gray-800">Children: {{ booking.children }}</p>
-              <p class="text-gray-800">Rooms: {{ booking.rooms }}</p>
-              <p class="text-gray-800">Free Pickup: {{ booking.freePickup }}</p>
-  
-              <!-- Payment Status with Color -->
-              <p class="font-medium">
-                Payment Status: 
-                <span
-                  [ngClass]="{
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col space-y-3">
+            <button
+              (click)="updateBookingStatus(booking.id)"
+              class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600"
+            >
+              Withdraw
+            </button>
+          </div>
+        </div>
+
+        <!-- Booking Details Card -->
+        <div class="mt-4 p-4 bg-white rounded-lg shadow-md">
+          <h4 class="text-lg font-semibold text-gray-800">Booking Details</h4>
+          <div class="grid grid-cols-2 gap-4 mt-2">
+            <div>
+              <p class="text-sm text-gray-600">
+                Adults: <span class="text-gray-800">{{ booking.adults }}</span>
+              </p>
+              <p class="text-sm text-gray-600">
+                Children:
+                <span class="text-gray-800">{{ booking.children }}</span>
+              </p>
+              <p class="text-sm text-gray-600">
+                Rooms: <span class="text-gray-800">{{ booking.rooms }}</span>
+              </p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">
+                Free Pickup:
+                <span class="text-gray-800">{{ booking.freePickup }}</span>
+              </p>
+              <p class="text-sm text-gray-600">
+                Amount: <span class="text-gray-800">{{ booking.amount }}</span>
+              </p>
+              <!-- <p class="text-sm text-gray-600">Payment: 
+                <span [ngClass]="{
                     'text-green-500': booking.paymentStatus,
                     'text-red-500': !booking.paymentStatus
-                  }"
-                >
+                  }">
                   {{ booking.paymentStatus ? 'Paid' : 'Pending' }}
                 </span>
-              </p>
-  
-              <!-- Special Request with Color -->
-              <p class="font-medium">
-                Special Request: 
-                <span
-                  [ngClass]="{
-                    'text-green-600': booking.specialRequest && booking.specialRequest.includes('Special'),
-                    'text-gray-600': !booking.specialRequest
-                  }"
-                >
-                  {{ booking.specialRequest || 'None' }}
-                </span>
-              </p>
-  
-              <!-- Booking Date -->
-              <p class="text-gray-600">Booking Date: {{ booking.bookingDate }}</p>
-  
-              <!-- Status with Color -->
-              <p class="font-semibold">
-                Status:
-                <span
-                  [ngClass]="{
-                    'text-green-500': booking.status === 'Confirmed',
-                    'text-yellow-500': booking.status === 'Pending',
-                    'text-red-500': booking.status === 'Cancelled'
-                  }"
-                >
-                  {{ booking.status }}
-                </span>
+              </p> -->
+              <p class="text-sm text-gray-600">
+                Booking Date:
+                <span class="text-gray-800">{{
+                  booking.bookingDate | date : "dd-MM-yyyy"
+                }}</span>
               </p>
             </div>
           </div>
@@ -128,36 +165,4 @@
       </div>
     </div>
   </div>
-  
-  
-   <!-- Floating Action Button -->
-   <div class="fixed bottom-5 right-5 z-50 flex flex-col items-center">
-    <!-- FAB Menu -->
-    <ul
-      class="flex-col-reverse items-center space-y-reverse space-y-4 mb-4 transition-all duration-300"
-      [ngClass]="{
-        'opacity-0 translate-y-10 pointer-events-none': !isFabMenuOpen,
-        'opacity-100 translate-y-0': isFabMenuOpen
-      }"
-    >
-      <li class="mb-3">
-        <a
-          href="/tours/home"
-          class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
-          title="Home"
-        >
-          🏠
-        </a>
-      </li>
-    </ul>
-  
-    <!-- Floating Action Button -->
-    <button
-      class="w-16 h-16 bg-teal-600 text-white rounded-full shadow-lg flex justify-center items-center text-3xl hover:scale-110 transition-transform"
-      (click)="toggleFabMenu()"
-    >
-      +
-    </button>
-  </div>
-  
-   
+</div>

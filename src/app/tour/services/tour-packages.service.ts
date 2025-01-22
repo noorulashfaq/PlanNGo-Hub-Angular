@@ -312,10 +312,13 @@ export class TourPackagesService {
     return this.http.delete<void>(`${this.toursApiUrl}/${id}`);
   }
 
- 
   // Update an existing tour
   updateTour(id: string, tourData: any): Observable<any> {
     return this.http.put<any>(`${this.toursApiUrl}/${id}`, tourData);
+  }
+
+  updateBookingStatus(bookingId: string, booking: TourBooking) {
+    return this.http.put(`${this.bookingApiUrl}/${bookingId}`, booking);
   }
 
   // Fetch bookings for a specific user

@@ -14,5 +14,5 @@ export interface TourBooking {
   bookingDate: string;       
   createdAt: Date;               // Timestamp when booking was created
   updatedAt: Date;               // Timestamp when booking was last updated
-  status: string;
+  status: boolean;
 }
