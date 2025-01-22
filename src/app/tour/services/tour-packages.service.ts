@@ -74,8 +74,8 @@ export class TourPackagesService {
   }
 
   // Fetch tour types
-  getTourTypes(): Observable<TourType[]> {
-    return this.http.get<TourType[]>(this.tourTypeApiUrl);
+  getTourTypes(): Observable<any[]> {
+    return this.http.get<any[]>(this.tourTypeApiUrl);
   }
   // Fetch all bookings
   getAllBookings(): Observable<TourBooking[]> {
@@ -302,9 +302,20 @@ export class TourPackagesService {
     return this.http.get<TourPackage[]>(this.toursApiUrl);
   }
 
+     // Add a new tour
+  addTour(newTour: any): Observable<any> {
+    return this.http.post(this.toursApiUrl, newTour);
+  }
+
   // Delete an agency
   deletePackage(id: string): Observable<void> {
     return this.http.delete<void>(`${this.toursApiUrl}/${id}`);
+  }
+
+ 
+  // Update an existing tour
+  updateTour(id: string, tourData: any): Observable<any> {
+    return this.http.put<any>(`${this.toursApiUrl}/${id}`, tourData);
   }
 
   // Fetch bookings for a specific user

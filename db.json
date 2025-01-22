@@ -14,11 +14,11 @@
       "AvailabilityStatus": "Available",
       "LocationId": "L004",
       "Images": [
-        "assets/tour/hilltrekking1.jpg",
-        "assets/tour/hilltrekking2.jpg",
-        "assets/tour/hilltrekking3.jpg",
-        "assets/tour/hilltrekking4.jpg",
-        "assets/tour/hilltrekking5.jpg"
+        "assets/tour/wildlife1.jpg",
+        "assets/tour/wildlife2.jpg",
+        "assets/tour/wildlife3.jpg",
+        "assets/tour/wildlife4.jpg",
+        "assets/tour/wildlife5.jpg"
       ],
       "Inclusions": [
         "Guide services",
@@ -29,7 +29,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.8,
         "TotalReviews": 15,
@@ -73,7 +75,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.9,
         "TotalReviews": 25,
@@ -117,7 +121,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.7,
         "TotalReviews": 18,
@@ -161,7 +167,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.8,
         "TotalReviews": 20,
@@ -205,7 +213,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.7,
         "TotalReviews": 12,
@@ -249,7 +259,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.8,
         "TotalReviews": 20,
@@ -293,7 +305,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.9,
         "TotalReviews": 30,
@@ -337,7 +351,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.8,
         "TotalReviews": 18,
@@ -381,7 +397,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.6,
         "TotalReviews": 18,
@@ -425,7 +443,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.8,
         "TotalReviews": 25,
@@ -469,7 +489,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.9,
         "TotalReviews": 30,
@@ -513,7 +535,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.7,
         "TotalReviews": 22,
@@ -557,7 +581,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.9,
         "TotalReviews": 20,
@@ -601,7 +627,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.8,
         "TotalReviews": 18,
@@ -645,7 +673,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.7,
         "TotalReviews": 22,
@@ -689,7 +719,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.6,
         "TotalReviews": 19,
@@ -733,7 +765,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.8,
         "TotalReviews": 30,
@@ -777,7 +811,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.9,
         "TotalReviews": 40,
@@ -821,7 +857,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 5,
         "TotalReviews": 50,
@@ -865,7 +903,9 @@
         "If cancellation is made 30 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
         "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
       ],
-      "PaymentTermsPolicy": "100.0% of total tour cost will have to be paid 30 days before the date of booking.",
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
       "Ratings": {
         "AverageRating": 4.8,
         "TotalReviews": 35,
@@ -879,6 +919,237 @@
         ]
       },
       "id": "ff7b"
+    },
+    {
+      "TourId": "TRPKG021",
+      "Name": "Masai Mara Wildlife Adventure",
+      "Description": "Experience Kenya's iconic savannah, famous for the Great Migration and the Big Five.",
+      "TourTypeId": "TYP004",
+      "AgencyId": "AG004",
+      "Route": "Nairobi - Masai Mara Reserve - Talek River",
+      "Duration": "5 Days 4 Nights",
+      "StartPoint": "Jomo Kenyatta International Airport",
+      "EndPoint": "Jomo Kenyatta International Airport",
+      "Price": 1800,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L002",
+      "Images": [
+        "assets/tour/wildlife21.jpg",
+        "assets/tour/wildlife22.jpg",
+        "assets/tour/wildlife23.jpg",
+        "assets/tour/wildlife24.jpg",
+        "assets/tour/wildlife25.jpg"
+      ],
+      "Inclusions": [
+        "Guided safari drives",
+        "Luxury tented camp accommodations",
+        "All meals"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 20.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
+      "Ratings": {
+        "AverageRating": 4.9,
+        "TotalReviews": 45,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Sophia",
+            "Date": "September 15, 2024",
+            "ReviewText": "An unforgettable journey through the heart of Masai Mara."
+          }
+        ]
+      },
+      "id": "ff7c"
+    },
+    {
+      "TourId": "TRPKG022",
+      "Name": "Amazon Rainforest Expedition",
+      "Description": "Delve into the heart of the Amazon rainforest and discover its rich biodiversity.",
+      "TourTypeId": "TYP006",
+      "AgencyId": "AG002",
+      "Route": "Manaus - Anavilhanas Archipelago - Juma Reserve",
+      "Duration": "6 Days 5 Nights",
+      "StartPoint": "Eduardo Gomes International Airport",
+      "EndPoint": "Eduardo Gomes International Airport",
+      "Price": 2000,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L003",
+      "Images": [
+        "assets/tour/amazon1.jpg",
+        "assets/tour/amazon2.jpg",
+        "assets/tour/amazon3.jpg",
+        "assets/tour/amazon4.jpg",
+        "assets/tour/amazon5.jpg"
+      ],
+      "Inclusions": [
+        "Guided jungle treks",
+        "River cruises",
+        "Eco-lodge accommodations",
+        "All meals"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 15.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
+      "Ratings": {
+        "AverageRating": 4.7,
+        "TotalReviews": 28,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Emma",
+            "Date": "July 10, 2024",
+            "ReviewText": "A breathtaking journey into the Amazon's wilderness!"
+          }
+        ]
+      },
+      "id": "ff7d"
+    },
+    {
+      "TourId": "TRPKG023",
+      "Name": "Antarctic Cruise Adventure",
+      "Description": "Embark on a journey to the pristine and otherworldly landscapes of Antarctica.",
+      "TourTypeId": "TYP007",
+      "AgencyId": "AG001",
+      "Route": "Ushuaia - Drake Passage - Antarctic Peninsula",
+      "Duration": "8 Days 7 Nights",
+      "StartPoint": "Ushuaia International Airport",
+      "EndPoint": "Ushuaia International Airport",
+      "Price": 6500,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L004",
+      "Images": [
+        "assets/tour/antarctica1.jpg",
+        "assets/tour/antarctica2.jpg",
+        "assets/tour/antarctica3.jpg",
+        "assets/tour/antarctica4.jpg",
+        "assets/tour/antarctica5.jpg"
+      ],
+      "Inclusions": [
+        "Luxury cruise accommodations",
+        "Expert-led excursions",
+        "All meals and beverages"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 60 days or more before the date of travel, 25.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 30 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": [
+        "50.0% deposit is required at booking, with the balance due 60 days before departure."
+      ],
+      "Ratings": {
+        "AverageRating": 4.9,
+        "TotalReviews": 42,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "James",
+            "Date": "December 12, 2024",
+            "ReviewText": "A life-changing adventure to the ends of the Earth."
+          }
+        ]
+      },
+      "id": "ff7e"
+    },
+    {
+      "TourId": "TRPKG024",
+      "Name": "Great Barrier Reef Dive Tour",
+      "Description": "Discover the vibrant underwater world of Australia's Great Barrier Reef.",
+      "TourTypeId": "TYP005",
+      "AgencyId": "AG001",
+      "Route": "Cairns - Ribbon Reefs - Coral Sea",
+      "Duration": "5 Days 4 Nights",
+      "StartPoint": "Cairns International Airport",
+      "EndPoint": "Cairns International Airport",
+      "Price": 2500,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L005",
+      "Images": [
+        "assets/tour/city1.jpg",
+        "assets/tour/city2.jpg",
+        "assets/tour/city3.jpg",
+        "assets/tour/city4.jpg",
+        "assets/tour/city5.jpg"
+      ],
+      "Inclusions": [
+        "Liveaboard accommodations",
+        "All dive equipment",
+        "All meals"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 20.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
+      "Ratings": {
+        "AverageRating": 4.8,
+        "TotalReviews": 38,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Isabella",
+            "Date": "March 18, 2024",
+            "ReviewText": "A dream come true for diving enthusiasts!"
+          }
+        ]
+      },
+      "id": "ff7f"
+    },
+    {
+      "TourId": "TRPKG025",
+      "Name": "Iceland Northern Lights Tour",
+      "Description": "Chase the breathtaking Aurora Borealis across Iceland's stunning landscapes.",
+      "TourTypeId": "TYP003",
+      "AgencyId": "AG001",
+      "Route": "Reykjavik - Thingvellir - Jokulsarlon Lagoon",
+      "Duration": "4 Days 3 Nights",
+      "StartPoint": "Keflavik International Airport",
+      "EndPoint": "Keflavik International Airport",
+      "Price": 1900,
+      "AvailabilityStatus": "Available",
+      "LocationId": "L006",
+      "Images": [
+        "assets/tour/antarctica1.jpg",
+        "assets/tour/antarctica2.jpg",
+        "assets/tour/antarctica3.jpg",
+        "assets/tour/antarctica4.jpg",
+        "assets/tour/antarctica5.jpg"
+      ],
+      "Inclusions": [
+        "Guided Northern Lights hunts",
+        "Hotel accommodations",
+        "All breakfasts"
+      ],
+      "CancellationPolicy": [
+        "If cancellation is made 30 days or more before the date of travel, 15.0% of total booking cost will be charged as cancellation fees.",
+        "If cancellation is made within 15 days before the date of travel, total booking cost will be charged as cancellation fees."
+      ],
+      "PaymentTermsPolicy": [
+        "100.0% of total tour cost will have to be paid 30 days before the date of booking."
+      ],
+      "Ratings": {
+        "AverageRating": 4.9,
+        "TotalReviews": 52,
+        "Reviews": [
+          {
+            "Rating": 5,
+            "Reviewer": "Oliver",
+            "Date": "October 5, 2024",
+            "ReviewText": "Magical nights under the dancing lights of the aurora."
+          }
+        ]
+      },
+      "id": "ff80"
     }
   ],
   "Locations": [
@@ -939,6 +1210,96 @@
       "Phno": "+254-700-123456",
       "Email": "support@safariwonders.com",
       "id": "8743"
+    },
+    {
+      "AgencyId": "AG005",
+      "AgencyName": "Evergreen Escapes",
+      "AgencyLogo": "assets/tour/cultural7.jpg",
+      "OfficeLocation": "456 Green Valley Lane, Near Botanical Garden, Ooty, Tamil Nadu, India, PIN-643001",
+      "Phno": "+91-9123456789",
+      "Email": "info@evergreenescapes.com",
+      "id": "1a2b"
+    },
+    {
+      "AgencyId": "AG006",
+      "AgencyName": "Coastal Voyages",
+      "AgencyLogo": "assets/tour/cultural8.jpg",
+      "OfficeLocation": "789 Ocean Breeze Avenue, Near Lighthouse, Goa, India, PIN-403001",
+      "Phno": "+91-9988776655",
+      "Email": "hello@coastalvoyages.com",
+      "id": "3c4d"
+    },
+    {
+      "AgencyId": "AG007",
+      "AgencyName": "Desert Trekkers",
+      "AgencyLogo": "assets/tour/cultural9.jpg",
+      "OfficeLocation": "321 Sand Dune Drive, Near Camel Safari Center, Jaisalmer, Rajasthan, India, PIN-345001",
+      "Phno": "+91-9876541230",
+      "Email": "support@deserttrekkers.com",
+      "id": "5e6f"
+    },
+    {
+      "AgencyId": "AG008",
+      "AgencyName": "Hilltop Ventures",
+      "AgencyLogo": "assets/tour/cultural10.jpg",
+      "OfficeLocation": "654 Pinewood Street, Near Sunset Point, Shimla, Himachal Pradesh, India, PIN-171001",
+      "Phno": "+91-9012345678",
+      "Email": "contact@hilltopventures.com",
+      "id": "7g8h"
+    },
+    {
+      "AgencyId": "AG009",
+      "AgencyName": "River Rafting Co.",
+      "AgencyLogo": "assets/tour/cultural11.jpg",
+      "OfficeLocation": "987 Rapids Way, Near Adventure Park, Rishikesh, Uttarakhand, India, PIN-249201",
+      "Phno": "+91-9098765432",
+      "Email": "info@riverraftingco.com",
+      "id": "9i0j"
+    },
+    {
+      "AgencyId": "AG010",
+      "AgencyName": "Safari Seekers",
+      "AgencyLogo": "assets/tour/cultural12.jpg",
+      "OfficeLocation": "111 Jungle Trail, Near Wildlife Sanctuary, Bandipur, Karnataka, India, PIN-571126",
+      "Phno": "+91-9123412345",
+      "Email": "support@safariseekers.com",
+      "id": "1k2l"
+    },
+    {
+      "AgencyId": "AG011",
+      "AgencyName": "Adventure Horizon",
+      "AgencyLogo": "assets/tour/cultural13.jpg",
+      "OfficeLocation": "222 Cloud Peak Road, Near Tourist Office, Munnar, Kerala, India, PIN-685612",
+      "Phno": "+91-9876548901",
+      "Email": "contact@adventurehorizon.com",
+      "id": "3m4n"
+    },
+    {
+      "AgencyId": "AG012",
+      "AgencyName": "Urban Explorers",
+      "AgencyLogo": "assets/tour/cultural14.jpg",
+      "OfficeLocation": "333 Skyline Avenue, Near City Center, Mumbai, Maharashtra, India, PIN-400001",
+      "Phno": "+91-9988112233",
+      "Email": "hello@urbanexplorers.com",
+      "id": "5o6p"
+    },
+    {
+      "AgencyId": "AG013",
+      "AgencyName": "Tranquil Trails",
+      "AgencyLogo": "assets/tour/cultural15.jpg",
+      "OfficeLocation": "444 Serenity Lane, Near Coffee Estate, Chikmagalur, Karnataka, India, PIN-577101",
+      "Phno": "+91-9090901234",
+      "Email": "info@tranquiltrails.com",
+      "id": "7q8r"
+    },
+    {
+      "AgencyId": "AG014",
+      "AgencyName": "Mystic Peaks",
+      "AgencyLogo": "assets/tour/cultural16.jpg",
+      "OfficeLocation": "555 Summit Drive, Near Hill Station, Darjeeling, West Bengal, India, PIN-734001",
+      "Phno": "+91-9871234567",
+      "Email": "contact@mysticpeaks.com",
+      "id": "9s0t"
     }
   ],
   "TourType": [
@@ -2259,6 +2620,21 @@
       "specialRequest": "testme",
       "id": "6c56",
       "agencyId": "AG003"
+    },
+    {
+      "id": "47eb",
+      "userId": "USR001",
+      "tourId": "TRPKG002",
+      "adults": 1,
+      "children": 0,
+      "rooms": 1,
+      "departureDate": "2025-01-24T23:39",
+      "arrivalDate": "2025-02-01T23:39",
+      "freePickup": "no",
+      "paymentStatus": false,
+      "paymentId": "",
+      "specialRequest": "",
+      "totalPrice": 6400
     }
   ],
   "Payments": [

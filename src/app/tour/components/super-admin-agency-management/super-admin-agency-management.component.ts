@@ -47,6 +47,9 @@ export class SuperAdminAgencyManagementComponent implements OnInit {
   agencyForm: FormGroup;
   selectedFile: File | null = null;
 
+  isDeleteModalOpen = false;
+  agencyToDelete: any = null; // Holds the agency to delete
+
   constructor(
     private tourPackagesService: TourPackagesService,
     private fb: FormBuilder,
@@ -137,20 +140,37 @@ export class SuperAdminAgencyManagementComponent implements OnInit {
     }
   }
 
-  deleteAgency(id: string): void {
-    this.tourPackagesService.deleteAgency(id).subscribe(
-      () => {
-        this.agencies = this.agencies.filter((agency) => agency.id !== id);
-        this.filteredAgencies = this.filteredAgencies.filter((agency) => agency.id !== id);
-        this.updatePagination();
-        this.showMessage('Success', 'Agency deleted successfully!', true);
-      },
-      (error) => {
-        console.error('Error deleting agency:', error);
-        this.showMessage('Error', 'Failed to delete agency. Please try again.', false);
+    // Open delete confirmation modal
+    confirmDeleteAgency(agency: any) {
+      this.agencyToDelete = agency;
+      this.isDeleteModalOpen = true;
+
+    }
+  
+    // Close delete modal
+    closeDeleteModal() {
+      this.isDeleteModalOpen = false;
+      this.agencyToDelete = null;
+    }
+
+    // Delete the agency
+      deleteAgency() {
+
+        this.tourPackagesService.deleteAgency(this.agencyToDelete).subscribe(
+          () => {
+            this.agencies = this.agencies.filter((agency) => agency.id !== this.agencyToDelete);
+            this.filteredAgencies = this.filteredAgencies.filter((agency) => agency.id !== this.agencyToDelete);
+            this.updatePagination();
+            this.showMessage('Success', 'Agency deleted successfully!', true);
+            this.closeDeleteModal(); // Ensure the modal is closed after deletion.
+
+          },
+          (error) => {
+            console.error('Error deleting agency:', error);
+            this.showMessage('Error', 'Failed to delete agency. Please try again.', false);
+          }
+        );
       }
-    );
-  }
 
   filterAgencies(): void {
     this.currentPage = 1;
@@ -302,5 +322,8 @@ export class SuperAdminAgencyManagementComponent implements OnInit {
       );
     }
   }
+
+  
+
 
   }
