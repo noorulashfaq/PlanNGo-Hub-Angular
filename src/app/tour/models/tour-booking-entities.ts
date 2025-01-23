@@ -10,5 +10,9 @@ export interface TourBooking {
   paymentId: string;    // Payment ID (mapped from "paymentId")
   specialRequest?: string; // Special request (mapped from "specialRequest")
   tourId: string;       // Tour ID (mapped from "tourId")
-  amount: number;   // Total price (mapped from "totalPrice")
+  amount: string;   // Total price (mapped from "totalPrice")
+  bookingDate: string;       
+  createdAt: Date;               // Timestamp when booking was created
+  updatedAt: Date;               // Timestamp when booking was last updated
+  status: string;
 }
