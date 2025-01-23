@@ -2635,6 +2635,20 @@
       "paymentId": "",
       "specialRequest": "",
       "totalPrice": 6400
+    },
+    {
+      "userId": "USR001",
+      "tourId": "TRPKG002",
+      "adults": 1,
+      "children": 0,
+      "rooms": 1,
+      "departureDate": "2025-01-23T14:15",
+      "arrivalDate": "2025-01-30T14:15",
+      "freePickup": "no",
+      "paymentStatus": true,
+      "paymentId": "ead5",
+      "specialRequest": "",
+      "id": "5966"
     }
   ],
   "Payments": [
@@ -2980,6 +2994,13 @@
       "cardNumber": "12316198231326",
       "expDate": "12/33",
       "cvv": "121"
+    },
+    {
+      "id": "ead5",
+      "nameOnCard": "nani",
+      "cardNumber": "12345678901234",
+      "expDate": "12/25",
+      "cvv": "1234"
     }
   ]
 }

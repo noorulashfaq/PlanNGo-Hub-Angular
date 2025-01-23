@@ -193,7 +193,7 @@
     <!-- Phone Number -->
     <div class="mb-4">
       <label for="newPhno" class="block mb-1 text-sm font-medium text-gray-700">Phone Number</label>
-      <input type="tel" id="newPhno" [(ngModel)]="newAgency.Phno" name="Phno" required pattern="^\+\d{1,3}-\d{1,4}-\d{4}-\d{4}$" #phno="ngModel"
+      <input type="tel" id="newPhno" [(ngModel)]="newAgency.Phno" name="Phno" required pattern="^\+\d{2}-\d{10}$" #phno="ngModel"
         class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
       <div *ngIf="phno.invalid && phno.touched">
         <small *ngIf="phno.errors?.['required']" class="text-red-500">* Phone Number is required.</small>
@@ -307,7 +307,7 @@
           [(ngModel)]="selectedAgency.Phno"
           name="Phno"
           required
-          pattern="^\+\d{3}-\d{10}$"
+          pattern="^\+\d{2}-\d{10}$"
           #phno="ngModel"
           class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />

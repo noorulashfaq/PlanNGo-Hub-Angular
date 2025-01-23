@@ -190,7 +190,7 @@
     required
     minlength="3"
     maxlength="50"
-    pattern="^[a-zA-Z0-9 ]+$"
+    pattern="^[a-zA-Z ]+$"
     class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
   />
   <div *ngIf="tourName.invalid && tourName.touched">
@@ -204,7 +204,7 @@
       * Tour Name cannot exceed 50 characters.
     </small>
     <small *ngIf="tourName.errors?.['pattern']" class="text-red-500">
-      * Tour Name can only contain letters, numbers, and spaces.
+      * Tour Name can only contain letters and spaces.
     </small>
   </div>
 </div>
@@ -250,6 +250,7 @@
     name="Route"
     #route="ngModel"
     placeholder="Enter route"
+    pattern="^[a-zA-Z -]+$"
     required
     minlength="3"
     class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -260,6 +261,9 @@
     </small>
     <small *ngIf="route.errors?.['minlength']" class="text-red-500">
       * Route must be at least 3 characters long.
+    </small>
+    <small *ngIf="route.errors?.['pattern']" class="text-red-500">
+      * Route can only contain letters, hyphen and spaces.
     </small>
   </div>
 </div>
@@ -413,6 +417,7 @@
             name="Description"
             placeholder="Tour package details"
             required
+            pattern="^[a-zA-Z .,-'']+$"
             rows="3"
             minlength="15"
             class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -421,7 +426,10 @@
             <small class="text-red-500">* Description is required.</small>
           </div>
           <small *ngIf="route.errors?.['minlength']" class="text-red-500">
-            * Route must be at least 15 characters long.
+            * Description must be at least 15 characters long.
+          </small>
+          <small *ngIf="route.errors?.['pattern']" class="text-red-500">
+            * Description must only contain letters, spaces .,''-
           </small>
         </div>
 
@@ -659,6 +667,7 @@
             [(ngModel)]="editTours.Route"
             name="Route"
             placeholder="Enter route"
+            pattern="^[a-zA-Z -]+$"
             required
             minlength="3"
             class="w-full border border-gray-300 rounded-md p-3 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -669,6 +678,9 @@
             </small>
             <small *ngIf="editTourForm.form.controls['Route']?.errors?.['minlength']" class="text-red-500">
               * Route must be at least 3 characters long.
+            </small>
+            <small *ngIf="editTourForm.form.controls['Route']?.errors?.['pattern']" class="text-red-500">
+              * Route can only contain letters, hypen and spaces.
             </small>
           </div>
         </div>
@@ -838,6 +850,7 @@
             [(ngModel)]="editTours.Description"
             name="Description"
             placeholder="Tour package details"
+            pattern="^[a-zA-Z .,''-]+$"
             required
             rows="3"
             minlength="15"
@@ -846,6 +859,9 @@
           <div *ngIf="editTourForm.form.controls['Description']?.invalid && editTourForm.form.controls['Description']?.touched">
             <small class="text-red-500">* Description is required.</small>
           </div>
+          <small *ngIf="editTourForm.form.controls['Description']?.errors?.['pattern']" class="text-red-500">
+            * Description must only contain letters, spaces .,''-
+          </small>
         </div>
 
         <!-- Inclusion -->
