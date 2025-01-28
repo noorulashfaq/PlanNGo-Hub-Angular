@@ -24,6 +24,7 @@ export class TourPackagesService {
   private tourTypeApiUrl = "http://localhost:3000/TourType";
   private bookingApiUrl = "http://localhost:3000/Bookings";
   private paymentApiUrl = "http://localhost:3000/Payments";
+  private reviewsApiUrl = "http://localhost:3000/Reviews";
 
   bookTour: any;
 
@@ -77,6 +78,44 @@ export class TourPackagesService {
   getTourTypes(): Observable<any[]> {
     return this.http.get<any[]>(this.tourTypeApiUrl);
   }
+
+  // Fetch all reviews
+getAllReviews(): Observable<any[]> {
+  return this.http.get<any[]>(this.reviewsApiUrl);
+}
+
+// Fetch reviews by Tour ID
+getReviewsByTourId(tourId: string): Observable<any[]> {
+  return this.http.get<any[]>(`${this.reviewsApiUrl}?tourId=${tourId}`);
+}
+
+// Add a new review
+addReview(reviewData: any): Observable<any> {
+  return this.http.post<any>(this.reviewsApiUrl, reviewData);
+}
+
+// Update an existing review
+updateReview(reviewId: string, reviewData: any): Observable<any> {
+  return this.http.put<any>(`${this.reviewsApiUrl}/${reviewId}`, reviewData);
+}
+
+// Delete a review
+deleteReview(reviewId: string): Observable<void> {
+  return this.http.delete<void>(`${this.reviewsApiUrl}/${reviewId}`).pipe(
+    catchError((error) => {
+      console.error('Error deleting review:', error);
+      return throwError('Failed to delete review. Please try again later.');
+    })
+  );
+}
+
+
+ 
+
+
+
+
+
   // Fetch all bookings
   getAllBookings(): Observable<TourBooking[]> {
     return this.http.get<TourBooking[]>(this.bookingApiUrl);

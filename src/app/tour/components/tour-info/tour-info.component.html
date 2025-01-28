@@ -1,31 +1,19 @@
-<div
-  *ngIf="tourDetails"
-  class="font-sans text-gray-800 bg-gradient-to-br from-blue-50 to-blue-50 min-h-screen"
->
+<div *ngIf="tourDetails" class="font-sans text-gray-800 bg-gradient-to-br from-blue-50 to-blue-50 min-h-screen">
   <!-- Cover Section -->
-  <div
-    class="relative flex flex-col md:flex-row items-center md:items-start p-6 space-y-6 md:space-y-0 md:p-8"
-  >
+  <div class="relative flex flex-col md:flex-row items-center md:items-start p-6 space-y-6 md:space-y-0 md:p-8">
     <!-- Cover Image -->
     <div class="flex-shrink-0 w-full md:w-1/2">
-      <img
-        *ngIf="tourDetails.Images && tourDetails.Images.length > 0"
-        [src]="tourDetails.Images[0]"
-        alt="Cover Image"
-        class="w-full h-80 object-cover rounded-lg shadow-lg"
-      />
+      <img *ngIf="tourDetails.Images && tourDetails.Images.length > 0"
+           [src]="tourDetails.Images[0]" alt="Cover Image"
+           class="w-full h-80 object-cover rounded-lg shadow-lg" />
     </div>
 
     <!-- Tour Details Summary -->
     <div class="w-full md:w-1/2 p-6 md:pl-12 flex flex-col space-y-4">
       <h2 class="text-4xl font-bold text-blue-600">{{ tourDetails.Name }}</h2>
       <p class="text-xl font-semibold text-gray-700">
-        <span *ngIf="locationDetails && locationDetails.length > 0">{{
-          locationDetails[0].Location
-        }}</span>
-        <span *ngIf="!locationDetails || locationDetails.length === 0"
-          >Loading location...</span
-        >
+        <span *ngIf="locationDetails && locationDetails.length > 0">{{ locationDetails[0].Location }}</span>
+        <span *ngIf="!locationDetails || locationDetails.length === 0">Loading location...</span>
       </p>
       <p class="text-gray-700 leading-relaxed">{{ tourDetails.Description }}</p>
       <ul class="list-disc pl-6 space-y-2 text-gray-700">
@@ -33,18 +21,13 @@
         <li><strong>Status:</strong> {{ tourDetails.AvailabilityStatus }}</li>
       </ul>
       <div class="flex space-x-4">
-        <button
-          [routerLink]="['/tours/package', tourId, 'reserve']"
-          class="bg-white-500 hover:bg-teal-500 text-teal-600 hover:text-white py-2 px-6 hover:rounded-md hover:shadow-md transition duration-200"
-        >
+        <button [routerLink]="['/tours/package', tourId, 'reserve']"
+                class="bg-white-500 hover:bg-teal-500 text-teal-600 hover:text-white py-2 px-6 hover:rounded-md hover:shadow-md transition duration-200">
           <strong>₹ {{ tourDetails.Price }} / day</strong>
         </button>
 
-        <button
-          [routerLink]="['/tours/package', tourId, 'reserve']"
-          [state]="{ package: selectedPackage }"
-          class="bg-teal-500 hover:bg-teal-600 text-white py-2 px-6 rounded-md shadow-md transition duration-200"
-        >
+        <button [routerLink]="['/tours/package', tourId, 'reserve']" [state]="{ package: selectedPackage }"
+                class="bg-teal-500 hover:bg-teal-600 text-white py-2 px-6 rounded-md shadow-md transition duration-200">
           <strong>Reserve package</strong>
         </button>
       </div>
@@ -54,38 +37,27 @@
   <!-- Floating Action Button -->
   <div class="fixed bottom-5 right-5 z-50 flex flex-col items-center">
     <!-- FAB Menu -->
-    <ul
-      class="flex-col-reverse items-center space-y-reverse space-y-4 mb-4 transition-all duration-300"
-      [ngClass]="{
-        'opacity-0 translate-y-10 pointer-events-none': !isFabMenuOpen,
-        'opacity-100 translate-y-0': isFabMenuOpen
-      }"
-    >
+    <ul class="flex-col-reverse items-center space-y-reverse space-y-4 mb-4 transition-all duration-300"
+        [ngClass]="{'opacity-0 translate-y-10 pointer-events-none': !isFabMenuOpen, 'opacity-100 translate-y-0': isFabMenuOpen}">
       <li class="mb-3">
-        <a
-          href="/tours/home"
-          class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
-          title="Home"
-        >
+        <a href="/tours/home"
+           class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
+           title="Home">
           🏠
         </a>
       </li>
       <li class="mb-3">
-        <a
-          href="/tours/my-bookings"
-          class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
-          title="My Bookings"
-        >
+        <a href="/tours/my-bookings"
+           class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
+           title="My Bookings">
           ℹ️
         </a>
       </li>
     </ul>
 
     <!-- Floating Action Button -->
-    <button
-      class="w-16 h-16 bg-teal-600 text-white rounded-full shadow-lg flex justify-center items-center text-3xl hover:scale-110 transition-transform"
-      (click)="toggleFabMenu()"
-    >
+    <button class="w-16 h-16 bg-teal-600 text-white rounded-full shadow-lg flex justify-center items-center text-3xl hover:scale-110 transition-transform"
+            (click)="toggleFabMenu()">
       +
     </button>
   </div>
@@ -94,40 +66,26 @@
   <div class="container mx-auto mt-8 p-6 md:p-8 bg-white shadow-lg rounded-lg">
     <div class="flex flex-col md:flex-row gap-8">
       <!-- Inclusions Section -->
-      <div
-        class="flex-1 w-full md:w-1/2 bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-md"
-      >
-        <h3 class="text-2xl font-semibold text-green-800 mb-4">
-          <em>Inclusions</em>
-        </h3>
+      <div class="flex-1 w-full md:w-1/2 bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-semibold text-green-800 mb-4"><em>Inclusions</em></h3>
         <ul class="list-disc pl-6 space-y-2 text-gray-700">
           <li *ngFor="let item of tourDetails.Inclusions">{{ item }}</li>
         </ul>
       </div>
 
       <!-- Cancellation Policy Section -->
-      <div
-        class="flex-1 w-full md:w-1/2 bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg shadow-md"
-      >
-        <h3 class="text-2xl font-semibold text-blue-800 mb-4">
-          <em>Cancellation Policy</em>
-        </h3>
+      <div class="flex-1 w-full md:w-1/2 bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-semibold text-blue-800 mb-4"><em>Cancellation Policy</em></h3>
         <ul class="list-disc pl-6 space-y-2 text-gray-700">
-          <li *ngFor="let policy of tourDetails.CancellationPolicy">
-            {{ policy }}
-          </li>
+          <li *ngFor="let policy of tourDetails.CancellationPolicy">{{ policy }}</li>
         </ul>
       </div>
     </div>
 
     <!-- Payment Terms -->
     <div class="container mx-auto p-6 md:p-8">
-      <div
-        class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg shadow-md"
-      >
-        <h3 class="text-2xl font-semibold text-red-800 mb-4">
-          <em>Payment Terms</em>
-        </h3>
+      <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg shadow-md">
+        <h3 class="text-2xl font-semibold text-red-800 mb-4"><em>Payment Terms</em></h3>
         <p class="text-gray-700">{{ tourDetails.PaymentTermsPolicy }}</p>
       </div>
     </div>
@@ -135,108 +93,92 @@
     <!-- Photo Gallery -->
     <div class="container mx-auto p-6 md:p-8">
       <div class="space-y-4">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-          <em>Photo Gallery</em>
-        </h3>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><em>Photo Gallery</em></h3>
         <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-4">
-          <img
-            *ngFor="let image of tourDetails.Images"
-            [src]="image"
-            alt="{{ tourDetails.Name }} Image"
-            class="w-full h-48 object-cover rounded-lg shadow-md"
-          />
+          <img *ngFor="let image of tourDetails.Images"
+               [src]="image" alt="{{ tourDetails.Name }} Image"
+               class="w-full h-48 object-cover rounded-lg shadow-md" />
         </div>
       </div>
     </div>
   </div>
 
   <!-- Contact Information & Reviews Section -->
-  <div
-    class="container mx-auto mt-8 p-6 md:p-12 bg-gray-300 shadow-lg rounded-lg"
-  >
-    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-      <em>Contact Information</em>
-    </h3>
+  <div class="container mx-auto mt-8 p-6 md:p-12 bg-gray-300 shadow-lg rounded-lg">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-4"><em>Contact Information</em></h3>
 
     <!-- Agency Logo and Content -->
     <div class="flex flex-col md:flex-row items-center space-x-6 md:space-x-8">
       <div *ngIf="agencyDetails" class="w-32 h-32 md:w-48 md:h-48">
-        <img
-          [src]="agencyDetails[0].AgencyLogo"
-          alt="{{ agencyDetails[0].AgencyName }} Logo"
-          class="w-full h-full object-cover rounded-full shadow-md"
-        />
+        <img [src]="agencyDetails[0].AgencyLogo" alt="{{ agencyDetails[0].AgencyName }} Logo"
+             class="w-full h-full object-cover rounded-full shadow-md" />
       </div>
 
       <div class="space-y-4 w-full">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-          <strong>{{ agencyDetails[0].AgencyName }}</strong>
-        </h3>
-        <p class="text-gray-700 font-italic">
-          <em>{{ agencyDetails[0].OfficeLocation }}</em>
-        </p>
-        <p class="text-gray-700">
-          <em>{{ agencyDetails[0].Phno }}</em>
-        </p>
-        <p class="text-gray-700">
-          <em>{{ agencyDetails[0].Email }}</em>
-        </p>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><strong>{{ agencyDetails[0].AgencyName }}</strong></h3>
+        <p class="text-gray-700 font-italic"><em>{{ agencyDetails[0].OfficeLocation }}</em></p>
+        <p class="text-gray-700"><em>{{ agencyDetails[0].Phno }}</em></p>
+        <p class="text-gray-700"><em>{{ agencyDetails[0].Email }}</em></p>
       </div>
     </div>
 
     <hr class="my-6" />
 
-    <h3 class="text-2xl font-semibold text-gray-800 mb-6">
-      <em>Customer Reviews</em>
-    </h3>
+    <h3 class="text-2xl font-semibold text-gray-800 mb-6"><em>Customer Reviews</em></h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div
-        *ngFor="let review of tourDetails.Ratings.Reviews"
-        class="review-card bg-gray-50 p-6 rounded-lg shadow-md flex flex-col space-y-4"
-      >
+      <div *ngFor="let review of tourDetails.Ratings.Reviews"
+           class="review-card bg-gray-50 p-6 rounded-lg shadow-md flex flex-col space-y-4">
         <div class="flex items-center">
           <span class="font-semibold text-gray-900">{{ review.Reviewer }}</span>
           <div class="flex ml-2">
-            <ng-container
-              *ngFor="let star of [].constructor(review.Rating); let i = index"
-            >
-              <svg
-                *ngIf="i < review.Rating"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="text-yellow-500"
-                viewBox="0 0 16 16"
-              >
+            <ng-container *ngFor="let star of [].constructor(review.Rating); let i = index">
+              <svg *ngIf="i < review.Rating" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                   class="text-yellow-500" viewBox="0 0 16 16">
                 <path
-                  d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z"
-                />
+                  d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z" />
               </svg>
             </ng-container>
-            <ng-container
-              *ngFor="
-                let star of [].constructor(5 - review.Rating);
-                let i = index
-              "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="text-gray-300"
-                viewBox="0 0 16 16"
-              >
+            <ng-container *ngFor="let star of [].constructor(5 - review.Rating); let i = index">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-gray-300"
+                   viewBox="0 0 16 16">
                 <path
-                  d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z"
-                />
+                  d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z" />
               </svg>
             </ng-container>
           </div>
         </div>
         <p class="text-gray-700">{{ review.ReviewText }}</p>
       </div>
+    </div>
+
+    <!-- Add Review Section -->
+    <div class="mt-8 p-6 bg-white shadow-md rounded-lg">
+      <h3 class="text-2xl font-semibold text-gray-800 mb-4"><em>Add Your Review</em></h3>
+      <form (ngSubmit)="submitReview()" class="space-y-4">
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Your Rating:</label>
+          <div class="flex items-center space-x-2">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+              <svg (click)="setUserRating(i + 1)" [ngClass]="{'text-yellow-500': userRating > i, 'text-gray-300': userRating <= i}"
+                   xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16"
+                   class="cursor-pointer">
+                <path
+                  d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z" />
+              </svg>
+            </ng-container>
+          </div>
+        </div>
+        <div>
+          <label for="reviewText" class="block text-gray-700 font-semibold mb-2">Your Review:</label>
+          <textarea id="reviewText" [(ngModel)]="userReviewText" name="reviewText"
+                    class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
+                    rows="4" placeholder="Write your review here..." required></textarea>
+        </div>
+        <button type="submit"
+                class="bg-teal-600 hover:bg-teal-700 text-white py-2 px-6 rounded-md shadow-md transition duration-200">
+          Submit Review
+        </button>
+      </form>
     </div>
   </div>
 </div>

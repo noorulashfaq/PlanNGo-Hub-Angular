@@ -1,3 +1,4 @@
+// Main Model for Tour Package
 export interface TourPackage {
   TourId: string;
   Name: string;
