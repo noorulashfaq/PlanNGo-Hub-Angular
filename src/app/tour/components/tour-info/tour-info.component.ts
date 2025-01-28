@@ -15,17 +15,23 @@ import { FormsModule } from "@angular/forms";
   styleUrls: ["./tour-info.component.css"],
 })
 export class TourInfoComponent implements OnInit {
+  // Index signature to allow dynamic properties
+  [x: string]: any;
+
+  // Properties for tour details, reviews, agency, and location details
   tourId: string | null = null;
   tourDetails: TourPackage | undefined;
   locationDetails: Locations[] = [];
   agencyDetails: Agencies[] = [];
-  selectedPackage: any;
-  isFabMenuOpen = false;
+  userReviews: { Reviewer: string; Rating: number; ReviewText: string }[] = [];
 
-  // For adding reviews
+  // User inputs for adding reviews
   userRating: number = 0;
   userReviewText: string = "";
-  userReviews: { Reviewer: string; Rating: number; ReviewText: string }[] = [];
+  selectedPackage: any;
+
+  // Controls for the FAB menu state
+  isFabMenuOpen = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,15 +40,17 @@ export class TourInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.tourId = this.route.snapshot.paramMap.get("id");
-    
+
     // Ensure tourId is available before fetching data
     if (this.tourId) {
       this.fetchTourDetails();
+      this.fetchTourReviews(); // Fetch reviews for the tour
     } else {
       console.error("Tour ID is missing.");
     }
   }
 
+  // Fetch details for the selected tour package
   private fetchTourDetails(): void {
     this.tourService.getTourPackages().subscribe(
       (data) => {
@@ -60,6 +68,7 @@ export class TourInfoComponent implements OnInit {
     );
   }
 
+  // Load additional details like agency and location information for the tour
   private loadAdditionalDetails(): void {
     if (this.tourDetails?.LocationId) {
       this.tourService.getLocationDetails(this.tourDetails.LocationId).subscribe(
@@ -82,19 +91,33 @@ export class TourInfoComponent implements OnInit {
         }
       );
     }
-
-    // Load existing reviews if available
-    this.userReviews = this.tourDetails?.Ratings?.Reviews ?? [];
   }
 
+  // Fetch reviews for the specific tour package
+  private fetchTourReviews(): void {
+    if (this.tourId) {
+      this.tourService.getReviewsByTourId(this.tourId).subscribe(
+        (reviews) => {
+          this.userReviews = reviews ?? [];
+        },
+        (error) => {
+          console.error("Error fetching reviews:", error);
+        }
+      );
+    }
+  }
+
+  // Toggle the FAB menu state
   toggleFabMenu(): void {
     this.isFabMenuOpen = !this.isFabMenuOpen;
   }
 
+  // Set the user rating for review
   setUserRating(rating: number): void {
     this.userRating = rating;
   }
 
+  // Submit the user's review for the tour package
   submitReview(): void {
     if (this.userRating === 0 || !this.userReviewText.trim()) {
       alert("Please provide a rating and review text.");
@@ -116,6 +139,7 @@ export class TourInfoComponent implements OnInit {
     this.addReview(newReview);
   }
 
+  // Add the review to the server and update the UI
   private addReview(newReview: { tourId: string; Reviewer: string; Rating: number; ReviewText: string }): void {
     this.tourService.addReview(newReview).subscribe(
       (response) => {

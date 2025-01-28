@@ -26,10 +26,15 @@
           <strong>₹ {{ tourDetails.Price }} / day</strong>
         </button>
 
-        <button [routerLink]="['/tours/package', tourId, 'reserve']" [state]="{ package: selectedPackage }"
-                class="bg-teal-500 hover:bg-teal-600 text-white py-2 px-6 rounded-md shadow-md transition duration-200">
-          <strong>Reserve package</strong>
-        </button>
+        <button
+        [routerLink]="['/tours/package', tourId, 'reserve']"
+        [state]="{ package: selectedPackage }"
+        class="bg-teal-500 hover:bg-teal-600 text-white py-2 px-6 rounded-md shadow-md transition duration-200"
+      >
+        <strong>Reserve package</strong>
+      </button>
+        
+        
       </div>
     </div>
   </div>
@@ -105,44 +110,22 @@
 
   <!-- Contact Information & Reviews Section -->
   <div class="container mx-auto mt-8 p-6 md:p-12 bg-gray-300 shadow-lg rounded-lg">
-    <h3 class="text-2xl font-semibold text-gray-800 mb-4"><em>Contact Information</em></h3>
-
-    <!-- Agency Logo and Content -->
-    <div class="flex flex-col md:flex-row items-center space-x-6 md:space-x-8">
-      <div *ngIf="agencyDetails" class="w-32 h-32 md:w-48 md:h-48">
-        <img [src]="agencyDetails[0].AgencyLogo" alt="{{ agencyDetails[0].AgencyName }} Logo"
-             class="w-full h-full object-cover rounded-full shadow-md" />
-      </div>
-
-      <div class="space-y-4 w-full">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><strong>{{ agencyDetails[0].AgencyName }}</strong></h3>
-        <p class="text-gray-700 font-italic"><em>{{ agencyDetails[0].OfficeLocation }}</em></p>
-        <p class="text-gray-700"><em>{{ agencyDetails[0].Phno }}</em></p>
-        <p class="text-gray-700"><em>{{ agencyDetails[0].Email }}</em></p>
-      </div>
+    <h3 class="text-2xl font-semibold text-gray-800 mb-4"><em>Customer Reviews</em></h3>
+    <div *ngIf="!userReviews.length" class="text-center text-gray-500">
+      No reviews yet.
     </div>
-
-    <hr class="my-6" />
-
-    <h3 class="text-2xl font-semibold text-gray-800 mb-6"><em>Customer Reviews</em></h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div *ngFor="let review of tourDetails.Ratings.Reviews"
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" *ngIf="userReviews.length">
+      <div *ngFor="let review of userReviews"
            class="review-card bg-gray-50 p-6 rounded-lg shadow-md flex flex-col space-y-4">
         <div class="flex items-center">
           <span class="font-semibold text-gray-900">{{ review.Reviewer }}</span>
           <div class="flex ml-2">
-            <ng-container *ngFor="let star of [].constructor(review.Rating); let i = index">
-              <svg *ngIf="i < review.Rating" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                   class="text-yellow-500" viewBox="0 0 16 16">
-                <path
-                  d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z" />
+            <ng-container *ngFor="let star of [].constructor(5); let i = index">
+              <svg *ngIf="i < review.Rating" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-yellow-500" viewBox="0 0 16 16">
+                <path d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z" />
               </svg>
-            </ng-container>
-            <ng-container *ngFor="let star of [].constructor(5 - review.Rating); let i = index">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-gray-300"
-                   viewBox="0 0 16 16">
-                <path
-                  d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z" />
+              <svg *ngIf="i >= review.Rating" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-gray-300" viewBox="0 0 16 16">
+                <path d="M8 12.27l3.5 2.23-.94-3.9L14 6.97l-3.91-.34L8 2 5.91 6.63 2 6.97l2.44 3.63-.94 3.9L8 12.27z" />
               </svg>
             </ng-container>
           </div>
@@ -150,6 +133,8 @@
         <p class="text-gray-700">{{ review.ReviewText }}</p>
       </div>
     </div>
+</div>
+
 
     <!-- Add Review Section -->
     <div class="mt-8 p-6 bg-white shadow-md rounded-lg">
@@ -171,14 +156,14 @@
         <div>
           <label for="reviewText" class="block text-gray-700 font-semibold mb-2">Your Review:</label>
           <textarea id="reviewText" [(ngModel)]="userReviewText" name="reviewText"
-                    class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
-                    rows="4" placeholder="Write your review here..." required></textarea>
+                    class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    rows="4" placeholder="Write your review here..."></textarea>
         </div>
-        <button type="submit"
-                class="bg-teal-600 hover:bg-teal-700 text-white py-2 px-6 rounded-md shadow-md transition duration-200">
-          Submit Review
-        </button>
+        <div class="text-center">
+          <button type="submit"
+                  class="bg-teal-600 text-white py-2 px-6 rounded-md shadow-md hover:bg-teal-700 transition duration-200">Submit Review</button>
+        </div>
       </form>
     </div>
   </div>
-</div>
+
