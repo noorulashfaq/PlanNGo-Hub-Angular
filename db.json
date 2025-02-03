@@ -31,18 +31,6 @@
       "PaymentTermsPolicy": [
         "100.0% of total tour cost will have to be paid 30 days before the date of booking."
       ],
-      "Ratings": {
-        "AverageRating": 4.8,
-        "TotalReviews": 15,
-        "Reviews": [
-          {
-            "Rating": 5,
-            "Reviewer": "Alice",
-            "Date": "January 10, 2024",
-            "ReviewText": "Amazing experience with breathtaking views. Highly recommend!"
-          }
-        ]
-      },
       "id": "92a4"
     },
     {
@@ -1168,9 +1156,9 @@
       "id": "505c"
     },
     {
+      "id": "3754",
       "LocationId": "L004",
-      "Location": "Japan",
-      "id": "e091"
+      "Location": "California"
     }
   ],
   "Agencies": [
@@ -1326,6 +1314,11 @@
       "TypeId": "TYP005",
       "Type": "Hill Trekking",
       "id": "4fb0"
+    },
+    {
+      "id": "35bf",
+      "TypeId": "TYP006",
+      "Type": "Jungle forest"
     }
   ],
   "Bookings": [
@@ -1382,439 +1375,42 @@
       "bookingDate": "2025-01-22T19:59:38.823Z",
       "status": false,
       "id": "b5a2"
+    },
+    {
+      "userId": "USR001",
+      "tourId": "TRPKG002",
+      "tourName": "Inca Trail Trekking",
+      "adults": 1,
+      "children": 0,
+      "rooms": 1,
+      "departureDate": "2025-02-13T21:29",
+      "arrivalDate": "2025-02-19T21:29",
+      "freePickup": "no",
+      "paymentStatus": true,
+      "paymentId": "0f96",
+      "amount": "INR 4800.00",
+      "specialRequest": "",
+      "bookingDate": "2025-02-03T15:59:01.031Z",
+      "status": true,
+      "id": "e0f2"
     }
   ],
   "Payments": [
     {
-      "id": "2cb3",
-      "nameOnCard": "Nishanth",
-      "cardNumber": "1234432156788765",
-      "expDate": "12/34",
-      "cvv": "111"
-    },
-    {
-      "id": "3dc4",
-      "nameOnCard": "John Doe",
-      "cardNumber": "9876543212345678",
-      "expDate": "11/25",
-      "cvv": "222"
-    },
-    {
-      "id": "4dd5",
-      "nameOnCard": "Alice Smith",
-      "cardNumber": "1357924680123456",
-      "expDate": "10/24",
-      "cvv": "333"
-    },
-    {
-      "id": "5fe6",
-      "nameOnCard": "Robert Brown",
-      "cardNumber": "2468135790123456",
-      "expDate": "08/23",
-      "cvv": "444"
-    },
-    {
-      "id": "6gh7",
-      "nameOnCard": "Emily Davis",
-      "cardNumber": "1122334455667788",
-      "expDate": "06/25",
-      "cvv": "555"
-    },
-    {
-      "id": "7hi8",
-      "nameOnCard": "Michael Johnson",
-      "cardNumber": "9988776655443322",
-      "expDate": "05/26",
-      "cvv": "666"
-    },
-    {
-      "id": "8ij9",
-      "nameOnCard": "Sophia Lee",
-      "cardNumber": "4433221100112233",
-      "expDate": "04/27",
-      "cvv": "777"
-    },
-    {
-      "id": "9kl0",
-      "nameOnCard": "Liam Martin",
-      "cardNumber": "9988776655442233",
-      "expDate": "03/28",
-      "cvv": "888"
-    },
-    {
-      "id": "10lm",
-      "nameOnCard": "Mia Clark",
-      "cardNumber": "1112223334445556",
-      "expDate": "02/29",
-      "cvv": "999"
-    },
-    {
-      "id": "11mn",
-      "nameOnCard": "Lucas White",
-      "cardNumber": "5432167899876543",
-      "expDate": "01/30",
-      "cvv": "000"
-    },
-    {
-      "id": "12op",
-      "nameOnCard": "Amelia Wilson",
-      "cardNumber": "8765432101234567",
-      "expDate": "12/31",
-      "cvv": "123"
-    },
-    {
-      "id": "13pq",
-      "nameOnCard": "Isabella Scott",
-      "cardNumber": "3456789012345678",
-      "expDate": "11/32",
-      "cvv": "234"
-    },
-    {
-      "id": "14qr",
-      "nameOnCard": "Ella Adams",
-      "cardNumber": "7865432109876543",
-      "expDate": "10/33",
-      "cvv": "345"
-    },
-    {
-      "id": "15rs",
-      "nameOnCard": "Grace Thomas",
-      "cardNumber": "1234567890987654",
-      "expDate": "09/34",
-      "cvv": "456"
-    },
-    {
-      "id": "16st",
-      "nameOnCard": "Oliver Jackson",
-      "cardNumber": "9876543212341234",
-      "expDate": "08/35",
-      "cvv": "567"
-    },
-    {
-      "id": "17tu",
-      "nameOnCard": "Jack Harris",
-      "cardNumber": "6543212345678765",
-      "expDate": "07/36",
-      "cvv": "678"
-    },
-    {
-      "id": "18uv",
-      "nameOnCard": "Charlotte Hall",
-      "cardNumber": "1230987654321098",
-      "expDate": "06/37",
-      "cvv": "789"
-    },
-    {
-      "id": "19vw",
-      "nameOnCard": "Benjamin Lewis",
-      "cardNumber": "5432109876543212",
-      "expDate": "05/38",
-      "cvv": "890"
-    },
-    {
-      "id": "20wx",
-      "nameOnCard": "Ethan Young",
-      "cardNumber": "9876543212345672",
-      "expDate": "04/39",
-      "cvv": "901"
-    },
-    {
-      "id": "a2f9",
-      "nameOnCard": "Daniel Moore",
-      "cardNumber": "3456127890345678",
-      "expDate": "03/35",
-      "cvv": "112"
-    },
-    {
-      "id": "b3g7",
-      "nameOnCard": "Ava Turner",
-      "cardNumber": "4567890123789456",
-      "expDate": "04/33",
-      "cvv": "223"
-    },
-    {
-      "id": "c4h5",
-      "nameOnCard": "James Walker",
-      "cardNumber": "5678901234567891",
-      "expDate": "05/36",
-      "cvv": "334"
-    },
-    {
-      "id": "d5j2",
-      "nameOnCard": "Olivia King",
-      "cardNumber": "6789012345678902",
-      "expDate": "06/37",
-      "cvv": "445"
-    },
-    {
-      "id": "e6k4",
-      "nameOnCard": "William Wright",
-      "cardNumber": "7890123456789013",
-      "expDate": "07/38",
-      "cvv": "556"
-    },
-    {
-      "id": "f7l8",
-      "nameOnCard": "Sophia Green",
-      "cardNumber": "8901234567890124",
-      "expDate": "08/39",
-      "cvv": "667"
-    },
-    {
-      "id": "g8m1",
-      "nameOnCard": "Elijah Adams",
-      "cardNumber": "9012345678901235",
-      "expDate": "09/40",
-      "cvv": "778"
-    },
-    {
-      "id": "h9n3",
-      "nameOnCard": "Isabella Nelson",
-      "cardNumber": "1234567890987650",
-      "expDate": "10/41",
-      "cvv": "889"
-    },
-    {
-      "id": "i0o5",
-      "nameOnCard": "Lucas Carter",
-      "cardNumber": "2345678909876541",
-      "expDate": "11/42",
-      "cvv": "990"
-    },
-    {
-      "id": "j1p7",
-      "nameOnCard": "Mia Perez",
-      "cardNumber": "3456789018765432",
-      "expDate": "12/43",
-      "cvv": "101"
-    },
-    {
-      "id": "k2q9",
-      "nameOnCard": "Henry Roberts",
-      "cardNumber": "4567890127654323",
-      "expDate": "01/44",
-      "cvv": "212"
-    },
-    {
-      "id": "l3r0",
-      "nameOnCard": "Amelia Evans",
-      "cardNumber": "5678901236543214",
-      "expDate": "02/45",
-      "cvv": "323"
-    },
-    {
-      "id": "m4s2",
-      "nameOnCard": "Benjamin Collins",
-      "cardNumber": "6789012345432105",
-      "expDate": "03/46",
-      "cvv": "434"
-    },
-    {
-      "id": "n5t4",
-      "nameOnCard": "Charlotte Stewart",
-      "cardNumber": "7890123454321096",
-      "expDate": "04/47",
-      "cvv": "545"
-    },
-    {
-      "id": "o6u6",
-      "nameOnCard": "Jack Morris",
-      "cardNumber": "8901234563210987",
-      "expDate": "05/48",
-      "cvv": "656"
-    },
-    {
-      "id": "p7v8",
-      "nameOnCard": "Grace Reed",
-      "cardNumber": "9012345672109878",
-      "expDate": "06/49",
-      "cvv": "767"
-    },
-    {
-      "id": "q8w0",
-      "nameOnCard": "Alexander Cook",
-      "cardNumber": "1122334455667789",
-      "expDate": "07/50",
-      "cvv": "878"
-    },
-    {
-      "id": "r9x2",
-      "nameOnCard": "Harper Murphy",
-      "cardNumber": "2233445566778890",
-      "expDate": "08/51",
-      "cvv": "989"
-    },
-    {
-      "id": "s0y4",
-      "nameOnCard": "Sebastian Rivera",
-      "cardNumber": "3344556677889901",
-      "expDate": "09/52",
-      "cvv": "090"
-    },
-    {
-      "id": "t1z6",
-      "nameOnCard": "Ella Cooper",
-      "cardNumber": "4455667788990012",
-      "expDate": "10/53",
-      "cvv": "101"
-    },
-    {
-      "id": "u2a8",
-      "nameOnCard": "Daniel Bailey",
-      "cardNumber": "5566778899001123",
-      "expDate": "11/54",
-      "cvv": "212"
-    },
-    {
-      "id": "v3b0",
-      "nameOnCard": "Zoey Flores",
-      "cardNumber": "6677889900112234",
-      "expDate": "12/55",
-      "cvv": "323"
-    },
-    {
-      "id": "w4c2",
-      "nameOnCard": "Matthew Jenkins",
-      "cardNumber": "7788990011223345",
-      "expDate": "01/56",
-      "cvv": "434"
-    },
-    {
-      "id": "x5d4",
-      "nameOnCard": "Nora Simmons",
-      "cardNumber": "8899001122334456",
-      "expDate": "02/57",
-      "cvv": "545"
-    },
-    {
-      "id": "y6e6",
-      "nameOnCard": "Levi Foster",
-      "cardNumber": "9900112233445567",
-      "expDate": "03/58",
-      "cvv": "656"
-    },
-    {
-      "id": "85f5",
-      "nameOnCard": "abcdef",
-      "cardNumber": "4556151637781908",
-      "expDate": "12/44",
-      "cvv": "333"
-    },
-    {
-      "id": "f70c",
-      "nameOnCard": "qwerty",
-      "cardNumber": "12747401041483",
-      "expDate": "12/54",
-      "cvv": "123"
-    },
-    {
-      "id": "0981",
-      "nameOnCard": "test",
-      "cardNumber": "12312343468734",
-      "expDate": "12/55",
-      "cvv": "123"
-    },
-    {
-      "id": "c838",
-      "nameOnCard": "agaga",
-      "cardNumber": "1264313731753",
-      "expDate": "12/55",
-      "cvv": "111"
-    },
-    {
-      "id": "755f",
-      "nameOnCard": "test",
-      "cardNumber": "12316198231326",
-      "expDate": "12/33",
-      "cvv": "121"
-    },
-    {
-      "id": "bf45",
-      "nameOnCard": "ABC",
-      "cardNumber": "86754648579809",
-      "expDate": "05/30",
-      "cvv": "214"
-    },
-    {
-      "id": "c7a6",
-      "nameOnCard": "xxxx xxx",
-      "cardNumber": "1234567893214",
-      "expDate": "12/28",
-      "cvv": "777"
+      "id": "0f96",
+      "nameOnCard": "Noor",
+      "cardNumber": "8765869870915124",
+      "expDate": "02/30",
+      "cvv": "869"
     }
   ],
   "Reviews": [
     {
-      "ReviewId": "1",
-      "TourId": "1",
-      "Rating": 5,
-      "Reviewer": "Alice",
-      "ReviewText": "Had a wonderful time, highly recommend!",
-      "id": "dbde"
-    },
-    {
-      "ReviewId": "2",
-      "TourId": "1",
-      "Rating": 4,
-      "Reviewer": "Bob",
-      "ReviewText": "Great tour, but the weather could have been better.",
-      "id": "6576"
-    },
-    {
-      "id": "f937",
-      "tourId": "TRPKG003",
-      "Reviewer": "Anonymous",
-      "Rating": 4,
-      "ReviewText": "good"
-    },
-    {
-      "id": "c268",
-      "tourId": "TRPKG003",
+      "id": "4afb",
+      "tourId": "TRPKG001",
       "Reviewer": "Anonymous",
       "Rating": 5,
-      "ReviewText": "very good"
-    },
-    {
-      "id": "1f32",
-      "tourId": "TRPKG003",
-      "Reviewer": "Anonymous",
-      "Rating": 4,
-      "ReviewText": "good"
-    },
-    {
-      "id": "ad35",
-      "tourId": "TRPKG003",
-      "Reviewer": "Anonymous",
-      "Rating": 5,
-      "ReviewText": "Good"
-    },
-    {
-      "id": "41d1",
-      "tourId": "TRPKG003",
-      "Reviewer": "Anonymous",
-      "Rating": 4,
-      "ReviewText": "super"
-    },
-    {
-      "id": "2972",
-      "tourId": "TRPKG003",
-      "Reviewer": "Anonymous",
-      "Rating": 5,
-      "ReviewText": "good"
-    },
-    {
-      "id": "94de",
-      "tourId": "TRPKG002",
-      "Reviewer": "Anonymous",
-      "Rating": 5,
-      "ReviewText": "Good"
-    },
-    {
-      "id": "50c0",
-      "tourId": "TRPKG004",
-      "Reviewer": "Anonymous",
-      "Rating": 4,
-      "ReviewText": "Excellent"
+      "ReviewText": "Test review"
     }
   ]
 }

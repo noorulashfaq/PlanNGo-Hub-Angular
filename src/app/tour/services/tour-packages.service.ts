@@ -80,41 +80,34 @@ export class TourPackagesService {
   }
 
   // Fetch all reviews
-getAllReviews(): Observable<any[]> {
-  return this.http.get<any[]>(this.reviewsApiUrl);
-}
+  getAllReviews(): Observable<any[]> {
+    return this.http.get<any[]>(this.reviewsApiUrl);
+  }
 
-// Fetch reviews by Tour ID
-getReviewsByTourId(tourId: string): Observable<any[]> {
-  return this.http.get<any[]>(`${this.reviewsApiUrl}?tourId=${tourId}`);
-}
+  // Fetch reviews by Tour ID
+  getReviewsByTourId(tourId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.reviewsApiUrl}?tourId=${tourId}`);
+  }
 
-// Add a new review
-addReview(reviewData: any): Observable<any> {
-  return this.http.post<any>(this.reviewsApiUrl, reviewData);
-}
+  // Add a new review
+  addReview(reviewData: any): Observable<any> {
+    return this.http.post<any>(this.reviewsApiUrl, reviewData);
+  }
 
-// Update an existing review
-updateReview(reviewId: string, reviewData: any): Observable<any> {
-  return this.http.put<any>(`${this.reviewsApiUrl}/${reviewId}`, reviewData);
-}
+  // Update an existing review
+  updateReview(reviewId: string, reviewData: any): Observable<any> {
+    return this.http.put<any>(`${this.reviewsApiUrl}/${reviewId}`, reviewData);
+  }
 
-// Delete a review
-deleteReview(reviewId: string): Observable<void> {
-  return this.http.delete<void>(`${this.reviewsApiUrl}/${reviewId}`).pipe(
-    catchError((error) => {
-      console.error('Error deleting review:', error);
-      return throwError('Failed to delete review. Please try again later.');
-    })
-  );
-}
-
-
- 
-
-
-
-
+  // Delete a review
+  deleteReview(reviewId: string): Observable<void> {
+    return this.http.delete<void>(`${this.reviewsApiUrl}/${reviewId}`).pipe(
+      catchError((error) => {
+        console.error("Error deleting review:", error);
+        return throwError("Failed to delete review. Please try again later.");
+      })
+    );
+  }
 
   // Fetch all bookings
   getAllBookings(): Observable<TourBooking[]> {
@@ -146,8 +139,8 @@ deleteReview(reviewId: string): Observable<void> {
   deleteBooking(bookedId: string): Observable<void> {
     return this.http.delete<void>(`${this.bookingApiUrl}/${bookedId}`).pipe(
       catchError((error) => {
-        console.error('Error deleting booking:', error);
-        return throwError('Failed to delete booking. Please try again later.');
+        console.error("Error deleting booking:", error);
+        return throwError("Failed to delete booking. Please try again later.");
       })
     );
   }
@@ -341,7 +334,7 @@ deleteReview(reviewId: string): Observable<void> {
     return this.http.get<TourPackage[]>(this.toursApiUrl);
   }
 
-     // Add a new tour
+  // Add a new tour
   addTour(newTour: any): Observable<any> {
     return this.http.post(this.toursApiUrl, newTour);
   }
@@ -374,5 +367,50 @@ deleteReview(reviewId: string): Observable<void> {
           );
         })
       );
+  }
+
+  // Method to fetch bookings for a particular agency
+  getAgencyBookings(agencyId: string): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${this.bookingApiUrl}?agencyId=${agencyId}`)
+      .pipe(
+        catchError((error) => {
+          console.error("Error fetching agency bookings:", error);
+          return throwError(() => new Error("Failed to fetch agency bookings"));
+        })
+      );
+  }
+
+  // Method to fetch all tours for a particular agency
+  getAgencyTours(agencyId: string): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${this.toursApiUrl}?AgencyId=${agencyId}`)
+      .pipe(
+        catchError((error) => {
+          console.error("Error fetching agency tours:", error);
+          return throwError(() => new Error("Failed to fetch agency tours"));
+        })
+      );
+  }
+
+  addLocation(location: {
+    LocationId: string;
+    Location: string;
+  }): Observable<any> {
+    return this.http.post<any>(this.locationsApiUrl, location);
+  }
+
+  deleteLocation(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.locationsApiUrl}/${id}`);
+  }
+
+  // Add a new tour type
+  addTourType(tourType: any): Observable<any> {
+    return this.http.post(this.tourTypeApiUrl, tourType);
+  }
+
+  // Delete a tour type
+  deleteTourType(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.tourTypeApiUrl}/${id}`);
   }
 }

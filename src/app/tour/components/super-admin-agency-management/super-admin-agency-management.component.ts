@@ -13,12 +13,25 @@ import { TourPackagesService } from '../../services/tour-packages.service'; // E
   styleUrls: ['./super-admin-agency-management.component.css'],
 })
 export class SuperAdminAgencyManagementComponent implements OnInit {
+  isFabMenuOpen: any;
+
   agencies: any[] = [];
   filteredAgencies: any[] = [];
   currentPage: number = 1;
-  rowsPerPage: number = 10;
+  rowsPerPage: number = 5;
   currentPageStart: number = 1;
-  currentPageEnd: number = 10;
+  currentPageEnd: number = 5;
+
+  // Locations pagination variables
+  currentLocationPage: number = 1;
+  rowsPerPageLocations: number = 5;
+  filteredLocations: any[] = [];
+  
+  // Tour Types pagination variables
+  currentTourTypePage: number = 1;
+  rowsPerPageTourTypes: number = 5;
+  filteredTourTypes: any[] = [];
+
   searchTerm: string = '';
   isAddAgencyModalOpen: boolean = false;
   isModalOpen: boolean = false;
@@ -50,6 +63,19 @@ export class SuperAdminAgencyManagementComponent implements OnInit {
   isDeleteModalOpen = false;
   agencyToDelete: any = null; // Holds the agency to delete
 
+  //locations
+  locations: any[] = [];
+  newLocationId = '';
+  isDeleteLocationModalOpen = false; // To control modal visibility
+  newLocation = '';
+  locationToDeleteId: string = ''; // To store the ID of the location to delete
+
+  //touttypes manage
+  tourTypess: any[] = []; // List of tour types
+  isDeleteTourTypeModalOpen = false; // To control modal visibility
+  tourTypeToDeleteId: string = ''; // To store the ID of the tour type to delete
+  newTourType: string = ''; // To store the new tour type
+
   constructor(
     private tourPackagesService: TourPackagesService,
     private fb: FormBuilder,
@@ -65,6 +91,8 @@ export class SuperAdminAgencyManagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchAgencies();
+    this.fetchLocations();
+    this.fetchTourTypes();
   }
 
   onFileSelect(event: any) {
@@ -324,6 +352,245 @@ export class SuperAdminAgencyManagementComponent implements OnInit {
   }
 
   
+  //getting locations
+  fetchLocations() {
+    this.tourPackagesService.getLocations().subscribe((data) => {
+      this.locations = data;
+      this.filteredLocations = data; // Apply filtering if needed
+      this.updateLocationPagination();
+
+    });
+  }
+
+  //adding locations
+  addLocation() {
+    if (this.newLocation.trim()) {
+      // Generate the next LocationId
+      const nextId = this.generateNextLocationId();
+  
+      const location = {
+        LocationId: nextId,
+        Location: this.newLocation,
+      };
+  
+      this.tourPackagesService.addLocation(location).subscribe(() => {
+        this.fetchLocations(); // Refresh the list
+        this.newLocation = ''; // Clear the input
+        console.log('Location added:', location);
+      });
+    }
+  }
+  
+  generateNextLocationId(): string {
+    if (!this.locations || this.locations.length === 0) {
+      return 'L001'; // Start with L001 if no locations exist
+    }
+  
+    // Extract numeric parts from LocationId and find the max
+    const maxId = Math.max(
+      ...this.locations.map(location =>
+        parseInt(location.LocationId.replace('L', ''), 10)
+      )
+    );
+  
+    // Increment and format the next ID
+    const nextIdNumber = maxId + 1;
+    return `L${nextIdNumber.toString().padStart(3, '0')}`; // Ensure L001, L002, etc.
+  }
+  
+  //deleting locations
+
+    // Open the modal and set the location ID
+    openDeleteLocationModal(locationId: string) {
+      this.isDeleteLocationModalOpen = true;
+      this.locationToDeleteId = locationId;
+    }
+  
+      // Close delete modal
+      closeDeleteLocationModal() {
+        this.isDeleteLocationModalOpen = false;
+      }
+
+  // Delete the selected location
+  deleteLocation() {
+    if (this.locationToDeleteId) {
+      // Make an API call to delete the location
+      this.tourPackagesService.deleteLocation(this.locationToDeleteId).subscribe(() => {
+        // After deletion, fetch the updated list of locations
+        this.fetchLocations();
+        this.closeDeleteLocationModal(); // Close the modal
+        this.showMessage('Success', 'Location deleted successfully!', true);
+        console.log('Location deleted:', this.locationToDeleteId);
+      }, error => {
+        console.error('Error deleting location:', error);
+        this.showMessage('Error', 'Failed to delete location. Please try again.', false);
+      });
+    }
+  }
+
+  // Open the modal and set the tour type ID to delete
+  openDeleteTourTypeModal(tourTypeId: string) {
+    this.isDeleteTourTypeModalOpen = true;
+    this.tourTypeToDeleteId = tourTypeId;
+  }
+
+  // Close the delete confirmation modal
+  closeDeleteTourTypeModal() {
+    this.isDeleteTourTypeModalOpen = false;
+  }
+
+  // Delete the selected tour type
+  deleteTourType() {
+    if (this.tourTypeToDeleteId) {
+      // Make an API call to delete the tour type
+      this.tourPackagesService.deleteTourType(this.tourTypeToDeleteId).subscribe(() => {
+        // After deletion, fetch the updated list of tour types
+        this.fetchTourTypes();
+        this.closeDeleteTourTypeModal(); // Close the modal
+        console.log('Tour type deleted:', this.tourTypeToDeleteId);
+        this.showMessage('Success', 'Tour Type deleted successfully!', true);
+      }, error => {
+        console.error('Error deleting tour type:', error);
+        this.showMessage('Error', 'Failed to delete tour type. Please try again.', false);
+      });
+    }
+  }
+
+  // Add a new tour type
+  addTourType() {
+    if (this.newTourType.trim()) {
+      const newTourType = {
+        TypeId: `TYP${('000' + (this.tourTypess.length + 1)).slice(-3)}`,
+        Type: this.newTourType
+      };
+
+      // Add new tour type to the backend (via API)
+      this.tourPackagesService.addTourType(newTourType).subscribe(() => {
+        // Fetch updated tour types list after adding
+        this.fetchTourTypes();
+        this.newTourType = ''; // Reset the input
+        console.log('New tour type added:', newTourType);
+      }, error => {
+        console.error('Error adding tour type:', error);
+      });
+    }
+  }
+
+  // Fetch the tour types from the backend
+  fetchTourTypes() {
+    this.tourPackagesService.getTourTypes().subscribe(tourTypes => {
+      this.tourTypess = tourTypes;
+      this.filteredTourTypes = tourTypes;
+      this.updateTourTypePagination();
+      
+    }, error => {
+      console.error('Error fetching tour types:', error);
+    });
+  }
+
+  // Get total pages for locations
+  get totalLocationPages(): number {
+    return Math.ceil(this.filteredLocations.length / this.rowsPerPageLocations);
+  }
+  
+  // Calculate total pages for tour types
+  get totalTourTypePages(): number {
+    return Math.ceil(this.filteredTourTypes.length / this.rowsPerPageTourTypes);
+  }
+
+  // Update pagination for locations
+  updateLocationPagination(): void {
+      this.currentLocationPage = 1; // Reset to first page when list changes
+  }
+
+  // Update pagination for tour types
+  updateTourTypePagination(): void {
+    this.currentTourTypePage = 1; // Reset to first page when list changes
+
+  }
+
+// Get paginated locations
+get paginatedLocations(): any[] {
+  if (!this.filteredLocations.length) return []; // Prevent errors if empty
+  const startIndex = (this.currentLocationPage - 1) * this.rowsPerPageLocations;
+  const endIndex = startIndex + this.rowsPerPageLocations;
+  return this.filteredLocations.slice(startIndex, endIndex);
+}
+
+ // Get paginated tour types
+get paginatedTourTypes(): any[] {
+  if (!this.filteredTourTypes.length) return []; // Prevent errors if empty
+  const startIndex = (this.currentTourTypePage - 1) * this.rowsPerPageTourTypes;
+  const endIndex = startIndex + this.rowsPerPageTourTypes;
+  return this.filteredTourTypes.slice(startIndex, endIndex);
+}
+
+  // Change rows per page for locations
+  changeRowsPerPageLocations(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    this.rowsPerPageLocations = +selectElement.value;
+    this.currentLocationPage = 1; // Reset to first page
+    this.updateLocationPagination();
+  }
+
+  // Change rows per page for tour types
+  changeRowsPerPageTourTypes(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    this.rowsPerPageTourTypes = +selectElement.value;
+    this.currentTourTypePage = 1; // Reset to first page
+    this.updateTourTypePagination();
+  }
+
+  // Navigate to next page
+nextLocationPage(): void {
+  if (this.currentLocationPage < this.totalLocationPages) {
+    this.currentLocationPage++;
+  }
+}
+
+// Navigate to previous page
+previousLocationPage(): void {
+  if (this.currentLocationPage > 1) {
+    this.currentLocationPage--;
+  }
+}
+
+  // Navigate to next page for tour types
+nextTourTypePage(): void {
+  if (this.currentTourTypePage < this.totalTourTypePages) {
+    this.currentTourTypePage++;
+  }
+}
+
+  
+// Navigate to previous page for tour types
+previousTourTypePage(): void {
+  if (this.currentTourTypePage > 1) {
+    this.currentTourTypePage--;
+  }
+}
+
+  // Template for pagination controls for locations
+  getLocationPaginationControls() {
+    return (
+      `<button (click)="previousLocationPage()">Previous</button>
+      <span>Page {{ currentLocationPage }} of {{ Math.ceil(filteredLocations.length / rowsPerPageLocations) }}</span>
+      <button (click)="nextLocationPage()">Next</button>`
+    );
+  }
+
+  // Template for pagination controls for tour types
+  getTourTypePaginationControls() {
+    return (
+      `<button (click)="previousTourTypePage()">Previous</button>
+      <span>Page {{ currentTourTypePage }} of {{ Math.ceil(filteredTourTypes.length / rowsPerPageTourTypes) }}</span>
+      <button (click)="nextTourTypePage()">Next</button>`
+    );
+  }
+ 
+  toggleFabMenu(): void {
+    this.isFabMenuOpen = !this.isFabMenuOpen;
+  }
 
 
   }

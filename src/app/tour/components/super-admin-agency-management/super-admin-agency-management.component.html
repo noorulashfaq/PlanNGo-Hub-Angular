@@ -26,77 +26,77 @@
     </div>
   </div>
 
- <!-- Table Container -->
-<div class="bg-white rounded-md shadow-md overflow-hidden">
-  <div class="overflow-x-auto">
-    <table class="min-w-full table-auto border-collapse">
-      <!-- Table Header -->
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="px-4 py-2 text-center text-sm font-medium text-gray-700">No</th>
-          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Profile</th>
-          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden sm:table-cell">Email</th>
-          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden md:table-cell">Phone No</th>
-          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden lg:table-cell">Office Location</th>
-          <th class="px-4 py-2 text-center text-sm font-medium text-gray-700">Actions</th>
-        </tr>
-      </thead>
+  <!-- Table Container -->
+  <div class="bg-white rounded-md shadow-md overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="min-w-full table-auto border-collapse">
+        <!-- Table Header -->
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-4 py-2 text-center text-sm font-medium text-gray-700">No</th>
+            <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Profile</th>
+            <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden sm:table-cell">Email</th>
+            <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden md:table-cell">Phone No</th>
+            <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 hidden lg:table-cell">Office Location</th>
+            <th class="px-4 py-2 text-center text-sm font-medium text-gray-700">Actions</th>
+          </tr>
+        </thead>
 
-      <!-- Table Body -->
-      <tbody>
-        <!-- No Data Found Row -->
-        <tr *ngIf="filteredAgencies.length === 0" class="text-center">
-          <td colspan="6" class="px-4 py-2 text-sm text-gray-600">No agencies found</td>
-        </tr>
+        <!-- Table Body -->
+        <tbody>
+          <!-- No Data Found Row -->
+          <tr *ngIf="filteredAgencies.length === 0" class="text-center">
+            <td colspan="6" class="px-4 py-2 text-sm text-gray-600">No agencies found</td>
+          </tr>
 
-        <!-- Agency Rows -->
-        <tr *ngFor="let agency of paginatedAgencies; let i = index" class="hover:bg-gray-50 border-b border-gray-200">
-          <!-- Serial Number -->
-          <td class="px-4 py-2 text-center text-sm text-gray-600">
-            {{ i + 1 + (currentPage - 1) * rowsPerPage }}
-          </td>
+          <!-- Agency Rows -->
+          <tr *ngFor="let agency of paginatedAgencies; let i = index" class="hover:bg-gray-50 border-b border-gray-200">
+            <!-- Serial Number -->
+            <td class="px-4 py-2 text-center text-sm text-gray-600">
+              {{ i + 1 + (currentPage - 1) * rowsPerPage }}
+            </td>
 
-          <!-- Profile -->
-          <td class="px-4 py-2 flex items-center space-x-2">
-            <img [src]="agency.AgencyLogo" alt="Agency Logo" class="h-10 w-10 rounded-full border object-cover">
-            <span class="text-gray-800 text-sm font-medium">{{ agency.AgencyName }}</span>
-          </td>
+            <!-- Profile -->
+            <td class="px-4 py-2 flex items-center space-x-2">
+              <img [src]="agency.AgencyLogo" alt="Agency Logo" class="h-10 w-10 rounded-full border object-cover">
+              <span class="text-gray-800 text-sm font-medium">{{ agency.AgencyName }}</span>
+            </td>
 
-          <!-- Email -->
-          <td class="px-4 py-2 text-sm text-gray-600 hidden sm:table-cell">
-            {{ agency.Email }}
-          </td>
+            <!-- Email -->
+            <td class="px-4 py-2 text-sm text-gray-600 hidden sm:table-cell">
+              {{ agency.Email }}
+            </td>
 
-          <!-- Phone Number -->
-          <td class="px-4 py-2 text-sm text-gray-600 hidden md:table-cell">
-            {{ agency.Phno }}
-          </td>
+            <!-- Phone Number -->
+            <td class="px-4 py-2 text-sm text-gray-600 hidden md:table-cell">
+              {{ agency.Phno }}
+            </td>
 
-          <!-- Office Location -->
-          <td class="px-4 py-2 text-sm text-gray-600 hidden lg:table-cell">
-            {{ agency.OfficeLocation }}
-          </td>
+            <!-- Office Location -->
+            <td class="px-4 py-2 text-sm text-gray-600 hidden lg:table-cell">
+              {{ agency.OfficeLocation }}
+            </td>
 
-          <!-- Actions -->
-          <td class="px-4 py-2 text-center">
-            <div class="flex justify-center space-x-2">
-              <!-- Edit Button -->
-              <button class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition" (click)="openModal(agency)">
-                <span class="material-icons">edit</span>
-              </button>
+            <!-- Actions -->
+            <td class="px-4 py-2 text-center">
+              <div class="flex justify-center space-x-2">
+                <!-- Edit Button -->
+                <button class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition" (click)="openModal(agency)">
+                  <span class="material-icons">edit</span>
+                </button>
 
-              <!-- Delete Button -->
-              <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition" (click)="confirmDeleteAgency(agency.id)">
-                <span class="material-icons">delete</span>
-              </button>
-              
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                <!-- Delete Button -->
+                <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition" (click)="confirmDeleteAgency(agency.id)">
+                  <span class="material-icons">delete</span>
+                </button>
+                
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 
 
   <!-- Pagination -->
@@ -111,253 +111,442 @@
     </div>
 
     <!-- Pagination Navigation -->
-<div class="flex items-center space-x-4">
-  <button 
-    class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
-    (click)="previousPage()"
-    [disabled]="currentPage === 1"
-  >
-    <
-  </button>
-  <span class="text-sm font-medium text-gray-600">
-    {{ currentPageStart }} - {{ currentPageEnd }} of {{ filteredAgencies.length }}
-  </span>
-  <button 
-    class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
-    (click)="nextPage()"
-    [disabled]="currentPage * rowsPerPage >= filteredAgencies.length"
-  >
-    >
-  </button>
-</div>
-
-<!-- Confirmation Modal -->
-<div *ngIf="isDeleteModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-  <div class="bg-green-50 w-full max-w-md p-6 rounded-md shadow-lg relative">
-    <h2 class="text-lg font-semibold text-red-800 mb-4">Confirm Deletion</h2>
-    <p class="text-sm text-gray-600 mb-6">Are you sure you want to delete this agency?</p>
-    <div class="flex justify-end gap-4">
-      <button (click)="closeDeleteModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400">Cancel</button>
-      <button (click)="deleteAgency()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Confirm</button>
+    <div class="flex items-center space-x-4">
+      <button 
+        class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
+        (click)="previousPage()"
+        [disabled]="currentPage === 1"
+      >
+        &lt;
+      </button>
+      <span class="text-sm font-medium text-gray-600">
+        {{ currentPageStart }} - {{ currentPageEnd }} of {{ filteredAgencies.length }}
+      </span>
+      <button 
+        class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
+        (click)="nextPage()"
+        [disabled]="currentPage * rowsPerPage >= filteredAgencies.length"
+      >
+        &gt;
+      </button>
     </div>
   </div>
-</div>
 
-<!-- Add Agency Floating Form -->
-<div *ngIf="isAddAgencyModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-  <div class="bg-green-50 w-full max-w-md p-6 rounded-md shadow-lg relative">
-    <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" (click)="closeAddAgencyForm()">
-      <span class="material-icons">close</span>
-    </button>
-    <h2 class="text-xl font-semibold text-pink-600 mb-4">Add New Agency</h2>
-    <form (ngSubmit)="addAgency(addAgencyForm)" #addAgencyForm="ngForm">
-
-      <!-- Agency ID (Hidden) -->
-    <input type="hidden" [(ngModel)]="newAgency.AgencyId" name="AgencyId" />
-
-
-      <!-- Agency Name -->
-      <div class="mb-4">
-        <label for="newAgencyName" class="block mb-1 text-sm font-medium text-gray-700">Agency Name</label>
-        <input type="text" id="newAgencyName" [(ngModel)]="newAgency.AgencyName" name="AgencyName" #agencyName="ngModel" pattern="^[a-zA-Z ]+$" required
-          class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <div *ngIf="agencyName.invalid && agencyName.touched">
-          <small *ngIf="agencyName.errors?.['required']" class="text-red-500">* Agency Name is required.</small>
-          <small *ngIf="agencyName.errors?.['pattern']" class="text-red-500">* Agency Name must only contain letters and spaces.</small>
-        </div>
+  <!-- Confirmation Modal -->
+  <div *ngIf="isDeleteModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-green-50 w-full max-w-md p-6 rounded-md shadow-lg relative">
+      <h2 class="text-lg font-semibold text-red-800 mb-4">Confirm Deletion</h2>
+      <p class="text-sm text-gray-600 mb-6">Are you sure you want to delete this agency?</p>
+      <div class="flex justify-end gap-4">
+        <button (click)="closeDeleteModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400">Cancel</button>
+        <button (click)="deleteAgency()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Confirm</button>
       </div>
+    </div>
+  </div>
 
-      <!-- Agency Logo -->
-      <div class="mb-4">
-        <label for="newAgencyLogo" class="block mb-1 text-sm font-medium text-gray-700">Agency Logo</label>
-        <input type="file" id="newAgencyLogo" (change)="onLogoChange($event)" name="AgencyLogo" required
-          class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+  <!-- Add Agency Floating Form -->
+  <div *ngIf="isAddAgencyModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-green-50 w-full max-w-md p-6 rounded-md shadow-lg relative">
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" (click)="closeAddAgencyForm()">
+        <span class="material-icons">close</span>
+      </button>
+      <h2 class="text-xl font-semibold text-pink-600 mb-4">Add New Agency</h2>
+      <form (ngSubmit)="addAgency(addAgencyForm)" #addAgencyForm="ngForm">
+
+        <!-- Agency ID (Hidden) -->
+      <input type="hidden" [(ngModel)]="newAgency.AgencyId" name="AgencyId" />
+
+
+        <!-- Agency Name -->
+        <div class="mb-4">
+          <label for="newAgencyName" class="block mb-1 text-sm font-medium text-gray-700">Agency Name</label>
+          <input type="text" id="newAgencyName" [(ngModel)]="newAgency.AgencyName" name="AgencyName" #agencyName="ngModel" pattern="^[a-zA-Z ]+$" required
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <div *ngIf="agencyName.invalid && agencyName.touched">
+            <small *ngIf="agencyName.errors?.['required']" class="text-red-500">* Agency Name is required.</small>
+            <small *ngIf="agencyName.errors?.['pattern']" class="text-red-500">* Agency Name must only contain letters and spaces.</small>
+          </div>
+        </div>
+
+        <!-- Agency Logo -->
+        <div class="mb-4">
+          <label for="newAgencyLogo" class="block mb-1 text-sm font-medium text-gray-700">Agency Logo</label>
+          <input type="file" id="newAgencyLogo" (change)="onLogoChange($event)" name="AgencyLogo" required
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            <div *ngIf="!isFileValid && fileTouched">
+              <small class="text-red-500">* Agency Logo is required (valid image file).</small>
+            </div>
+          <div *ngIf="newAgency.AgencyLogo" class="mt-2">
+            <img [src]="newAgency.AgencyLogo" alt="Agency Logo Preview" class="w-24 h-24 rounded-md object-cover" />
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="mb-4">
+          <label for="newEmail" class="block mb-1 text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="newEmail" [(ngModel)]="newAgency.Email" name="Email" required #email="ngModel"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <div *ngIf="email.invalid && email.touched">
+            <small *ngIf="email.errors?.['required']" class="text-red-500">* Email is required.</small>
+            <small *ngIf="email.errors?.['email']" class="text-red-500">* Invalid email format.</small>
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mb-4">
+          <label for="newPhno" class="block mb-1 text-sm font-medium text-gray-700">Phone Number</label>
+          <input type="tel" id="newPhno" [(ngModel)]="newAgency.Phno" name="Phno" required pattern="^\+\d{2}-\d{10}$" #phno="ngModel"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <div *ngIf="phno.invalid && phno.touched">
+            <small *ngIf="phno.errors?.['required']" class="text-red-500">* Phone Number is required.</small>
+            <small *ngIf="phno.errors?.['pattern']" class="text-red-500">* Invalid phone number format (e.g., +81-9012345678).</small>
+          </div>
+        </div>
+
+
+        <!-- Office Location -->
+        <div class="mb-4">
+          <label for="newOfficeLocation" class="block mb-1 text-sm font-medium text-gray-700">Office Location</label>
+          <textarea id="newOfficeLocation" [(ngModel)]="newAgency.OfficeLocation" name="OfficeLocation" rows="3" #officeLocation="ngModel" required
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+            <div *ngIf="officeLocation.invalid && officeLocation.touched">
+              <small class="text-red-500">* Office Location is required </small>
+            </div>
+            
+        </div>
+        
+        <div class="flex justify-end gap-4">
+          <button type="button" (click)="closeAddAgencyForm()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400">Cancel</button>
+          <button type="submit" [disabled]="addAgencyForm.invalid || !isFileValid" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    
+  <!-- Overlay Modal -->
+  <div *ngIf="isModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-green-50 w-full max-w-2xl p-6 rounded-md shadow-lg relative">
+      <!-- Close Button -->
+      <button 
+        class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+        (click)="closeModal()">
+        <span class="material-icons">close</span>
+      </button>
+
+      <!-- Modal Content -->
+      <h2 class="text-xl font-semibold text-orange-600 mb-4">Edit Agency</h2>
+      <form (ngSubmit)="updateAgency()" #editAgencyForm="ngForm">
+        <!-- Logo Upload -->
+        <div class="mb-4">
+          <label for="AgencyLogo" class="block mb-1 text-sm font-medium text-gray-700">Agency Logo</label>
+          <div class="flex items-center space-x-4">
+            <!-- Display the current logo -->
+            <img 
+              [src]="selectedAgency.AgencyLogo || 'https://via.placeholder.com/100'" 
+              alt="Current Logo" 
+              class="h-16 w-16 rounded-full border border-gray-300 object-cover"
+            />
+            <!-- File input for new logo -->
+            <input
+            type="file"
+            id="AgencyLogo"
+            (change)="onFileSelected($event)"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            accept="image/*"
+            required
+          />
+          </div>
           <div *ngIf="!isFileValid && fileTouched">
-            <small class="text-red-500">* Agency Logo is required (valid image file).</small>
+            <small class="text-red-500">* Please upload a valid image file.</small>
           </div>
-        <div *ngIf="newAgency.AgencyLogo" class="mt-2">
-          <img [src]="newAgency.AgencyLogo" alt="Agency Logo Preview" class="w-24 h-24 rounded-md object-cover" />
+          <small class="text-gray-500">Upload a square image for best results.</small>
         </div>
+
+        <!-- Agency Name -->
+        <div class="mb-4">
+          <label for="AgencyName" class="block mb-1 text-sm font-medium text-gray-700">Agency Name</label>
+          <input
+            type="text"
+            id="AgencyName"
+            [(ngModel)]="selectedAgency.AgencyName"
+            name="AgencyName"
+            required
+            pattern="^[a-zA-Z ]+$"
+            #agencyName="ngModel"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <div *ngIf="agencyName.invalid && agencyName.touched">
+            <small *ngIf="agencyName.errors?.['required']" class="text-red-500">* Agency Name is required.</small>
+            <small *ngIf="agencyName.errors?.['pattern']" class="text-red-500">* Agency Name must only contain letters and spaces.</small>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-4">
+          <label for="Email" class="block mb-1 text-sm font-medium text-gray-700">Email</label>
+          <input
+            type="email"
+            id="Email"
+            [(ngModel)]="selectedAgency.Email"
+            name="Email"
+            required
+            #email="ngModel"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <div *ngIf="email.invalid && email.touched">
+            <small *ngIf="email.errors?.['required']" class="text-red-500">* Email is required.</small>
+            <small *ngIf="email.errors?.['email']" class="text-red-500">* Invalid email format.</small>
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mb-4">
+          <label for="Phno" class="block mb-1 text-sm font-medium text-gray-700">Phone Number</label>
+          <input
+            type="text"
+            id="Phno"
+            [(ngModel)]="selectedAgency.Phno"
+            name="Phno"
+            required
+            pattern="^\+\d{2}-\d{10}$"
+            #phno="ngModel"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <div *ngIf="phno.invalid && phno.touched">
+            <small *ngIf="phno.errors?.['required']" class="text-red-500">* Phone Number is required.</small>
+            <small *ngIf="phno.errors?.['pattern']" class="text-red-500">* Invalid phone number format (e.g., +81-9012345678).</small>
+          </div>
+        </div>
+
+        <!-- Office Location -->
+        <div class="mb-4">
+          <label for="OfficeLocation" class="block mb-1 text-sm font-medium text-gray-700">Office Location</label>
+          <textarea
+            id="OfficeLocation"
+            [(ngModel)]="selectedAgency.OfficeLocation"
+            name="OfficeLocation"
+            rows="3"
+            required
+            #officeLocation="ngModel"
+            class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          ></textarea>
+          <div *ngIf="officeLocation.invalid && officeLocation.touched">
+            <small *ngIf="officeLocation.errors?.['required']" class="text-red-500">* Office Location is required.</small>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex justify-end gap-4">
+          <button
+            type="button"
+            (click)="closeModal()"
+            class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            [disabled]="editAgencyForm.invalid || !isLogoValid"
+            class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Manage Locations and TourTypes -->
+  <div class="p-4 max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">    <!-- Manage Locations Card -->
+    <div class="bg-white shadow rounded-md p-4">
+      <h2 class="text-2xl font-bold mb-4 text-orange-600">Manage Locations</h2>
+
+      <!-- Add Location Form -->
+      <div class="mb-4 grid grid-cols-3 gap-2">
+        <input
+          type="text"
+          [(ngModel)]="newLocation"
+          placeholder="Location Name"
+          class="border rounded p-2"
+          required
+          minlength="2"
+          maxlength="50"
+          pattern="^[A-Za-z ]*$"
+          #locationInput="ngModel"
+        />
+        <button
+          (click)="addLocation()"
+          class="bg-blue-500 text-white rounded p-3 flex items-center justify-center"
+          [disabled]="locationInput.invalid"
+        >
+          <span class="material-icons">add</span>
+        </button>
       </div>
-      <!-- Email -->
-      <div class="mb-4">
-        <label for="newEmail" class="block mb-1 text-sm font-medium text-gray-700">Email</label>
-        <input type="email" id="newEmail" [(ngModel)]="newAgency.Email" name="Email" required #email="ngModel"
-          class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <div *ngIf="email.invalid && email.touched">
-          <small *ngIf="email.errors?.['required']" class="text-red-500">* Email is required.</small>
-          <small *ngIf="email.errors?.['email']" class="text-red-500">* Invalid email format.</small>
+
+      <div *ngIf="locationInput.touched && locationInput.invalid" class="text-red-500 text-sm">
+        <div *ngIf="locationInput.errors?.['required']">Location Name is required.</div>
+        <div *ngIf="locationInput.errors?.['minlength']">Location Name must be at least 2 characters.</div>
+        <div *ngIf="locationInput.errors?.['maxlength']">Location Name must not exceed 50 characters.</div>
+        <div *ngIf="locationInput.errors?.['pattern']">Location Name must only contain alphabets and spaces.</div>
+      </div>
+
+      <!-- Locations List -->
+      <ul class="space-y-2">
+        <li
+          *ngFor="let location of paginatedLocations"
+          class="flex justify-between items-center border p-2 rounded bg-gray-100"
+          >
+          <div>
+            <strong>{{ location.LocationId }}</strong>: {{ location.Location }}
+          </div>
+          <button
+            (click)="openDeleteLocationModal(location.id)"
+            class="bg-red-500 text-white rounded p-3 flex items-center justify-center"
+            >
+            <span class="material-icons">delete</span>
+          </button>
+        </li>
+      </ul>
+    
+
+      <div class="pagination-controls">
+        <button (click)="previousLocationPage()" 
+                [disabled]="currentLocationPage === 1" 
+                class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 m-2">
+          &lt;
+        </button>
+        <span>{{ currentLocationPage }} of {{ totalLocationPages }}</span>
+        <button (click)="nextLocationPage()" 
+                [disabled]="currentLocationPage >= totalLocationPages" 
+                class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 m-2">
+          &gt;
+        </button>
+      </div>
+
+      <div *ngIf="isDeleteLocationModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white w-full max-w-md p-6 rounded-md shadow-lg relative">
+          <h2 class="text-lg font-semibold text-red-800 mb-4">Confirm Deletion</h2>
+          <p class="text-sm text-gray-600 mb-6">Are you sure you want to delete this location?</p>
+          <div class="flex justify-end gap-4">
+            <button (click)="closeDeleteLocationModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400">Cancel</button>
+            <button (click)="deleteLocation()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Confirm</button>
+          </div>
         </div>
       </div>
 
-    <!-- Phone Number -->
-    <div class="mb-4">
-      <label for="newPhno" class="block mb-1 text-sm font-medium text-gray-700">Phone Number</label>
-      <input type="tel" id="newPhno" [(ngModel)]="newAgency.Phno" name="Phno" required pattern="^\+\d{1,3}-\d{1,4}-\d{4}-\d{4}$" #phno="ngModel"
-        class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-      <div *ngIf="phno.invalid && phno.touched">
-        <small *ngIf="phno.errors?.['required']" class="text-red-500">* Phone Number is required.</small>
-        <small *ngIf="phno.errors?.['pattern']" class="text-red-500">* Invalid phone number format (e.g., +81-9012345678).</small>
-      </div>
     </div>
 
+    <!-- Manage Tour Types Card -->
+    <div class="bg-white shadow rounded-md p-4">
+      <h2 class="text-2xl font-bold mb-4 text-pink-600">Manage Tour Types</h2>
 
-      <!-- Office Location -->
-      <div class="mb-4">
-        <label for="newOfficeLocation" class="block mb-1 text-sm font-medium text-gray-700">Office Location</label>
-        <textarea id="newOfficeLocation" [(ngModel)]="newAgency.OfficeLocation" name="OfficeLocation" rows="3" #officeLocation="ngModel" required
-          class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
-          <div *ngIf="officeLocation.invalid && officeLocation.touched">
-            <small class="text-red-500">* Office Location is required </small>
+      <!-- Add Tour Type Form -->
+      <div class="mb-4 grid grid-cols-3 gap-2">
+        <input
+          type="text"
+          [(ngModel)]="newTourType"
+          placeholder="Tour Type Name"
+          class="border rounded p-2"
+          required
+          minlength="3"
+          maxlength="50"
+          pattern="^[A-Za-z ]*$"
+          #tourTypeInput="ngModel"
+        />
+        <button
+          (click)="addTourType()"
+          class="bg-blue-500 text-white rounded p-3 flex items-center justify-center"
+          [disabled]="tourTypeInput.invalid"
+          >
+          <span class="material-icons">add</span>
+        </button>
+      </div>
+      <div *ngIf="tourTypeInput.touched && tourTypeInput.invalid" class="text-red-500 text-sm">
+        <div *ngIf="tourTypeInput.errors?.['required']">Location Name is required.</div>
+        <div *ngIf="tourTypeInput.errors?.['minlength']">Location Name must be at least 3 characters.</div>
+        <div *ngIf="tourTypeInput.errors?.['maxlength']">Location Name must not exceed 50 characters.</div>
+        <div *ngIf="tourTypeInput.errors?.['pattern']">Location Name must only contain alphabets and spaces.</div>
+      </div>
+
+      <!-- Tour Types List -->
+      <ul class="space-y-2">
+        <li
+          *ngFor="let tourType of paginatedTourTypes"
+          class="flex justify-between items-center border p-2 rounded bg-gray-100"
+          >
+          <div>
+            <strong>{{ tourType.TypeId }}</strong>: {{ tourType.Type }}
           </div>
-          
+          <button
+            (click)="openDeleteTourTypeModal(tourType.id)"
+            class="bg-red-500 text-white rounded p-3 flex items-center justify-center"
+            >
+            <span class="material-icons">delete</span>
+          </button>
+        </li>
+      </ul>
+
+        <!-- Tour Types Section -->
+        <div class="pagination-controls">
+          <button (click)="previousTourTypePage()" 
+                  [disabled]="currentTourTypePage === 1" 
+                  class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 m-2">
+            &lt;
+          </button>
+          <span>{{ currentTourTypePage }} of {{ totalTourTypePages }}</span>
+          <button (click)="nextTourTypePage()" 
+                  [disabled]="currentTourTypePage >= totalTourTypePages" 
+                  class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 m-2">
+            &gt;
+          </button>
+        </div>
+
+        <!-- Confirmation Modal -->
+      <div *ngIf="isDeleteTourTypeModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white w-full max-w-md p-6 rounded-md shadow-lg relative">
+          <h2 class="text-lg font-semibold text-red-800 mb-4">Confirm Deletion</h2>
+          <p class="text-sm text-gray-600 mb-6">Are you sure you want to delete this tour type?</p>
+          <div class="flex justify-end gap-4">
+            <button (click)="closeDeleteTourTypeModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400">Cancel</button>
+            <button (click)="deleteTourType()" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Confirm</button>
+          </div>
+        </div>
       </div>
-      
-      <div class="flex justify-end gap-4">
-        <button type="button" (click)="closeAddAgencyForm()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400">Cancel</button>
-        <button type="submit" [disabled]="addAgencyForm.invalid || !isFileValid" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Add</button>
-      </div>
-    </form>
+        
   </div>
+
+
+
+  </div>
+
 </div>
 
+<!-- Floating Action Button -->
+<div class="fixed bottom-5 right-5 z-50 flex flex-col items-center">
+    <!-- FAB Menu -->
+    <ul
+      class="flex-col-reverse items-center space-y-reverse space-y-4 mb-4 transition-all duration-300"
+      [ngClass]="{
+        'opacity-0 translate-y-10 pointer-events-none': !isFabMenuOpen,
+        'opacity-100 translate-y-0': isFabMenuOpen
+      }"
+    >
+      <li class="mb-3">
+        <a
+          href="/tours/superadmin/dashboard"
+          class="w-12 h-12 bg-white text-teal-600 rounded-full shadow-md flex justify-center items-center border border-teal-600 hover:bg-teal-600 hover:text-white transition-colors"
+          title="Home"
+        >
+          🏠
+        </a>
+      </li>
+    </ul>
   
-<!-- Overlay Modal -->
-<div *ngIf="isModalOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-  <div class="bg-green-50 w-full max-w-2xl p-6 rounded-md shadow-lg relative">
-    <!-- Close Button -->
-    <button 
-      class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-      (click)="closeModal()">
-      <span class="material-icons">close</span>
+    <!-- Floating Action Button -->
+    <button
+      class="w-16 h-16 bg-teal-600 text-white rounded-full shadow-lg flex justify-center items-center text-3xl hover:scale-110 transition-transform"
+      (click)="toggleFabMenu()"
+    >
+      +
     </button>
-
-    <!-- Modal Content -->
-    <h2 class="text-xl font-semibold text-orange-600 mb-4">Edit Agency</h2>
-    <form (ngSubmit)="updateAgency()" #editAgencyForm="ngForm">
-      <!-- Logo Upload -->
-<div class="mb-4">
-  <label for="AgencyLogo" class="block mb-1 text-sm font-medium text-gray-700">Agency Logo</label>
-  <div class="flex items-center space-x-4">
-    <!-- Display the current logo -->
-    <img 
-      [src]="selectedAgency.AgencyLogo || 'https://via.placeholder.com/100'" 
-      alt="Current Logo" 
-      class="h-16 w-16 rounded-full border border-gray-300 object-cover"
-    />
-    <!-- File input for new logo -->
-    <input
-    type="file"
-    id="AgencyLogo"
-    (change)="onFileSelected($event)"
-    class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-    accept="image/*"
-    required
-  />
-  </div>
-  <div *ngIf="!isFileValid && fileTouched">
-    <small class="text-red-500">* Please upload a valid image file.</small>
-  </div>
-  <small class="text-gray-500">Upload a square image for best results.</small>
-</div>
-
-      <!-- Agency Name -->
-      <div class="mb-4">
-        <label for="AgencyName" class="block mb-1 text-sm font-medium text-gray-700">Agency Name</label>
-        <input
-          type="text"
-          id="AgencyName"
-          [(ngModel)]="selectedAgency.AgencyName"
-          name="AgencyName"
-          required
-          pattern="^[a-zA-Z ]+$"
-          #agencyName="ngModel"
-          class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <div *ngIf="agencyName.invalid && agencyName.touched">
-          <small *ngIf="agencyName.errors?.['required']" class="text-red-500">* Agency Name is required.</small>
-          <small *ngIf="agencyName.errors?.['pattern']" class="text-red-500">* Agency Name must only contain letters and spaces.</small>
-        </div>
-      </div>
-
-      <!-- Email -->
-      <div class="mb-4">
-        <label for="Email" class="block mb-1 text-sm font-medium text-gray-700">Email</label>
-        <input
-          type="email"
-          id="Email"
-          [(ngModel)]="selectedAgency.Email"
-          name="Email"
-          required
-          #email="ngModel"
-          class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <div *ngIf="email.invalid && email.touched">
-          <small *ngIf="email.errors?.['required']" class="text-red-500">* Email is required.</small>
-          <small *ngIf="email.errors?.['email']" class="text-red-500">* Invalid email format.</small>
-        </div>
-      </div>
-
-      <!-- Phone Number -->
-      <div class="mb-4">
-        <label for="Phno" class="block mb-1 text-sm font-medium text-gray-700">Phone Number</label>
-        <input
-          type="text"
-          id="Phno"
-          [(ngModel)]="selectedAgency.Phno"
-          name="Phno"
-          required
-          pattern="^\+\d{3}-\d{10}$"
-          #phno="ngModel"
-          class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <div *ngIf="phno.invalid && phno.touched">
-          <small *ngIf="phno.errors?.['required']" class="text-red-500">* Phone Number is required.</small>
-          <small *ngIf="phno.errors?.['pattern']" class="text-red-500">* Invalid phone number format (e.g., +81-9012345678).</small>
-        </div>
-      </div>
-
-      <!-- Office Location -->
-      <div class="mb-4">
-        <label for="OfficeLocation" class="block mb-1 text-sm font-medium text-gray-700">Office Location</label>
-        <textarea
-          id="OfficeLocation"
-          [(ngModel)]="selectedAgency.OfficeLocation"
-          name="OfficeLocation"
-          rows="3"
-          required
-          #officeLocation="ngModel"
-          class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        ></textarea>
-        <div *ngIf="officeLocation.invalid && officeLocation.touched">
-          <small *ngIf="officeLocation.errors?.['required']" class="text-red-500">* Office Location is required.</small>
-        </div>
-      </div>
-
-      <!-- Actions -->
-      <div class="flex justify-end gap-4">
-        <button
-          type="button"
-          (click)="closeModal()"
-          class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          [disabled]="editAgencyForm.invalid || !isLogoValid"
-          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-        >
-          Save
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-
-
-
-
-  </div>
 </div>

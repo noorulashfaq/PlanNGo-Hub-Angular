@@ -25,6 +25,7 @@ export class AgencyAdminManagementComponent implements OnInit {
   currentPageStart: number = 1;
   currentPageEnd: number = 10;
   searchTerm: string = '';
+  isFabMenuOpen = false;
 
   //for adding new tour package
   isAddTourModalOpen = false;
@@ -111,6 +112,10 @@ export class AgencyAdminManagementComponent implements OnInit {
     this.fetchLocations();
     console.log('Initial tours data:', this.tours);
 
+  }
+
+  toggleFabMenu(): void {
+    this.isFabMenuOpen = !this.isFabMenuOpen;
   }
 
   //getting tour types

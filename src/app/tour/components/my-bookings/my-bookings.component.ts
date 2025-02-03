@@ -26,6 +26,11 @@ export class MyBookingsComponent implements OnInit {
   sortField: string | null = null;
   sortDirection: 'asc' | 'desc' = 'asc'; // Default to ascending
   filterStatus: string | null = '';
+  // Track modal state and action type
+  isConfirmModalOpen: boolean = false;
+  confirmationMessage: string = '';
+  actionType: 'withdraw' | 'rebook' | null = null;
+  selectedBooking: any = null;
 
   constructor(
     private tourPackagesService: TourPackagesService,
@@ -136,7 +141,6 @@ export class MyBookingsComponent implements OnInit {
   // }
 
   updateBookingStatus(bookingId: string) {
-    if (confirm('Are you sure you want to update the status of this booking?')) {
       this.loading = true;
   
       // Get the booking details by ID
@@ -163,6 +167,7 @@ export class MyBookingsComponent implements OnInit {
             },
             (error) => {
               console.error('Error updating booking status:', error);
+              this.showMessage('Error', 'Failed to update booking status. Please try again.', false);
               // alert('Failed to update booking status. Please try again later.');
               this.loading = false;
             }
@@ -170,11 +175,11 @@ export class MyBookingsComponent implements OnInit {
         },
         (error) => {
           console.error('Error fetching booking:', error);
-          alert('Failed to fetch booking details. Please try again later.');
+          this.showMessage('Error', 'Failed to fetch booking details. Please try again.', false);
+          //alert('Failed to fetch booking details. Please try again later.');
           this.loading = false;
         }
       );
-    }
   }  
 
   // Toggle showing details for a booking
@@ -191,5 +196,65 @@ export class MyBookingsComponent implements OnInit {
   toggleSortDirection() {
     this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
     this.applyFilters(); // Reapply filters and sorting when the direction changes
+  }
+
+  confirmRebook(booking: any) {
+    if (confirm('Do you want to rebook this tour?')) {
+      this.router.navigate(['/tours/package', booking.tourId, 'reserve'], {
+        state: { package: booking }, // Pass booking details
+      });
+    }
+  }
+  // Open modal for Rebook
+  openRebookModal(booking: any) {
+    this.isConfirmModalOpen = true;
+    this.actionType = 'rebook';
+    this.selectedBooking = booking;
+    this.confirmationMessage = 'Are you sure you want to rebook this canceled booking?';
+  }
+  // Close the modal
+  closeConfirmModal() {
+    this.isConfirmModalOpen = false;
+    this.selectedBooking = null;
+    this.actionType = null;
+  }
+
+  // Confirm action based on type
+  confirmAction() {
+    if (this.actionType === 'withdraw' && this.selectedBooking) {
+      this.updateBookingStatus(this.selectedBooking);
+    } else if (this.actionType === 'rebook' && this.selectedBooking) {
+      this.router.navigate(['/tours/package', this.selectedBooking.tourId, 'reserve'], {
+        state: { package: this.selectedBooking }, // Pass booking details
+      });
+    }
+    this.closeConfirmModal();
+  }
+  
+  // Open modal for Withdraw
+  openWithdrawModal(bookingId: string) {
+    this.isConfirmModalOpen = true;
+    this.actionType = 'withdraw';
+    this.selectedBooking = bookingId;
+    this.confirmationMessage = 'Are you sure you want to withdraw this booking?';
+  }
+
+  showMessage(title: string, message: string, isSuccess: boolean): void {
+    const dialog = document.createElement('div');
+    dialog.className = `fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 z-50`;
+    dialog.innerHTML = `
+      <div class="bg-white rounded-lg shadow-lg p-6 w-96 text-center space-y-4">
+        <h3 class="text-lg font-bold ${isSuccess ? 'text-green-600' : 'text-red-600'}">${title}</h3>
+        <p class="text-gray-700">${message}</p>
+        <button class="px-4 py-2 rounded-md text-white ${
+          isSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'
+        } focus:outline-none">Close</button>
+      </div>`;
+    document.body.appendChild(dialog);
+
+    const closeButton = dialog.querySelector('button');
+    closeButton?.addEventListener('click', () => {
+      document.body.removeChild(dialog);
+    });
   }
 }
