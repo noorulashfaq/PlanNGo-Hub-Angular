@@ -21,7 +21,6 @@
         "assets/tour/wildlife5.jpg"
       ],
       "Inclusions": [
-        "Guide services",
         "Meals and accommodations during the trek",
         "Permits and entry fees"
       ],
@@ -1365,6 +1364,24 @@
       "bookingDate": "2025-01-22T15:57:10.879Z",
       "status": true,
       "id": "862b"
+    },
+    {
+      "userId": "USR001",
+      "tourId": "TRPKG002",
+      "tourName": "Inca Trail Trekking",
+      "adults": 1,
+      "children": 3,
+      "rooms": 1,
+      "departureDate": "2025-02-01T01:29",
+      "arrivalDate": "2025-02-12T01:29",
+      "freePickup": "no",
+      "paymentStatus": true,
+      "paymentId": "c7a6",
+      "amount": "INR 22000.00",
+      "specialRequest": "",
+      "bookingDate": "2025-01-22T19:59:38.823Z",
+      "status": false,
+      "id": "b5a2"
     }
   ],
   "Payments": [
@@ -1717,6 +1734,87 @@
       "cardNumber": "86754648579809",
       "expDate": "05/30",
       "cvv": "214"
+    },
+    {
+      "id": "c7a6",
+      "nameOnCard": "xxxx xxx",
+      "cardNumber": "1234567893214",
+      "expDate": "12/28",
+      "cvv": "777"
+    }
+  ],
+  "Reviews": [
+    {
+      "ReviewId": "1",
+      "TourId": "1",
+      "Rating": 5,
+      "Reviewer": "Alice",
+      "ReviewText": "Had a wonderful time, highly recommend!",
+      "id": "dbde"
+    },
+    {
+      "ReviewId": "2",
+      "TourId": "1",
+      "Rating": 4,
+      "Reviewer": "Bob",
+      "ReviewText": "Great tour, but the weather could have been better.",
+      "id": "6576"
+    },
+    {
+      "id": "f937",
+      "tourId": "TRPKG003",
+      "Reviewer": "Anonymous",
+      "Rating": 4,
+      "ReviewText": "good"
+    },
+    {
+      "id": "c268",
+      "tourId": "TRPKG003",
+      "Reviewer": "Anonymous",
+      "Rating": 5,
+      "ReviewText": "very good"
+    },
+    {
+      "id": "1f32",
+      "tourId": "TRPKG003",
+      "Reviewer": "Anonymous",
+      "Rating": 4,
+      "ReviewText": "good"
+    },
+    {
+      "id": "ad35",
+      "tourId": "TRPKG003",
+      "Reviewer": "Anonymous",
+      "Rating": 5,
+      "ReviewText": "Good"
+    },
+    {
+      "id": "41d1",
+      "tourId": "TRPKG003",
+      "Reviewer": "Anonymous",
+      "Rating": 4,
+      "ReviewText": "super"
+    },
+    {
+      "id": "2972",
+      "tourId": "TRPKG003",
+      "Reviewer": "Anonymous",
+      "Rating": 5,
+      "ReviewText": "good"
+    },
+    {
+      "id": "94de",
+      "tourId": "TRPKG002",
+      "Reviewer": "Anonymous",
+      "Rating": 5,
+      "ReviewText": "Good"
+    },
+    {
+      "id": "50c0",
+      "tourId": "TRPKG004",
+      "Reviewer": "Anonymous",
+      "Rating": 4,
+      "ReviewText": "Excellent"
     }
   ]
 }

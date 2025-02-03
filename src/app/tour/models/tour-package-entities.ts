@@ -1,3 +1,5 @@
+// Main Model for Tour Package
+
 export interface TourPackage {
   TourId: string;
   Name: string;
@@ -19,12 +21,15 @@ export interface TourPackage {
   Ratings: {
     AverageRating: number;
     TotalReviews: number;
-    Reviews: {
-      Rating: number;
-      Reviewer: string;
-      ReviewText: string;
-    }[];
+    Reviews: Review[];  // Array of reviews
   };
+}
+
+// Separate Review interface for clarity
+export interface Review {
+  Rating: number;
+  Reviewer: string;
+  ReviewText: string;
 }
 
 export interface Locations {
